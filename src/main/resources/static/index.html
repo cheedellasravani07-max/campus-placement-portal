@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Campus Placement Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Campus Placement Portal</h1>
+
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+
+    <button type="button" onclick="showSection('home')">
+        Home
+    </button>
+
+    <button type="button" onclick="showSection('dashboard'); loadDashboard()">
+        Dashboard
+    </button>
+
+    <button type="button" onclick="showSection('students')">
+        Students
+    </button>
+
+    <button type="button" onclick="showSection('companies')">
+        Companies
+    </button>
+
+    <button type="button" onclick="showSection('jobs')">
+        Jobs
+    </button>
+
+    <button type="button" onclick="openApplications()">
+        Applications
+    </button>
+
+</nav>
+
+
+<main>
+
+    <!-- ================= HOME SECTION ================= -->
+
+    <section id="home">
+
+        <h2>Welcome to Campus Placement Portal</h2>
+
+        <p>
+            A centralized system for managing campus placement activities.
+        </p>
+
+        <p>
+            This portal helps manage students, companies, job opportunities,
+            and student applications in one place.
+        </p>
+
+
+        <h3>Portal Features</h3>
+
+        <ul>
+
+            <li>
+                Manage student information
+            </li>
+
+            <li>
+                Manage company information
+            </li>
+
+            <li>
+                Manage job opportunities
+            </li>
+
+            <li>
+                Manage student applications
+            </li>
+
+            <li>
+                Track application status
+            </li>
+
+            <li>
+                Search and filter records
+            </li>
+
+            <li>
+                View placement statistics through the dashboard
+            </li>
+
+        </ul>
+
+
+        <h3>Quick Navigation</h3>
+
+        <button type="button"
+                onclick="showSection('dashboard'); loadDashboard()">
+            View Dashboard
+        </button>
+
+        <button type="button"
+                onclick="showSection('students')">
+            Manage Students
+        </button>
+
+        <button type="button"
+                onclick="showSection('companies')">
+            Manage Companies
+        </button>
+
+        <button type="button"
+                onclick="showSection('jobs')">
+            View Jobs
+        </button>
+
+        <button type="button"
+                onclick="openApplications()">
+            Applications
+        </button>
+
+    </section>
+
+
+
+
+
+    <!-- ================= DASHBOARD SECTION ================= -->
+
+    <section id="dashboard" style="display: none;">
+
+        <h2>Dashboard</h2>
+
+        <div class="dashboard-container">
+
+            <div class="dashboard-card">
+
+                <h3>Total Students</h3>
+
+                <p id="totalStudents">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <h3>Total Companies</h3>
+
+                <p id="totalCompanies">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <h3>Total Jobs</h3>
+
+                <p id="totalJobs">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <h3>Total Applications</h3>
+
+                <p id="totalApplications">
+                    0
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= STUDENTS SECTION ================= -->
+
+    <section id="students" style="display: none;">
+
+        <h2>Students</h2>
+
+
+        <!-- STUDENT SEARCH -->
+
+        <input
+                type="text"
+                id="studentSearch"
+                placeholder="Search student by name..."
+                onkeyup="searchStudents()"
+        >
+
+
+        <h3>Add New Student</h3>
+
+        <form id="studentForm" onsubmit="addStudent(event)">
+
+            <input
+                    type="text"
+                    id="studentName"
+                    placeholder="Enter student name"
+                    required
+            >
+
+            <br><br>
+
+            <input
+                    type="email"
+                    id="studentEmail"
+                    placeholder="Enter student email"
+                    required
+            >
+
+            <br><br>
+
+            <input
+                    type="text"
+                    id="studentBranch"
+                    placeholder="Enter branch"
+                    required
+            >
+
+            <br><br>
+
+            <button type="submit">
+                Add Student
+            </button>
+
+        </form>
+
+        <br>
+
+        <button type="button" onclick="loadStudents()">
+            Load Students
+        </button>
+
+        <div id="studentList"></div>
+
+    </section>
+
+
+
+    <!-- ================= COMPANIES SECTION ================= -->
+
+    <section id="companies" style="display: none;">
+
+        <h2>Companies</h2>
+        <input
+                type="text"
+                id="companySearch"
+                placeholder="Search company by name..."
+                onkeyup="searchCompanies()"
+        >
+        <h3>Add New Company</h3>
+
+        <form id="companyForm" onsubmit="addCompany(event)">
+
+            <input
+                    type="text"
+                    id="companyName"
+                    placeholder="Enter company name"
+                    required
+            >
+
+            <br><br>
+
+            <input
+                    type="text"
+                    id="companyLocation"
+                    placeholder="Enter company location"
+                    required
+            >
+
+            <br><br>
+
+            <input
+                    type="text"
+                    id="companyRole"
+                    placeholder="Enter job role"
+                    required
+            >
+
+            <br><br>
+
+            <button type="submit">
+                Add Company
+            </button>
+
+        </form>
+
+        <br>
+
+        <button type="button" onclick="loadCompanies()">
+            Load Companies
+        </button>
+
+        <div id="companyList"></div>
+
+    </section>
+
+
+
+    <!-- ================= JOBS SECTION ================= -->
+
+    <section id="jobs" style="display: none;">
+
+        <h2>Jobs</h2>
+        <input
+                type="text"
+                id="jobSearch"
+                placeholder="Search job by title..."
+                onkeyup="searchJobs()"
+        >
+
+        <h3>Add New Job</h3>
+
+        <form id="jobForm" onsubmit="addJob(event)">
+
+            <input
+                    type="text"
+                    id="jobTitle"
+                    placeholder="Enter job title"
+                    required
+            >
+
+            <br><br>
+
+            <input
+                    type="text"
+                    id="jobDescription"
+                    placeholder="Enter job description"
+                    required
+            >
+
+            <br><br>
+
+            <input
+                    type="text"
+                    id="jobLocation"
+                    placeholder="Enter job location"
+                    required
+            >
+
+            <br><br>
+
+            <button type="submit">
+                Add Job
+            </button>
+
+        </form>
+
+        <br>
+
+        <button type="button" onclick="loadJobs()">
+            Load Jobs
+        </button>
+
+        <div id="jobList"></div>
+
+    </section>
+
+
+
+    <!-- ================= APPLICATIONS SECTION ================= -->
+
+    <section id="applications" style="display: none;">
+
+        <h2>Applications</h2>
+        <label>Filter by Status:</label>
+
+        <select id="applicationFilter" onchange="filterApplications()">
+
+            <option value="ALL">All Applications</option>
+            <option value="APPLIED">APPLIED</option>
+            <option value="INTERVIEW">INTERVIEW</option>
+            <option value="ACCEPTED">ACCEPTED</option>
+            <option value="REJECTED">REJECTED</option>
+
+        </select>
+
+        <br><br>
+        <h3>Add New Application</h3>
+
+
+        <!-- STATUS -->
+
+        <label>Status:</label>
+
+        <select id="applicationStatus" required>
+
+            <option value="">
+                Select Status
+            </option>
+
+            <option value="APPLIED">
+                APPLIED
+            </option>
+
+            <option value="INTERVIEW">
+                INTERVIEW
+            </option>
+
+            <option value="ACCEPTED">
+                ACCEPTED
+            </option>
+
+            <option value="REJECTED">
+                REJECTED
+            </option>
+
+        </select>
+
+        <br><br>
+
+
+        <!-- STUDENT -->
+
+        <label>Student:</label>
+
+        <select id="applicationStudentId" required>
+
+            <option value="">
+                Loading students...
+            </option>
+
+        </select>
+
+        <br><br>
+
+
+        <!-- JOB -->
+
+        <label>Job:</label>
+
+        <select id="applicationJobId" required>
+
+            <option value="">
+                Loading jobs...
+            </option>
+
+        </select>
+
+        <br><br>
+
+
+        <button type="button" onclick="addApplication()">
+            Add Application
+        </button>
+
+        <br><br>
+
+
+        <button type="button" onclick="loadApplications()">
+            Load Applications
+        </button>
+
+        <div id="applicationList"></div>
+
+    </section>
+
+
+</main>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="script.js?v=3"></script>
+
+</body>
+
+</html>

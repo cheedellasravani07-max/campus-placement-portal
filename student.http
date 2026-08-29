@@ -1,0 +1,423 @@
+### Add a new student
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "id": 4,
+  "name": "Student Four",
+  "email": "student4@example.com",
+  "branch": "IT"
+}
+
+### Update student by ID
+PUT http://localhost:8080/students/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Updated Student",
+  "email": "updated@example.com",
+  "branch": "CSE"
+}
+### Get student by ID
+GET http://localhost:8080/students/1
+### Delete student by ID
+DELETE http://localhost:8080/students/2
+### Get all students
+GET http://localhost:8080/students
+### Add a company
+POST http://localhost:8080/companies
+Content-Type: application/json
+
+{
+  "name": "Example Company",
+  "location": "Hyderabad",
+  "role": "Software Developer"
+}
+### Get all companies
+GET http://localhost:8080/companies
+### Get company by ID
+GET http://localhost:8080/companies/1
+### Add a company
+POST http://localhost:8080/companies
+Content-Type: application/json
+
+{
+  "name": "Example Company"
+}
+### Update company by ID
+PUT http://localhost:8080/companies/1
+Content-Type: application/json
+
+{
+  "name": "Updated Company"
+}
+### Add a company
+POST http://localhost:8080/companies
+Content-Type: application/json
+
+{
+  "name": "Google"
+}
+POST http://localhost:8080/companies
+Content-Type: application/json
+
+{
+  "name": "Test Company"
+}
+### Delete company by ID
+DELETE http://localhost:8080/companies/1
+### Add a job
+POST http://localhost:8080/jobs
+Content-Type: application/json
+
+{
+  "title": "Java Developer",
+  "description": "Develop backend applications using Java and Spring Boot",
+  "location": "Hyderabad"
+}
+### Get all jobs
+GET http://localhost:8080/jobs
+### Get job by ID
+GET http://localhost:8080/jobs/1
+### Update job by ID
+PUT http://localhost:8080/jobs/1
+Content-Type: application/json
+
+{
+  "title": "Senior Java Developer",
+  "description": "Develop advanced backend applications using Java and Spring Boot",
+  "location": "Bangalore"
+}
+### Delete job by ID
+DELETE http://localhost:8080/jobs/1
+### Get all students
+GET http://localhost:8080/students
+### Add a student
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "id": 4,
+  "name": "Sravani",
+  "email": "sravani@example.com",
+  "branch": "IT"
+}
+### Update student
+PUT http://localhost:8080/students/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Updated Student",
+  "email": "updated@example.com",
+  "branch": "IT"
+}
+### Check updated student
+GET http://localhost:8080/students/1
+### Delete student
+DELETE http://localhost:8080/students/4
+### Check all students
+GET http://localhost:8080/students
+### Add an application
+POST http://localhost:8080/applications
+Content-Type: application/json
+
+{
+  "studentName": "Sravani",
+  "jobTitle": "Java Developer",
+  "status": "Applied"
+}
+### Get all applications
+GET http://localhost:8080/applications
+### Get application by ID
+GET http://localhost:8080/applications/1
+### Update application by ID
+PUT http://localhost:8080/applications/1
+Content-Type: application/json
+
+{
+  "studentName": "Sravani",
+  "jobTitle": "Senior Java Developer",
+  "status": "Selected"
+}
+### Check updated application
+GET http://localhost:8080/applications/1
+### Delete application by ID
+DELETE http://localhost:8080/applications/1
+###
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "name": "Sravani",
+  "email": "sravani@gmail.com",
+  "branch": "IT"
+}
+###
+PUT http://localhost:8080/students/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Sravani Updated",
+  "email": "sravaniupdated@gmail.com",
+  "branch": "CSE"
+}
+###
+DELETE http://localhost:8080/students/1
+###
+POST http://localhost:8080/companies
+Content-Type: application/json
+
+{
+  "name": "Google"
+}
+###
+GET http://localhost:8080/companies
+###
+GET http://localhost:8080/companies/1
+###
+PUT http://localhost:8080/companies/1
+Content-Type: application/json
+
+{
+  "name": "Google",
+  "location": "Hyderabad",
+  "role": "Software Developer"
+}
+###
+DELETE http://localhost:8080/companies/1
+###
+POST http://localhost:8080/jobs
+Content-Type: application/json
+
+{
+  "title": "Java Developer",
+  "description": "Java Spring Boot Developer",
+  "location": "Hyderabad"
+}
+###
+GET http://localhost:8080/jobs
+###
+GET http://localhost:8080/jobs/1
+###
+PUT http://localhost:8080/jobs/1
+Content-Type: application/json
+
+{
+  "title": "Senior Java Developer",
+  "description": "Spring Boot Backend Developer",
+  "location": "Bangalore"
+}
+###
+DELETE http://localhost:8080/jobs/1
+###
+GET http://localhost:8080/applications
+###
+GET http://localhost:8080/applications/1
+###
+PUT http://localhost:8080/applications/1
+Content-Type: application/json
+
+{
+  "studentName": "Sravani",
+  "jobTitle": "Senior Java Developer",
+  "status": "INTERVIEW"
+}
+###
+POST http://localhost:8080/applications
+Content-Type: application/json
+
+{
+  "studentName": "Sravani",
+  "jobTitle": "Senior Java Developer",
+  "status": "INTERVIEW"
+}
+###
+GET http://localhost:8080/studentsS
+###
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "name": "Sravani",
+  "email": "sravani@gmail.com",
+  "branch": "IT"
+}
+###
+GET http://localhost:8080/jobs
+###
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "name": "Sravani",
+  "email": "sravani@gmail.com",
+  "branch": "CSE"
+}
+###
+POST http://localhost:8080/jobs
+Content-Type: application/json
+
+{
+  "title": "Java Developer",
+  "description": "Backend Developer",
+  "location": "Hyderabad",
+  "company": {
+    "id": 1
+  }
+}
+###
+GET http://localhost:8080/jobs
+###
+###
+POST http://localhost:8080/applications
+Content-Type: application/json
+
+{
+  "status": "APPLIED",
+  "student": {
+    "id": 2
+  },
+  "job": {
+    "id": 2
+  }
+}
+###
+PUT http://localhost:8080/jobs/2
+Content-Type: application/json
+
+{
+  "title": "Java Developer",
+  "description": "Java Spring Boot Developer",
+  "location": "Hyderabad",
+  "company": {
+    "id": 2
+  }
+}
+###
+GET http://localhost:8080/jobs/2
+###
+GET http://localhost:8080/companies/2
+###
+GET http://localhost:8080/applications/student/2
+###
+GET http://localhost:8080/jobs/company/2
+###
+POST http://localhost:8080/applications
+Content-Type: application/json
+
+{
+  "status": "APPLIED",
+  "student": {
+    "id": 2
+  },
+  "job": {
+    "id": 2
+  }
+}
+###
+PUT http://localhost:8080/applications/3
+Content-Type: application/json
+
+{
+  "status": "INTERVIEW",
+  "student": {
+    "id": 2
+  },
+  "job": {
+    "id": 2
+  }
+}
+###
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "name": "",
+  "email": "",
+  "branch": ""
+}
+###
+POST http://localhost:8080/companies
+Content-Type: application/json
+
+{
+  "name": "",
+  "location": "",
+  "role": ""
+}
+###
+POST http://localhost:8080/jobs
+Content-Type: application/json
+
+{
+  "title": "",
+  "description": "",
+  "location": ""
+}
+###
+POST http://localhost:8080/applications
+Content-Type: application/json
+
+{
+  "status": "APPLIED"
+}
+###
+POST http://localhost:8080/applications
+Content-Type: application/json
+
+{
+  "student": {
+    "id": 2
+  },
+  "job": {
+    "id": 2
+  },
+}
+###
+GET http://localhost:8080/students/999
+###
+GET http://localhost:8080/companies/999
+###
+GET http://localhost:8080/jobs/999
+###
+GET http://localhost:8080/applications/999
+###
+DELETE http://localhost:8080/students/999
+###
+DELETE http://localhost:8080/companies/999
+###
+DELETE http://localhost:8080/jobs/999
+###
+DELETE http://localhost:8080/applications/999
+###
+GET http://localhost:8080/students
+###
+GET http://localhost:8080/companies
+###
+GET http://localhost:8080/jobs
+###
+GET http://localhost:8080/applications
+###
+GET http://localhost:8080/applications/student/2
+###
+GET http://localhost:8080/applications/job/2
+###
+GET http://localhost:8080/jobs/company/2
+###
+POST http://localhost:8080/applications
+Content-Type: application/json
+
+{
+  "status": "APPLIED",
+  "student": {
+    "id": 2
+  },
+  "job": {
+    "id": 2
+  }
+}
+###
+GET http://localhost:8080/students
