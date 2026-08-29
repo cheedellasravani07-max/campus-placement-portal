@@ -1,78 +1,82 @@
-# 🎓 Campus Placement Portal
+# Campus Placement Portal
 
-A web-based Campus Placement Portal developed using Java Spring Boot, MySQL, HTML, CSS, and JavaScript.
+## 📌 Project Overview
 
-## 📌 About the Project
+Campus Placement Portal is a web-based application developed to manage
+campus placement activities.
 
-The Campus Placement Portal is designed to manage the campus placement process efficiently.
-
-It allows users to manage:
-
-- 👨‍🎓 Students
-- 🏢 Companies
-- 💼 Job Opportunities
-- 📝 Placement Applications
-
-The portal also provides a dashboard that displays the total number of students, companies, jobs, and applications.
+The system allows users to manage students, companies, job opportunities,
+and student applications through a simple web interface.
 
 ## 🚀 Features
 
-- Add, view, edit, and delete students
-- Add, view, edit, and delete companies
-- Add, view, edit, and delete job opportunities
-- Create and manage placement applications
-- Update application status
-- View application details
-- Dashboard with placement statistics
-- REST API based backend
-- MySQL database integration
-- Input validation and exception handling
+### Student Management
+- Add students
+- View students
+- Search students
+- Edit student details
+- Delete students
+
+### Company Management
+- Add companies
+- View companies
+- Search companies
+- Edit company details
+- Delete companies
+
+### Job Management
+- Add jobs
+- View jobs
+- Search jobs
+- Edit job details
+- Delete jobs
+
+### Application Management
+- Add applications
+- Select students and jobs using dropdowns
+- View applications
+- Filter applications by status
+- Edit applications
+- Delete applications
+
+### Dashboard
+- Total students
+- Total companies
+- Total jobs
+- Total applications
 
 ## 🛠️ Technologies Used
 
-### Backend
 - Java
 - Spring Boot
 - Spring Data JPA
-- REST APIs
-- Maven
-
-### Frontend
+- Hibernate
+- MySQL
 - HTML
 - CSS
 - JavaScript
+- Maven
 
-### Database
-- MySQL
+## 🗄️ Database
 
-### Development Tools
-- IntelliJ IDEA
-- Git
-- GitHub
+Database used:
 
-## 🏗️ Project Structure
+`campus_placement_db`
+
+Main entities:
+
+- Student
+- Company
+- Job
+- Application
+
+## 🔗 Entity Relationships
 
 ```text
-campus-placement-portal
-│
-├── src
-│   ├── main
-│   │   ├── java
-│   │   │   └── com.campusplacement.campus_placement_portal
-│   │   │       ├── controller
-│   │   │       ├── exception
-│   │   │       ├── model
-│   │   │       └── repository
-│   │   │
-│   │   └── resources
-│   │       └── static
-│   │           ├── index.html
-│   │           ├── script.js
-│   │           └── style.css
-│   │
-│   └── test
-│
-├── .gitignore
-├── pom.xml
-├── README.md
-└── mvnw
+Company
+   │
+   └── Job
+         │
+         └── Application
+                │
+                └── Student
