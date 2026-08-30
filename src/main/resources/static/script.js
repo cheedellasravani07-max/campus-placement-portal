@@ -79,6 +79,8 @@ function loadStudents() {
             alert("Error loading students");
         });
 }
+
+
 function editStudent(id, currentName, currentEmail, currentBranch) {
 
     const name = prompt(
@@ -194,7 +196,9 @@ function deleteStudent(id) {
         });
 }
 
+
 function addStudent(event) {
+
     event.preventDefault();
 
     const student = {
@@ -204,25 +208,35 @@ function addStudent(event) {
     };
 
     fetch("/students", {
+
         method: "POST",
+
         headers: {
             "Content-Type": "application/json"
         },
+
         body: JSON.stringify(student)
     })
         .then(response => {
+
             if (!response.ok) {
                 throw new Error("Failed to add student");
             }
+
             return response.json();
         })
         .then(data => {
+
             alert("Student added successfully!");
+
             document.getElementById("studentForm").reset();
+
             loadStudents();
         })
         .catch(error => {
+
             console.error(error);
+
             alert("Error adding student");
         });
 }
@@ -249,8 +263,10 @@ function loadCompanies() {
             companyList.innerHTML = "";
 
             if (companies.length === 0) {
+
                 companyList.innerHTML =
                     "<p>No companies found.</p>";
+
                 return;
             }
 
@@ -292,6 +308,8 @@ function loadCompanies() {
             alert("Error loading companies");
         });
 }
+
+
 function editCompany(id, currentName, currentLocation, currentRole) {
 
     const name = prompt(
@@ -328,15 +346,19 @@ function editCompany(id, currentName, currentLocation, currentRole) {
     };
 
     fetch("/companies/" + id, {
+
         method: "PUT",
+
         headers: {
             "Content-Type": "application/json"
         },
+
         body: JSON.stringify(updatedCompany)
     })
         .then(response => {
 
             if (!response.ok) {
+
                 return response.text().then(text => {
                     throw new Error(text);
                 });
@@ -354,7 +376,10 @@ function editCompany(id, currentName, currentLocation, currentRole) {
 
             console.error("Update Company Error:", error);
 
-            alert("Error updating company: " + error.message);
+            alert(
+                "Error updating company: " +
+                error.message
+            );
         });
 }
 
@@ -370,6 +395,7 @@ function deleteCompany(id) {
     }
 
     fetch("/companies/" + id, {
+
         method: "DELETE"
     })
         .then(response => {
@@ -390,11 +416,16 @@ function deleteCompany(id) {
 
             console.error("Delete Company Error:", error);
 
-            alert("Error deleting company: " + error.message);
+            alert(
+                "Error deleting company: " +
+                error.message
+            );
         });
 }
 
+
 function addCompany(event) {
+
     event.preventDefault();
 
     const company = {
@@ -404,25 +435,35 @@ function addCompany(event) {
     };
 
     fetch("/companies", {
+
         method: "POST",
+
         headers: {
             "Content-Type": "application/json"
         },
+
         body: JSON.stringify(company)
     })
         .then(response => {
+
             if (!response.ok) {
                 throw new Error("Failed to add company");
             }
+
             return response.json();
         })
         .then(data => {
+
             alert("Company added successfully!");
+
             document.getElementById("companyForm").reset();
+
             loadCompanies();
         })
         .catch(error => {
+
             console.error(error);
+
             alert("Error adding company");
         });
 }
@@ -449,8 +490,10 @@ function loadJobs() {
             jobList.innerHTML = "";
 
             if (jobs.length === 0) {
+
                 jobList.innerHTML =
                     "<p>No jobs found.</p>";
+
                 return;
             }
 
@@ -494,6 +537,8 @@ function loadJobs() {
             alert("Error loading jobs");
         });
 }
+
+
 function editJob(
     id,
     currentTitle,
@@ -547,6 +592,7 @@ function editJob(
         .then(response => {
 
             if (!response.ok) {
+
                 return response.text().then(text => {
                     throw new Error(text);
                 });
@@ -596,7 +642,7 @@ function deleteJob(id) {
 
             return response.text();
         })
-        .then(() => {
+        .then(message => {
 
             alert("Job deleted successfully!");
 
@@ -613,9 +659,67 @@ function deleteJob(id) {
         });
 }
 
+
+// ================= ADD JOB =================
+
+function addJob(event) {
+
+    event.preventDefault();
+
+    const job = {
+
+        title:
+            document.getElementById("jobTitle").value.trim(),
+
+        description:
+            document.getElementById("jobDescription").value.trim(),
+
+        location:
+            document.getElementById("jobLocation").value.trim()
+    };
+
+    fetch("/jobs", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify(job)
+    })
+        .then(response => {
+
+            if (!response.ok) {
+
+                return response.text().then(text => {
+                    throw new Error(text);
+                });
+            }
+
+            return response.json();
+        })
+        .then(data => {
+
+            alert("Job added successfully!");
+
+            document.getElementById("jobForm").reset();
+
+            loadJobs();
+        })
+        .catch(error => {
+
+            console.error("Add Job Error:", error);
+
+            alert(
+                "Error adding job: " +
+                error.message
+            );
+        });
+}
+
+
 // ================= APPLICATIONS =================
-
-
 
 function loadApplications() {
 
@@ -630,13 +734,18 @@ function loadApplications() {
         })
         .then(applications => {
 
-            console.log("Applications received:", applications);
+            console.log(
+                "Applications received:",
+                applications
+            );
 
             const applicationList =
                 document.getElementById("applicationList");
 
             if (!applicationList) {
-                throw new Error("applicationList element not found");
+                throw new Error(
+                    "applicationList element not found"
+                );
             }
 
             applicationList.innerHTML = "";
@@ -676,7 +785,8 @@ function loadApplications() {
                         <p>
                             <b>ID:</b> ${application.id}<br>
 
-                            <b>Status:</b> ${application.status}<br>
+                            <b>Status:</b>
+                            ${application.status}<br>
 
                             <b>Student:</b>
                             ${studentName}<br>
@@ -707,43 +817,76 @@ function loadApplications() {
         })
         .catch(error => {
 
-            console.error("Load Applications Error:", error);
+            console.error(
+                "Load Applications Error:",
+                error
+            );
 
-            alert("Error loading applications: " + error.message);
+            alert(
+                "Error loading applications: " +
+                error.message
+            );
         });
 }
 
 
 function addApplication() {
+
     const status =
-        document.getElementById("applicationStatus").value.trim();
+        document
+            .getElementById("applicationStatus")
+            .value
+            .trim();
 
     const studentId =
-        document.getElementById("applicationStudentId").value.trim();
+        document
+            .getElementById("applicationStudentId")
+            .value
+            .trim();
 
     const jobId =
-        document.getElementById("applicationJobId").value.trim();
+        document
+            .getElementById("applicationJobId")
+            .value
+            .trim();
 
-    if (status === "" || studentId === "" || jobId === "") {
+    if (
+        status === "" ||
+        studentId === "" ||
+        jobId === ""
+    ) {
+
         alert("Please fill all fields");
+
         return;
     }
 
     const application = {
-        status: status.toUpperCase(),
-        studentId: Number(studentId),
-        jobId: Number(jobId)
+
+        status:
+            status.toUpperCase(),
+
+        studentId:
+            Number(studentId),
+
+        jobId:
+            Number(jobId)
     };
 
     fetch("/applications", {
+
         method: "POST",
+
         headers: {
             "Content-Type": "application/json"
         },
+
         body: JSON.stringify(application)
     })
         .then(response => {
+
             if (!response.ok) {
+
                 return response.text().then(text => {
                     throw new Error(text);
                 });
@@ -752,17 +895,36 @@ function addApplication() {
             return response.json();
         })
         .then(data => {
-            alert("Application added successfully!");
 
-            document.getElementById("applicationStatus").value = "";
-            document.getElementById("applicationStudentId").value = "";
-            document.getElementById("applicationJobId").value = "";
+            alert(
+                "Application added successfully!"
+            );
+
+            document
+                .getElementById("applicationStatus")
+                .value = "";
+
+            document
+                .getElementById("applicationStudentId")
+                .value = "";
+
+            document
+                .getElementById("applicationJobId")
+                .value = "";
 
             loadApplications();
         })
         .catch(error => {
-            console.error("Application Error:", error);
-            alert("Error: " + error.message);
+
+            console.error(
+                "Application Error:",
+                error
+            );
+
+            alert(
+                "Error: " +
+                error.message
+            );
         });
 }
 
@@ -770,6 +932,7 @@ function addApplication() {
 // ================= DELETE APPLICATION =================
 
 function deleteApplication(id) {
+
     const confirmed = confirm(
         "Are you sure you want to delete this application?"
     );
@@ -779,55 +942,86 @@ function deleteApplication(id) {
     }
 
     fetch("/applications/" + id, {
+
         method: "DELETE"
     })
         .then(response => {
+
             if (!response.ok) {
-                throw new Error("Failed to delete application");
+
+                throw new Error(
+                    "Failed to delete application"
+                );
             }
 
             return response.text();
         })
         .then(message => {
-            alert("Application deleted successfully!");
+
+            alert(
+                "Application deleted successfully!"
+            );
+
             loadApplications();
         })
         .catch(error => {
+
             console.error(error);
-            alert("Error deleting application");
+
+            alert(
+                "Error deleting application"
+            );
         });
 }
 
 
 // ================= EDIT APPLICATION =================
 
-function editApplication(id, currentStatus, currentStudentId, currentJobId) {
+function editApplication(
+    id,
+    currentStatus,
+    currentStudentId,
+    currentJobId
+) {
 
     const status = prompt(
         "Enter new status:\nAPPLIED / INTERVIEW / ACCEPTED / REJECTED",
         currentStatus
     );
 
-    if (status === null || status.trim() === "") {
+    if (
+        status === null ||
+        status.trim() === ""
+    ) {
         return;
     }
 
     const updatedApplication = {
-        status: status.trim().toUpperCase(),
-        studentId: currentStudentId,
-        jobId: currentJobId
+
+        status:
+            status.trim().toUpperCase(),
+
+        studentId:
+        currentStudentId,
+
+        jobId:
+        currentJobId
     };
 
     fetch("/applications/" + id, {
+
         method: "PUT",
+
         headers: {
             "Content-Type": "application/json"
         },
+
         body: JSON.stringify(updatedApplication)
     })
         .then(response => {
 
             if (!response.ok) {
+
                 return response.text().then(text => {
                     throw new Error(text);
                 });
@@ -837,43 +1031,65 @@ function editApplication(id, currentStatus, currentStudentId, currentJobId) {
         })
         .then(data => {
 
-            alert("Application updated successfully!");
+            alert(
+                "Application updated successfully!"
+            );
 
             loadApplications();
         })
         .catch(error => {
 
-            console.error("Update Error:", error);
+            console.error(
+                "Update Error:",
+                error
+            );
 
-            alert("Error updating application: " + error.message);
+            alert(
+                "Error updating application: " +
+                error.message
+            );
         });
 }
+
 
 // ================= APPLICATION DROPDOWNS =================
 
 function openApplications() {
+
     showSection("applications");
+
     loadApplicationStudents();
+
     loadApplicationJobs();
 }
 
 
 function loadApplicationStudents() {
+
     fetch("/students")
         .then(response => {
+
             if (!response.ok) {
-                throw new Error("Failed to load students");
+
+                throw new Error(
+                    "Failed to load students"
+                );
             }
+
             return response.json();
         })
         .then(students => {
+
             const select =
-                document.getElementById("applicationStudentId");
+                document.getElementById(
+                    "applicationStudentId"
+                );
 
             select.innerHTML =
                 '<option value="">Select Student</option>';
 
             students.forEach(student => {
+
                 select.innerHTML += `
                     <option value="${student.id}">
                         ${student.name}
@@ -882,28 +1098,42 @@ function loadApplicationStudents() {
             });
         })
         .catch(error => {
+
             console.error(error);
-            alert("Error loading students");
+
+            alert(
+                "Error loading students"
+            );
         });
 }
 
 
 function loadApplicationJobs() {
+
     fetch("/jobs")
         .then(response => {
+
             if (!response.ok) {
-                throw new Error("Failed to load jobs");
+
+                throw new Error(
+                    "Failed to load jobs"
+                );
             }
+
             return response.json();
         })
         .then(jobs => {
+
             const select =
-                document.getElementById("applicationJobId");
+                document.getElementById(
+                    "applicationJobId"
+                );
 
             select.innerHTML =
                 '<option value="">Select Job</option>';
 
             jobs.forEach(job => {
+
                 select.innerHTML += `
                     <option value="${job.id}">
                         ${job.title}
@@ -912,10 +1142,16 @@ function loadApplicationJobs() {
             });
         })
         .catch(error => {
+
             console.error(error);
-            alert("Error loading jobs");
+
+            alert(
+                "Error loading jobs"
+            );
         });
 }
+
+
 // ================= DASHBOARD =================
 
 function loadDashboard() {
@@ -923,46 +1159,63 @@ function loadDashboard() {
     fetch("/students")
         .then(response => response.json())
         .then(students => {
-            document.getElementById("totalStudents").textContent =
+
+            document
+                .getElementById("totalStudents")
+                .textContent =
                 students.length;
         });
 
     fetch("/companies")
         .then(response => response.json())
         .then(companies => {
-            document.getElementById("totalCompanies").textContent =
+
+            document
+                .getElementById("totalCompanies")
+                .textContent =
                 companies.length;
         });
 
     fetch("/jobs")
         .then(response => response.json())
         .then(jobs => {
-            document.getElementById("totalJobs").textContent =
+
+            document
+                .getElementById("totalJobs")
+                .textContent =
                 jobs.length;
         });
 
     fetch("/applications")
         .then(response => response.json())
         .then(applications => {
-            document.getElementById("totalApplications").textContent =
+
+            document
+                .getElementById("totalApplications")
+                .textContent =
                 applications.length;
         });
 }
+
+
 // ================= SEARCH STUDENTS =================
 
 function searchStudents() {
 
-    const searchText = document
-        .getElementById("studentSearch")
-        .value
-        .toLowerCase();
+    const searchText =
+        document
+            .getElementById("studentSearch")
+            .value
+            .toLowerCase();
 
     fetch("/students")
         .then(response => response.json())
         .then(students => {
 
             const studentList =
-                document.getElementById("studentList");
+                document.getElementById(
+                    "studentList"
+                );
 
             studentList.innerHTML = "";
 
@@ -981,6 +1234,7 @@ function searchStudents() {
                             <b>Email:</b> ${student.email}<br>
                             <b>Branch:</b> ${student.branch}
                         </p>
+
                         <hr>
                     `;
                 });
@@ -988,25 +1242,32 @@ function searchStudents() {
         .catch(error => {
 
             console.error(error);
-            alert("Error searching students");
 
+            alert(
+                "Error searching students"
+            );
         });
 }
+
+
 // ================= SEARCH COMPANIES =================
 
 function searchCompanies() {
 
-    const searchText = document
-        .getElementById("companySearch")
-        .value
-        .toLowerCase();
+    const searchText =
+        document
+            .getElementById("companySearch")
+            .value
+            .toLowerCase();
 
     fetch("/companies")
         .then(response => response.json())
         .then(companies => {
 
             const companyList =
-                document.getElementById("companyList");
+                document.getElementById(
+                    "companyList"
+                );
 
             companyList.innerHTML = "";
 
@@ -1025,6 +1286,7 @@ function searchCompanies() {
                             <b>Location:</b> ${company.location}<br>
                             <b>Role:</b> ${company.role}
                         </p>
+
                         <hr>
                     `;
                 });
@@ -1032,24 +1294,32 @@ function searchCompanies() {
         .catch(error => {
 
             console.error(error);
-            alert("Error searching companies");
 
+            alert(
+                "Error searching companies"
+            );
         });
 }
+
+
 // ================= SEARCH JOBS =================
 
 function searchJobs() {
 
-    const searchText = document
-        .getElementById("jobSearch")
-        .value
-        .toLowerCase();
+    const searchText =
+        document
+            .getElementById("jobSearch")
+            .value
+            .toLowerCase();
 
     fetch("/jobs")
         .then(response => {
 
             if (!response.ok) {
-                throw new Error("Failed to search jobs");
+
+                throw new Error(
+                    "Failed to search jobs"
+                );
             }
 
             return response.json();
@@ -1057,15 +1327,18 @@ function searchJobs() {
         .then(jobs => {
 
             const jobList =
-                document.getElementById("jobList");
+                document.getElementById(
+                    "jobList"
+                );
 
             jobList.innerHTML = "";
 
-            const filteredJobs = jobs.filter(job =>
-                job.title
-                    .toLowerCase()
-                    .includes(searchText)
-            );
+            const filteredJobs =
+                jobs.filter(job =>
+                    job.title
+                        .toLowerCase()
+                        .includes(searchText)
+                );
 
             if (filteredJobs.length === 0) {
 
@@ -1085,8 +1358,11 @@ function searchJobs() {
                             <b>Description:</b> ${job.description}<br>
                             <b>Location:</b> ${job.location}<br>
                             <b>Company:</b>
-                            ${job.company ? job.company.name : "Not assigned"}
+                            ${job.company
+                    ? job.company.name
+                    : "Not assigned"}
                         </p>
+
                         <hr>
                     </div>
                 `;
@@ -1094,23 +1370,35 @@ function searchJobs() {
         })
         .catch(error => {
 
-            console.error("Job Search Error:", error);
+            console.error(
+                "Job Search Error:",
+                error
+            );
 
-            alert("Error searching jobs");
+            alert(
+                "Error searching jobs"
+            );
         });
 }
+
+
 // ================= FILTER APPLICATIONS =================
 
 function filterApplications() {
 
     const selectedStatus =
-        document.getElementById("applicationFilter").value;
+        document
+            .getElementById("applicationFilter")
+            .value;
 
     fetch("/applications")
         .then(response => {
 
             if (!response.ok) {
-                throw new Error("Failed to load applications");
+
+                throw new Error(
+                    "Failed to load applications"
+                );
             }
 
             return response.json();
@@ -1118,18 +1406,24 @@ function filterApplications() {
         .then(applications => {
 
             const applicationList =
-                document.getElementById("applicationList");
+                document.getElementById(
+                    "applicationList"
+                );
 
             applicationList.innerHTML = "";
 
             const filteredApplications =
                 selectedStatus === "ALL"
                     ? applications
-                    : applications.filter(application =>
-                        application.status === selectedStatus
+                    : applications.filter(
+                        application =>
+                            application.status ===
+                            selectedStatus
                     );
 
-            if (filteredApplications.length === 0) {
+            if (
+                filteredApplications.length === 0
+            ) {
 
                 applicationList.innerHTML =
                     "<p>No applications found.</p>";
@@ -1137,29 +1431,32 @@ function filterApplications() {
                 return;
             }
 
-            filteredApplications.forEach(application => {
+            filteredApplications.forEach(
+                application => {
 
-                applicationList.innerHTML += `
-                    <p>
-                        <b>ID:</b> ${application.id}<br>
+                    applicationList.innerHTML += `
+                        <p>
+                            <b>ID:</b>
+                            ${application.id}<br>
 
-                        <b>Status:</b>
-                        ${application.status}<br>
+                            <b>Status:</b>
+                            ${application.status}<br>
 
-                        <b>Student:</b>
-                        ${application.student
-                    ? application.student.name
-                    : "Not assigned"}<br>
+                            <b>Student:</b>
+                            ${application.student
+                        ? application.student.name
+                        : "Not assigned"}<br>
 
-                        <b>Job:</b>
-                        ${application.job
-                    ? application.job.title
-                    : "Not assigned"}
-                    </p>
+                            <b>Job:</b>
+                            ${application.job
+                        ? application.job.title
+                        : "Not assigned"}
+                        </p>
 
-                    <hr>
-                `;
-            });
+                        <hr>
+                    `;
+                }
+            );
         })
         .catch(error => {
 
@@ -1168,6 +1465,8 @@ function filterApplications() {
                 error
             );
 
-            alert("Error filtering applications");
+            alert(
+                "Error filtering applications"
+            );
         });
 }
