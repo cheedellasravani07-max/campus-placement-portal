@@ -1,0 +1,138 @@
+/* ======================================================
+   STUDENT - MY RESUME
+   ====================================================== */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f6f8;
+    text-align: center;
+}
+
+
+.resume-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+
+.resume-container h1 {
+    color: #2c3e50;
+}
+
+
+.resume-container h2 {
+    margin-bottom: 10px;
+}
+
+
+.resume-container > p {
+    color: #555;
+    margin-bottom: 30px;
+}
+
+
+/* ================= RESUME CARD ================= */
+
+.resume-card {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+
+    box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.15);
+
+    text-align: left;
+}
+
+
+.resume-card h3 {
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+
+/* ================= FILE INPUT ================= */
+
+#resumeFile {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fafafa;
+}
+
+
+.file-info {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.resume-card button,
+.resume-container > button {
+    padding: 12px 22px;
+    margin: 8px 5px 8px 0;
+
+    border: none;
+    border-radius: 5px;
+
+    background-color: #2c3e50;
+    color: white;
+
+    cursor: pointer;
+    font-size: 14px;
+}
+
+
+.resume-card button:hover,
+.resume-container > button:hover {
+    background-color: #34495e;
+}
+
+
+/* ================= CURRENT RESUME ================= */
+
+#currentResume p {
+    line-height: 1.6;
+}
+
+
+#currentResume button {
+    margin-top: 10px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    .resume-container {
+        width: 92%;
+        margin: 25px auto;
+    }
+
+
+    .resume-card {
+        padding: 20px;
+    }
+
+
+    #resumeFile {
+        font-size: 13px;
+    }
+
+
+    .resume-card button,
+    .resume-container > button {
+        width: 100%;
+        margin: 6px 0;
+    }
+}

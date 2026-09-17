@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Applications</title>
+
+    <link rel="stylesheet" href="admin-applications.css">
+</head>
+
+<body>
+
+<div class="applications-container">
+
+    <h1>Campus Placement Portal</h1>
+
+    <h2>Manage Applications</h2>
+
+
+    <!-- ================= FILTERS ================= -->
+
+    <div class="filter-container">
+
+        <input
+                type="text"
+                id="searchInput"
+                placeholder="Search student, job or company..."
+        >
+
+
+        <select id="statusFilter">
+
+            <option value="">
+                All Statuses
+            </option>
+
+            <option value="APPLIED">
+                APPLIED
+            </option>
+
+            <option value="INTERVIEW">
+                INTERVIEW
+            </option>
+
+            <option value="ACCEPTED">
+                ACCEPTED
+            </option>
+
+            <option value="REJECTED">
+                REJECTED
+            </option>
+
+        </select>
+
+
+        <button type="button" onclick="filterApplications()">
+            Search
+        </button>
+
+
+        <button type="button" onclick="clearFilters()">
+            Clear
+        </button>
+
+    </div>
+
+
+    <!-- ================= APPLICATION LIST ================= -->
+
+    <div id="applicationList">
+        Loading applications...
+    </div>
+
+
+    <br>
+
+
+    <button onclick="goBack()">
+        Back to Admin Dashboard
+    </button>
+
+</div>
+
+
+<script src="admin-applications.js"></script>
+
+</body>
+
+</html>

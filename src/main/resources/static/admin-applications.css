@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f6f8;
+    text-align: center;
+}
+
+.applications-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.applications-container h1 {
+    color: #2c3e50;
+}
+
+.applications-container h2 {
+    margin-bottom: 30px;
+}
+
+#applicationList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    text-align: left;
+}
+
+.application-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.application-card h3 {
+    color: #2c3e50;
+    margin-top: 0;
+}
+
+.application-card p {
+    line-height: 1.6;
+}
+
+.application-card select {
+    padding: 8px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.application-card button {
+    padding: 9px 18px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2c3e50;
+    color: white;
+    cursor: pointer;
+}
+
+.application-card button:hover {
+    background-color: #34495e;
+}
+
+.applications-container > button {
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2c3e50;
+    color: white;
+    cursor: pointer;
+}
+
+.applications-container > button:hover {
+    background-color: #34495e;
+}
+
+@media (max-width: 700px) {
+
+    #applicationList {
+        grid-template-columns: 1fr;
+    }
+}
+/* ================= FILTERS ================= */
+
+.filter-container {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.filter-container input,
+.filter-container select {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.filter-container button {
+    padding: 10px 18px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2c3e50;
+    color: white;
+    cursor: pointer;
+}
+
+.filter-container button:hover {
+    background-color: #34495e;
+}

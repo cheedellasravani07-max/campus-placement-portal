@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Available Jobs</title>
+
+  <link rel="stylesheet" href="student-jobs.css">
+</head>
+
+<body>
+
+<div class="jobs-container">
+
+  <h1>Campus Placement Portal</h1>
+
+  <h2>Available Jobs</h2>
+
+  <!-- ================= SEARCH AND FILTER ================= -->
+
+  <div class="search-filter-container">
+
+    <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by job title or company..."
+    >
+
+    <select id="locationFilter">
+
+      <option value="">All Locations</option>
+
+    </select>
+
+    <button type="button" onclick="filterJobs()">
+      Search
+    </button>
+
+    <button type="button" onclick="clearFilters()">
+      Clear
+    </button>
+
+  </div>
+
+
+  <!-- ================= JOB LIST ================= -->
+
+  <div id="jobList">
+    Loading jobs...
+  </div>
+
+
+  <br>
+
+  <button onclick="goBack()">
+    Back to Dashboard
+  </button>
+
+</div>
+
+<script src="student-jobs.js"></script>
+
+</body>
+
+</html>

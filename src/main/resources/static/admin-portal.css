@@ -1,0 +1,424 @@
+/* =====================================================
+   CAMPUS PLACEMENT PORTAL - ADMIN PORTAL
+   ===================================================== */
+
+
+/* ================= BODY ================= */
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: Arial, sans-serif;
+
+    background: #f4f7fb;
+
+    color: #222;
+}
+
+
+/* ================= MAIN CONTAINER ================= */
+
+.portal-container {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 30px auto;
+
+    padding: 30px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+
+    box-sizing: border-box;
+}
+
+
+/* ================= HEADINGS ================= */
+
+.portal-container h1 {
+    text-align: center;
+
+    color: #1f3c88;
+
+    margin-bottom: 10px;
+}
+
+.portal-container > h2 {
+    text-align: center;
+
+    margin-bottom: 8px;
+}
+
+.portal-container > p {
+    text-align: center;
+
+    color: #666;
+
+    margin-bottom: 30px;
+}
+
+
+/* =====================================================
+   MENU BUTTONS
+   ===================================================== */
+
+.portal-buttons {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(180px, 1fr)
+    );
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+
+.portal-buttons button {
+    padding: 14px 18px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #30475e;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.portal-buttons button:hover {
+    background: #1f3c88;
+}
+
+
+/* =====================================================
+   SECTIONS
+   ===================================================== */
+
+main section {
+    margin-top: 30px;
+
+    padding: 25px;
+
+    background: #f8fafc;
+
+    border-radius: 10px;
+
+    border: 1px solid #e1e6ed;
+
+    box-sizing: border-box;
+}
+
+
+main section h2 {
+    text-align: center;
+
+    color: #1f3c88;
+
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   ALL FORMS
+   ===================================================== */
+
+form {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   INPUTS / SELECT / TEXTAREA
+   ===================================================== */
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+
+    min-width: 0;
+
+    padding: 12px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #bfc7d1;
+
+    border-radius: 6px;
+
+    font-size: 15px;
+
+    background: white;
+
+    outline: none;
+}
+
+
+/* Focus */
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border-color: #1f3c88;
+
+    box-shadow:
+            0 0 0 2px rgba(31, 60, 136, 0.1);
+}
+
+
+/* =====================================================
+   TEXTAREA
+   ===================================================== */
+
+form textarea {
+    min-height: 100px;
+
+    resize: vertical;
+}
+
+
+/* =====================================================
+   FORM BUTTON
+   ===================================================== */
+
+form button {
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #1f3c88;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+
+form button:hover {
+    background: #162d68;
+}
+
+
+/* =====================================================
+   MAKE TEXTAREA AND BUTTON FULL WIDTH
+   ===================================================== */
+
+form textarea {
+    grid-column: 1 / -1;
+}
+
+
+form button {
+    grid-column: 1 / -1;
+
+    justify-self: center;
+
+    width: 180px;
+}
+
+
+/* =====================================================
+   JOB FORM
+   ===================================================== */
+
+/*
+   The job form contains several fields.
+   Give every field enough space.
+*/
+
+#jobForm {
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+}
+
+
+/* Job description */
+
+#jobDescription {
+    grid-column: 1 / -1;
+}
+
+
+/* =====================================================
+   JOB LIST
+   ===================================================== */
+
+#jobList {
+    width: 100%;
+}
+
+
+/* =====================================================
+   MANAGEMENT CARDS
+   ===================================================== */
+
+.management-card {
+    background: white;
+
+    border: 1px solid #d9dfe7;
+
+    border-radius: 8px;
+
+    padding: 18px;
+
+    margin: 15px 0;
+
+    box-shadow:
+            0 2px 7px rgba(0, 0, 0, 0.07);
+
+    box-sizing: border-box;
+}
+
+
+.management-card p {
+    margin: 9px 0;
+
+    line-height: 1.5;
+}
+
+
+.management-card b {
+    color: #1f3c88;
+}
+
+
+/* =====================================================
+   EDIT / DELETE BUTTONS
+   ===================================================== */
+
+.management-card button {
+    padding: 8px 15px;
+
+    margin-top: 10px;
+
+    margin-right: 8px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    background: #30475e;
+
+    color: white;
+}
+
+
+.management-card button:hover {
+    background: #1f3c88;
+}
+
+
+/* =====================================================
+   HORIZONTAL LINE
+   ===================================================== */
+
+hr {
+    border: none;
+
+    border-top: 1px solid #ddd;
+
+    margin: 20px 0;
+}
+
+
+/* =====================================================
+   BACK BUTTON
+   ===================================================== */
+
+.portal-container > button {
+    display: block;
+
+    margin: 30px auto 0;
+
+    padding: 12px 22px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #30475e;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+
+.portal-container > button:hover {
+    background: #1f3c88;
+}
+
+
+/* =====================================================
+   MOBILE / SMALL SCREEN
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    .portal-container {
+        width: 95%;
+
+        padding: 18px;
+    }
+
+
+    form {
+        grid-template-columns: 1fr;
+    }
+
+
+    #jobForm {
+        grid-template-columns: 1fr;
+    }
+
+
+    form textarea {
+        grid-column: auto;
+    }
+
+
+    form button {
+        grid-column: auto;
+
+        width: 100%;
+    }
+
+
+    .portal-buttons {
+        grid-template-columns: 1fr;
+    }
+
+}

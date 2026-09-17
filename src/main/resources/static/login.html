@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - Campus Placement Portal</title>
+
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <h1>Campus Placement Portal</h1>
+
+    <!-- ================= LOGIN ================= -->
+
+    <h2>Login</h2>
+
+    <form action="/login" method="post">
+
+        <label for="username">
+            Username
+        </label>
+
+        <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter username"
+                required
+        >
+
+        <label for="password">
+            Password
+        </label>
+
+        <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter password"
+                required
+        >
+
+        <button type="submit">
+            Login
+        </button>
+
+    </form>
+
+
+    <!-- ================= SIGN UP ================= -->
+
+    <hr>
+
+    <h2>Student Sign Up</h2>
+
+    <form action="/signup" method="post">
+
+        <label for="signup-name">
+            Name
+        </label>
+
+        <input
+                type="text"
+                id="signup-name"
+                name="name"
+                placeholder="Enter your name"
+                required
+        >
+
+
+        <label for="signup-username">
+            Username
+        </label>
+
+        <input
+                type="text"
+                id="signup-username"
+                name="username"
+                placeholder="Create username"
+                required
+        >
+
+
+        <label for="signup-email">
+            Email
+        </label>
+
+        <input
+                type="email"
+                id="signup-email"
+                name="email"
+                placeholder="Enter email"
+                required
+        >
+
+
+        <label for="signup-password">
+            Password
+        </label>
+
+        <input
+                type="password"
+                id="signup-password"
+                name="password"
+                placeholder="Create password"
+                required
+        >
+
+
+        <label for="signup-branch">
+            Branch
+        </label>
+
+        <input
+                type="text"
+                id="signup-branch"
+                name="branch"
+                placeholder="Example: IT"
+                required
+        >
+
+
+        <button type="submit">
+            Student Sign Up
+        </button>
+
+    </form>
+
+</div>
+
+<script src="login.js"></script>
+
+</body>
+
+</html>

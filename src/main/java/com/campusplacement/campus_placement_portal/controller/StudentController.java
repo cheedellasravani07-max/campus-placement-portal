@@ -6,6 +6,7 @@ import com.campusplacement.campus_placement_portal.exception.ResourceNotFoundExc
 
 import jakarta.validation.Valid;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +25,7 @@ public class StudentController {
     // ================= GET ALL STUDENTS =================
 
     @GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
     }
@@ -32,6 +34,7 @@ public class StudentController {
     // ================= ADD STUDENT =================
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public Student addStudent(@Valid @RequestBody Student student) {
         return studentRepository.save(student);
     }
@@ -40,6 +43,7 @@ public class StudentController {
     // ================= GET STUDENT BY ID =================
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public Student getStudentById(@PathVariable Long id) {
 
         return studentRepository.findById(id)
@@ -52,6 +56,7 @@ public class StudentController {
     // ================= UPDATE STUDENT =================
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public Student updateStudent(
             @PathVariable Long id,
             @Valid @RequestBody Student updatedStudent) {
@@ -74,6 +79,7 @@ public class StudentController {
     // ================= DELETE STUDENT =================
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public String deleteStudent(@PathVariable Long id) {
 
         Student student = studentRepository.findById(id)

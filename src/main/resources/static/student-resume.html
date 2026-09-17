@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Resume</title>
+
+    <link rel="stylesheet"
+          href="student-resume.css">
+</head>
+
+<body>
+
+<div class="resume-container">
+
+    <h1>Campus Placement Portal</h1>
+
+    <h2>📄 My Resume</h2>
+
+    <p>
+        Upload your latest resume for placement applications.
+    </p>
+
+
+    <!-- ================= UPLOAD RESUME ================= -->
+
+    <div class="resume-card">
+
+        <h3>Upload Resume</h3>
+
+        <input
+                type="file"
+                id="resumeFile"
+                accept=".pdf,.doc,.docx"
+        >
+
+        <p class="file-info">
+            Allowed formats: PDF, DOC, DOCX
+        </p>
+
+        <button
+                type="button"
+                onclick="uploadResume()">
+
+            Upload Resume
+
+        </button>
+
+    </div>
+
+
+    <!-- ================= CURRENT RESUME ================= -->
+
+    <div
+            class="resume-card"
+            id="currentResume">
+
+        <h3>Current Resume</h3>
+
+        <p>
+            Checking resume...
+        </p>
+
+    </div>
+
+
+    <br>
+
+
+    <button
+            type="button"
+            onclick="goBack()">
+
+        Back to Dashboard
+
+    </button>
+
+</div>
+
+
+<script src="student-resume.js"></script>
+
+</body>
+
+</html>

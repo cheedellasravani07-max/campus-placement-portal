@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Schedule Interview</title>
+
+    <link rel="stylesheet" href="schedule-interview.css">
+</head>
+
+<body>
+
+<div class="interview-container">
+
+    <h1>Campus Placement Portal</h1>
+
+    <h2>Schedule Interview</h2>
+
+
+    <div class="interview-card">
+
+        <label for="interviewDate">
+            Interview Date
+        </label>
+
+        <input
+                type="date"
+                id="interviewDate"
+        >
+
+
+        <label for="interviewTime">
+            Interview Time
+        </label>
+
+        <input
+                type="time"
+                id="interviewTime"
+        >
+
+
+        <label for="mode">
+            Interview Mode
+        </label>
+
+        <select id="mode">
+
+            <option value="">
+                Select Mode
+            </option>
+
+            <option value="ONLINE">
+                Online
+            </option>
+
+            <option value="OFFLINE">
+                Offline
+            </option>
+
+        </select>
+
+
+        <label for="location">
+            Location
+        </label>
+
+        <input
+                type="text"
+                id="location"
+                placeholder="Interview location"
+        >
+
+
+        <label for="meetingLink">
+            Meeting Link
+        </label>
+
+        <input
+                type="url"
+                id="meetingLink"
+                placeholder="https://..."
+        >
+
+
+        <button onclick="scheduleInterview()">
+            Schedule Interview
+        </button>
+
+    </div>
+
+
+    <br>
+
+
+    <button onclick="goBack()">
+        Back to Applications
+    </button>
+
+</div>
+
+
+<script src="schedule-interview.js"></script>
+
+</body>
+
+</html>

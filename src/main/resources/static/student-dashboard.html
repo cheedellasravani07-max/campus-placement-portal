@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard</title>
+
+    <link rel="stylesheet" href="student-dashboard.css">
+</head>
+
+<body>
+
+<div class="student-container">
+
+    <h1>Campus Placement Portal</h1>
+
+    <h2>Student Dashboard</h2>
+
+    <p>Welcome, Student!</p>
+
+    <div class="student-cards">
+
+        <div class="student-card">
+            <h3>Available Jobs</h3>
+            <p id="totalJobs">0</p>
+        </div>
+
+        <div class="student-card">
+            <h3>My Applications</h3>
+            <p id="totalApplications">0</p>
+        </div>
+
+    </div>
+    <!-- ================= NOTIFICATIONS ================= -->
+
+    <div class="notifications-section">
+
+        <h2>🔔 Notifications</h2>
+
+        <div id="notificationList">
+            Loading notifications...
+        </div>
+
+    </div>
+
+    <div class="student-buttons">
+
+        <button onclick="viewJobs()">
+            View Jobs
+        </button>
+
+        <button onclick="viewApplications()">
+            My Applications
+        </button>
+        <button onclick="viewInterviews()">
+            My Interviews
+        </button>
+        <button onclick="viewProfile()">
+            My Profile
+        </button>
+        <button type="button" onclick="openResume()">
+            📄 My Resume
+        </button>
+        <button onclick="changePasswordPage()">
+            Change Password
+        </button>
+        <button onclick="logout()">
+            Logout
+        </button>
+
+    </div>
+
+</div>
+
+<script src="student-dashboard.js"></script>
+
+</body>
+
+</html>

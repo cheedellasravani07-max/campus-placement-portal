@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile</title>
+
+    <link rel="stylesheet" href="student-profile.css">
+</head>
+
+<body>
+
+<div class="profile-container">
+
+    <h1>Campus Placement Portal</h1>
+
+    <h2>My Profile</h2>
+
+    <div class="profile-card">
+
+        <!-- ================= NAME ================= -->
+
+        <label for="name">
+            Name
+        </label>
+
+        <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+        >
+
+
+        <!-- ================= EMAIL ================= -->
+
+        <label for="email">
+            Email
+        </label>
+
+        <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+        >
+
+
+        <!-- ================= BRANCH ================= -->
+
+        <label for="branch">
+            Branch
+        </label>
+
+        <input
+                type="text"
+                id="branch"
+                placeholder="Enter your branch"
+        >
+
+
+        <!-- ================= PHONE ================= -->
+
+        <label for="phone">
+            Phone
+        </label>
+
+        <input
+                type="tel"
+                id="phone"
+                placeholder="Enter your phone number"
+        >
+
+
+        <!-- ================= ROLL NUMBER ================= -->
+
+        <label for="rollNumber">
+            Roll Number
+        </label>
+
+        <input
+                type="text"
+                id="rollNumber"
+                placeholder="Enter your roll number"
+        >
+
+
+        <!-- ================= CGPA ================= -->
+
+        <label for="cgpa">
+            CGPA
+        </label>
+
+        <input
+                type="number"
+                id="cgpa"
+                step="0.01"
+                min="0"
+                max="10"
+                placeholder="Enter your CGPA"
+        >
+
+
+        <!-- ================= GRADUATION YEAR ================= -->
+
+        <label for="graduationYear">
+            Graduation Year
+        </label>
+
+        <input
+                type="number"
+                id="graduationYear"
+                placeholder="Enter graduation year"
+        >
+
+
+        <!-- ================= SKILLS ================= -->
+
+        <label for="skills">
+            Skills
+        </label>
+
+        <textarea
+                id="skills"
+                placeholder="Enter your skills (Java, Python, SQL...)"
+        ></textarea>
+
+
+        <!-- ================= PROFILE PHOTO ================= -->
+
+        <label for="profilePhoto">
+            Profile Photo
+        </label>
+
+        <input
+                type="file"
+                id="profilePhoto"
+                accept=".jpg,.jpeg,.png"
+        >
+
+        <button
+                type="button"
+                onclick="uploadProfilePhoto()">
+            Upload Photo
+        </button>
+
+        <br>
+
+        <img
+                id="profilePhotoPreview"
+                src=""
+                alt="Profile Photo"
+                style="
+                    display: none;
+                    width: 150px;
+                    height: 150px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                "
+        >
+
+
+        <!-- ================= RESUME ================= -->
+
+        <hr>
+
+        <h3>Resume</h3>
+
+        <label for="resumeFile">
+            Upload Resume
+        </label>
+
+        <input
+                type="file"
+                id="resumeFile"
+                accept=".pdf"
+        >
+
+        <button
+                type="button"
+                onclick="uploadResume()">
+            Upload Resume
+        </button>
+
+
+        <!-- ================= CURRENT RESUME ================= -->
+
+        <div id="resumeSection">
+
+            <p id="resumeName">
+                No resume uploaded yet.
+            </p>
+
+            <button
+                    type="button"
+                    onclick="viewResume()"
+                    id="viewResumeButton"
+                    style="display: none;">
+                View Resume
+            </button>
+
+            <button
+                    type="button"
+                    onclick="downloadResume()"
+                    id="downloadResumeButton"
+                    style="display: none;">
+                Download Resume
+            </button>
+
+            <button
+                    type="button"
+                    onclick="deleteResume()"
+                    id="deleteResumeButton"
+                    style="display: none;">
+                Delete Resume
+            </button>
+
+        </div>
+
+
+        <!-- ================= SAVE PROFILE ================= -->
+
+        <br>
+
+        <button
+                type="button"
+                onclick="updateProfile()">
+            Save Changes
+        </button>
+
+    </div>
+
+
+    <br>
+
+
+    <!-- ================= BACK ================= -->
+
+    <button
+            type="button"
+            onclick="goBack()">
+        Back to Dashboard
+    </button>
+
+</div>
+
+
+<script src="student-profile.js"></script>
+
+</body>
+
+</html>

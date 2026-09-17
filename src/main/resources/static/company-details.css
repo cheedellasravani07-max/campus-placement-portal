@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f6f8;
+    text-align: center;
+}
+
+.company-container {
+    width: 90%;
+    max-width: 700px;
+    margin: 40px auto;
+}
+
+.company-container h1 {
+    color: #2c3e50;
+}
+
+.company-container h2 {
+    margin-bottom: 30px;
+}
+
+.company-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: left;
+}
+
+.company-card h3 {
+    color: #2c3e50;
+    font-size: 26px;
+    margin-top: 0;
+}
+
+.company-card p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.company-container button {
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2c3e50;
+    color: white;
+    cursor: pointer;
+}
+
+.company-container button:hover {
+    background-color: #34495e;
+}
+
+@media (max-width: 600px) {
+
+    .company-container {
+        width: 90%;
+    }
+
+    .company-card {
+        padding: 20px;
+    }
+}

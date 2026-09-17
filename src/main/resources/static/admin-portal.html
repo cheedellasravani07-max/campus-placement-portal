@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Placement Portal</title>
+
+    <link rel="stylesheet" href="admin-portal.css">
+</head>
+
+<body>
+
+<div class="portal-container">
+
+    <h1>Campus Placement Portal</h1>
+
+    <h2>Manage Placement Portal</h2>
+
+    <p>Admin Management Panel</p>
+
+
+    <!-- ================================================== -->
+    <!-- MENU BUTTONS -->
+    <!-- ================================================== -->
+
+    <div class="portal-buttons">
+
+        <button type="button"
+                onclick="openStudents()">
+            Manage Students
+        </button>
+
+        <button type="button"
+                onclick="openCompanies()">
+            Manage Companies
+        </button>
+
+        <button type="button"
+                onclick="openJobs()">
+            Manage Jobs
+        </button>
+
+        <button type="button"
+                onclick="openApplications()">
+            Manage Applications
+        </button>
+
+        <button type="button"
+                onclick="openInterviews()">
+            Manage Interviews
+        </button>
+
+    </div>
+
+
+    <!-- ================================================== -->
+    <!-- MANAGEMENT SECTIONS -->
+    <!-- ================================================== -->
+
+    <main>
+
+
+        <!-- ================================================== -->
+        <!-- STUDENTS -->
+        <!-- ================================================== -->
+
+        <section id="students" style="display:none;">
+
+            <h2>Manage Students</h2>
+
+            <form id="studentForm"
+                  onsubmit="addStudent(event)">
+
+                <input
+                        type="text"
+                        id="studentName"
+                        placeholder="Student Name"
+                        required
+                >
+
+                <input
+                        type="email"
+                        id="studentEmail"
+                        placeholder="Student Email"
+                        required
+                >
+
+                <input
+                        type="text"
+                        id="studentBranch"
+                        placeholder="Branch"
+                        required
+                >
+
+                <button type="submit">
+                    Add Student
+                </button>
+
+            </form>
+
+            <h3>Student List</h3>
+
+            <div id="studentList">
+                Loading students...
+            </div>
+
+        </section>
+
+
+        <!-- ================================================== -->
+        <!-- COMPANIES -->
+        <!-- ================================================== -->
+
+        <section id="companies" style="display:none;">
+
+            <h2>Manage Companies</h2>
+
+            <form id="companyForm"
+                  onsubmit="addCompany(event)">
+
+                <input
+                        type="text"
+                        id="companyName"
+                        placeholder="Company Name"
+                        required
+                >
+
+                <input
+                        type="text"
+                        id="companyLocation"
+                        placeholder="Location"
+                        required
+                >
+
+                <input
+                        type="text"
+                        id="companyRole"
+                        placeholder="Role"
+                        required
+                >
+
+                <button type="submit">
+                    Add Company
+                </button>
+
+            </form>
+
+            <h3>Company List</h3>
+
+            <div id="companyList">
+                Loading companies...
+            </div>
+
+        </section>
+
+
+        <!-- ================================================== -->
+        <!-- JOBS -->
+        <!-- ================================================== -->
+
+        <section id="jobs" style="display:none;">
+
+            <h2>Manage Jobs</h2>
+
+
+            <form id="jobForm"
+                  onsubmit="addJob(event)">
+
+
+                <!-- ================= JOB TITLE ================= -->
+
+                <input
+                        type="text"
+                        id="jobTitle"
+                        placeholder="Job Title"
+                        required
+                >
+
+
+                <!-- ================= DESCRIPTION ================= -->
+
+                <textarea
+                        id="jobDescription"
+                        placeholder="Job Description"
+                        required
+                ></textarea>
+
+
+                <!-- ================= LOCATION ================= -->
+
+                <input
+                        type="text"
+                        id="jobLocation"
+                        placeholder="Job Location"
+                        required
+                >
+
+
+                <!-- ================= ELIGIBLE BRANCH ================= -->
+
+                <select
+                        id="jobEligibleBranch"
+                        required>
+
+                    <option value="">
+                        Select Eligible Branch
+                    </option>
+
+                    <option value="CSE">
+                        CSE
+                    </option>
+
+                    <option value="IT">
+                        IT
+                    </option>
+
+                    <option value="ECE">
+                        ECE
+                    </option>
+
+                    <option value="EEE">
+                        EEE
+                    </option>
+
+                    <option value="MECH">
+                        MECH
+                    </option>
+
+                    <option value="CIVIL">
+                        CIVIL
+                    </option>
+
+                </select>
+
+
+                <!-- ================= COMPANY ================= -->
+
+                <select
+                        id="jobCompanyId"
+                        required>
+
+                    <option value="">
+                        Select Company
+                    </option>
+
+                </select>
+
+
+                <!-- ================= MINIMUM CGPA ================= -->
+
+                <input
+                        type="number"
+                        id="jobMinimumCgpa"
+                        placeholder="Minimum CGPA"
+                        min="0"
+                        max="10"
+                        step="0.01"
+                >
+
+
+                <!-- ================= PACKAGE ================= -->
+
+                <input
+                        type="number"
+                        id="jobPackageAmount"
+                        placeholder="Package (LPA)"
+                        min="0"
+                        step="0.01"
+                >
+
+
+                <!-- ================= REQUIRED SKILLS ================= -->
+
+                <textarea
+                        id="jobRequiredSkills"
+                        placeholder="Required Skills (Example: Java, SQL, HTML, CSS)"
+                ></textarea>
+
+
+                <!-- ================= DEADLINE ================= -->
+
+                <label for="jobApplicationDeadline">
+                    Application Deadline
+                </label>
+
+                <input
+                        type="date"
+                        id="jobApplicationDeadline"
+                >
+
+
+                <!-- ================= SUBMIT ================= -->
+
+                <button type="submit">
+                    Add Job
+                </button>
+
+            </form>
+
+
+            <h3>Job List</h3>
+
+            <div id="jobList">
+                Loading jobs...
+            </div>
+
+        </section>
+
+
+        <!-- ================================================== -->
+        <!-- APPLICATIONS -->
+        <!-- ================================================== -->
+
+        <section id="applications" style="display:none;">
+
+            <h2>Manage Applications</h2>
+
+            <form id="applicationForm"
+                  onsubmit="addApplication(); return false;">
+
+
+                <!-- ================= STATUS ================= -->
+
+                <input
+                        type="text"
+                        id="applicationStatus"
+                        placeholder="Status: APPLIED / INTERVIEW / ACCEPTED / REJECTED"
+                        required
+                >
+
+
+                <!-- ================= STUDENT ================= -->
+
+                <select
+                        id="applicationStudentId"
+                        required>
+
+                    <option value="">
+                        Select Student
+                    </option>
+
+                </select>
+
+
+                <!-- ================= JOB ================= -->
+
+                <select
+                        id="applicationJobId"
+                        required>
+
+                    <option value="">
+                        Select Job
+                    </option>
+
+                </select>
+
+
+                <!-- ================= SUBMIT ================= -->
+
+                <button type="submit">
+                    Add Application
+                </button>
+
+            </form>
+
+
+            <h3>Application List</h3>
+
+            <div id="applicationList">
+                Loading applications...
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================================================== -->
+    <!-- BACK BUTTON -->
+    <!-- ================================================== -->
+
+    <br>
+
+    <button
+            type="button"
+            onclick="goBack()">
+
+        Back to Admin Dashboard
+
+    </button>
+
+</div>
+
+
+<!-- ================================================== -->
+<!-- JAVASCRIPT -->
+<!-- ================================================== -->
+
+<script src="admin-portal.js"></script>
+
+</body>
+
+</html>

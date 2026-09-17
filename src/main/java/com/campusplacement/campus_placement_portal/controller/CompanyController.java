@@ -6,6 +6,7 @@ import com.campusplacement.campus_placement_portal.exception.ResourceNotFoundExc
 
 import jakarta.validation.Valid;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +25,7 @@ public class CompanyController {
     // ================= GET ALL COMPANIES =================
 
     @GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public List<Company> getAllCompanies() {
         return companyRepository.findAll();
     }
@@ -32,7 +34,10 @@ public class CompanyController {
     // ================= ADD COMPANY =================
 
     @PostMapping
-    public Company addCompany(@Valid @RequestBody Company company) {
+    @PreAuthorize("hasRole('ADMIN')")
+    public Company addCompany(
+            @Valid @RequestBody Company company) {
+
         return companyRepository.save(company);
     }
 
@@ -40,7 +45,9 @@ public class CompanyController {
     // ================= GET COMPANY BY ID =================
 
     @GetMapping("/{id}")
-    public Company getCompanyById(@PathVariable Long id) {
+    @PreAuthorize("hasRole('ADMIN')")
+    public Company getCompanyById(
+            @PathVariable Long id) {
 
         return companyRepository.findById(id)
                 .orElseThrow(() ->
@@ -52,6 +59,7 @@ public class CompanyController {
     // ================= UPDATE COMPANY =================
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public Company updateCompany(
             @PathVariable Long id,
             @Valid @RequestBody Company updatedCompany) {
@@ -72,7 +80,9 @@ public class CompanyController {
     // ================= DELETE COMPANY =================
 
     @DeleteMapping("/{id}")
-    public String deleteCompany(@PathVariable Long id) {
+    @PreAuthorize("hasRole('ADMIN')")
+    public String deleteCompany(
+            @PathVariable Long id) {
 
         Company company = companyRepository.findById(id)
                 .orElseThrow(() ->
