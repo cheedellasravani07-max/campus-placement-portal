@@ -27,6 +27,7 @@ public class StudentController {
     @GetMapping
     @PreAuthorize("hasRole('ADMIN')")
     public List<Student> getAllStudents() {
+
         return studentRepository.findAll();
     }
 
@@ -35,7 +36,9 @@ public class StudentController {
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public Student addStudent(@Valid @RequestBody Student student) {
+    public Student addStudent(
+            @Valid @RequestBody Student student) {
+
         return studentRepository.save(student);
     }
 
@@ -44,7 +47,8 @@ public class StudentController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public Student getStudentById(@PathVariable Long id) {
+    public Student getStudentById(
+            @PathVariable Long id) {
 
         return studentRepository.findById(id)
                 .orElseThrow(() ->
@@ -61,18 +65,39 @@ public class StudentController {
             @PathVariable Long id,
             @Valid @RequestBody Student updatedStudent) {
 
-        return studentRepository.findById(id)
-                .map(student -> {
-
-                    student.setName(updatedStudent.getName());
-                    student.setEmail(updatedStudent.getEmail());
-                    student.setBranch(updatedStudent.getBranch());
-
-                    return studentRepository.save(student);
-                })
+        Student student = studentRepository.findById(id)
                 .orElseThrow(() ->
                         new ResourceNotFoundException(
                                 "Student not found with id: " + id));
+
+
+        // ================= BASIC DETAILS =================
+
+        student.setName(updatedStudent.getName());
+
+        student.setEmail(updatedStudent.getEmail());
+
+        student.setBranch(updatedStudent.getBranch());
+
+
+        // ================= ADDITIONAL DETAILS =================
+
+        student.setPhone(updatedStudent.getPhone());
+
+        student.setRollNumber(updatedStudent.getRollNumber());
+
+        student.setCgpa(updatedStudent.getCgpa());
+
+        student.setGraduationYear(
+                updatedStudent.getGraduationYear());
+
+        student.setSkills(updatedStudent.getSkills());
+
+        student.setProfilePhoto(
+                updatedStudent.getProfilePhoto());
+
+
+        return studentRepository.save(student);
     }
 
 
@@ -80,7 +105,8 @@ public class StudentController {
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public String deleteStudent(@PathVariable Long id) {
+    public String deleteStudent(
+            @PathVariable Long id) {
 
         Student student = studentRepository.findById(id)
                 .orElseThrow(() ->
