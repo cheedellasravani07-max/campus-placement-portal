@@ -2,6 +2,7 @@ package com.campusplacement.campus_placement_portal.config;
 
 import com.campusplacement.campus_placement_portal.model.User;
 import com.campusplacement.campus_placement_portal.repository.UserRepository;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +18,8 @@ public class DataInitializer {
 
         return args -> {
 
+            // ================= ADMIN =================
+
             if (userRepository.findByUsername("admin").isEmpty()) {
 
                 User admin = new User();
@@ -30,6 +33,9 @@ public class DataInitializer {
 
                 userRepository.save(admin);
             }
+
+
+            // ================= STUDENT 1 =================
 
             if (userRepository.findByUsername("student").isEmpty()) {
 
@@ -45,7 +51,9 @@ public class DataInitializer {
                 userRepository.save(student);
             }
 
-            // Student ID 2 login account
+
+            // ================= STUDENT 2 =================
+
             if (userRepository.findByUsername("student2").isEmpty()) {
 
                 User student2 = new User();
@@ -59,6 +67,46 @@ public class DataInitializer {
 
                 userRepository.save(student2);
             }
+            // Bhanu login account
+            if (userRepository.findByUsername("bhanu").isEmpty()) {
+
+                User bhanu = new User();
+
+                bhanu.setUsername("bhanu");
+                bhanu.setEmail("bhanu@gmail.com");
+                bhanu.setPassword(
+                        passwordEncoder.encode("bhanu123")
+                );
+                bhanu.setRole("STUDENT");
+                bhanu.setEmailVerified(true);
+
+                userRepository.save(bhanu);
+            }
+
+
+// Anjali login account
+            if (userRepository.findByUsername("anjali").isEmpty()) {
+
+                User anjali = new User();
+
+                anjali.setUsername("anjali");
+                anjali.setEmail("anjali@gmail.com");
+                anjali.setPassword(
+                        passwordEncoder.encode("anjali123")
+                );
+                anjali.setRole("STUDENT");
+                anjali.setEmailVerified(true);
+
+                userRepository.save(anjali);
+            }
+
+
+
+
+
+
+
+
         };
     }
 }
