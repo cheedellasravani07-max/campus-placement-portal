@@ -1,11 +1,10 @@
 const signupForm = document.getElementById("signupForm");
 
-// Prevent the submit listener from being attached more than once
 if (signupForm && signupForm.dataset.listenerAttached !== "true") {
 
     signupForm.dataset.listenerAttached = "true";
 
-    signupForm.addEventListener("submit", function (event) {
+    signupForm.addEventListener("submit", async function (event) {
 
         event.preventDefault();
 
@@ -77,84 +76,101 @@ if (signupForm && signupForm.dataset.listenerAttached !== "true") {
         // ================= PREVENT DOUBLE SUBMISSION =================
 
         if (submitButton) {
+
             submitButton.disabled = true;
-            submitButton.textContent = "Registering...";
+
+            submitButton.textContent =
+                "Registering...";
+
         }
 
         message.textContent =
             "Creating your account...";
 
-        message.style.color = "";
+        message.style.color = "black";
 
 
         // ================= SEND TO BACKEND =================
 
-        fetch("/auth/student/register", {
+        try {
 
-            method: "POST",
+            const response = await fetch(
+                "/auth/student/register",
+                {
+                    method: "POST",
 
-            headers: {
-                "Content-Type": "application/json"
-            },
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
 
-            body: JSON.stringify(studentData)
-
-        })
-
-            .then(async response => {
-
-                const text = await response.text();
-
-                if (!response.ok) {
-                    throw new Error(text);
+                    body: JSON.stringify(studentData)
                 }
+            );
 
-                return text;
 
-            })
+            const text = await response.text();
 
-            .then(data => {
 
-                message.textContent =
-                    "Registration successful! Redirecting to login...";
+            // ================= BACKEND ERROR =================
 
-                message.style.color = "green";
+            if (!response.ok) {
 
-                signupForm.reset();
-
-                setTimeout(() => {
-
-                    window.location.href =
-                        "/login.html";
-
-                }, 1500);
-
-            })
-
-            .catch(error => {
-
-                console.error(
-                    "Registration Error:",
-                    error
+                throw new Error(
+                    text || "Registration failed."
                 );
-
-                message.textContent =
-                    error.message ||
-                    "Registration failed. Please try again.";
-
-                message.style.color = "red";
+            }
 
 
-                // Enable button again if registration failed
-                if (submitButton) {
+            // ================= SUCCESS =================
 
-                    submitButton.disabled = false;
+            message.textContent =
+                text ||
+                "Registration successful. Please check your email.";
 
-                    submitButton.textContent = "Register";
+            message.style.color = "green";
 
-                }
 
-            });
+            signupForm.reset();
+
+
+            // Keep the success message visible.
+            // DO NOT redirect automatically.
+
+            if (submitButton) {
+
+                submitButton.disabled = false;
+
+                submitButton.textContent =
+                    "Student Sign Up";
+
+            }
+
+        } catch (error) {
+
+            console.error(
+                "Registration Error:",
+                error
+            );
+
+
+            message.textContent =
+                error.message ||
+                "Registration failed. Please try again.";
+
+            message.style.color = "red";
+
+
+            if (submitButton) {
+
+                submitButton.disabled = false;
+
+                submitButton.textContent =
+                    "Student Sign Up";
+
+            }
+
+        }
 
     });
+
 }
