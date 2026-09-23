@@ -1,10 +1,11 @@
 const signupForm = document.getElementById("signupForm");
 
+// Prevent the submit listener from being attached more than once
 if (signupForm && signupForm.dataset.listenerAttached !== "true") {
 
     signupForm.dataset.listenerAttached = "true";
 
-    signupForm.addEventListener("submit", async function (event) {
+    signupForm.addEventListener("submit", function (event) {
 
         event.preventDefault();
 
@@ -78,99 +79,93 @@ if (signupForm && signupForm.dataset.listenerAttached !== "true") {
         if (submitButton) {
 
             submitButton.disabled = true;
-
-            submitButton.textContent =
-                "Registering...";
+            submitButton.textContent = "Registering...";
 
         }
 
         message.textContent =
             "Creating your account...";
 
-        message.style.color = "black";
+        message.style.color = "";
 
 
         // ================= SEND TO BACKEND =================
 
-        try {
+        fetch("/auth/student/register", {
 
-            const response = await fetch(
-                "/auth/student/register",
-                {
-                    method: "POST",
+            method: "POST",
 
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
+            headers: {
+                "Content-Type": "application/json"
+            },
 
-                    body: JSON.stringify(studentData)
+            body: JSON.stringify(studentData)
+
+        })
+
+            .then(async response => {
+
+                const text = await response.text();
+
+                console.log("Server response:", response.status, text);
+
+                if (!response.ok) {
+
+                    throw new Error(text);
+
                 }
-            );
 
+                return text;
 
-            const text = await response.text();
+            })
 
+            .then(data => {
 
-            // ================= BACKEND ERROR =================
+                // ================= SUCCESS =================
 
-            if (!response.ok) {
-
-                throw new Error(
-                    text || "Registration failed."
+                console.log(
+                    "Registration successful:",
+                    data
                 );
-            }
+
+                message.textContent =
+                    "Registration successful! Please check your email and verify your account before login.";
+
+                message.style.color = "green";
+
+                signupForm.reset();
+
+                if (submitButton) {
+
+                    submitButton.disabled = false;
+                    submitButton.textContent = "Register";
+
+                }
+
+            })
+
+            .catch(error => {
+
+                console.error(
+                    "Registration Error:",
+                    error
+                );
+
+                message.textContent =
+                    error.message ||
+                    "Registration failed. Please try again.";
+
+                message.style.color = "red";
 
 
-            // ================= SUCCESS =================
+                if (submitButton) {
 
-            message.textContent =
-                text ||
-                "Registration successful. Please check your email.";
+                    submitButton.disabled = false;
+                    submitButton.textContent = "Register";
 
-            message.style.color = "green";
+                }
 
-
-            signupForm.reset();
-
-
-            // Keep the success message visible.
-            // DO NOT redirect automatically.
-
-            if (submitButton) {
-
-                submitButton.disabled = false;
-
-                submitButton.textContent =
-                    "Student Sign Up";
-
-            }
-
-        } catch (error) {
-
-            console.error(
-                "Registration Error:",
-                error
-            );
-
-
-            message.textContent =
-                error.message ||
-                "Registration failed. Please try again.";
-
-            message.style.color = "red";
-
-
-            if (submitButton) {
-
-                submitButton.disabled = false;
-
-                submitButton.textContent =
-                    "Student Sign Up";
-
-            }
-
-        }
+            });
 
     });
-
 }
