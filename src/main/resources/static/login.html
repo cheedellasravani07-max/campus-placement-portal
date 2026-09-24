@@ -16,31 +16,32 @@
 
     <h1>Campus Placement Portal</h1>
 
+
     <!-- ================= LOGIN ================= -->
 
     <h2>Login</h2>
 
     <form action="/login" method="post">
 
-        <label for="username">
+        <label for="login-username">
             Username
         </label>
 
         <input
                 type="text"
-                id="username"
+                id="login-username"
                 name="username"
                 placeholder="Enter username"
                 required
         >
 
-        <label for="password">
+        <label for="login-password">
             Password
         </label>
 
         <input
                 type="password"
-                id="password"
+                id="login-password"
                 name="password"
                 placeholder="Enter password"
                 required
@@ -59,67 +60,67 @@
 
     <h2>Student Sign Up</h2>
 
-    <form action="/signup" method="post">
+    <form id="signupForm">
 
-        <label for="signup-name">
+        <label for="name">
             Name
         </label>
 
         <input
                 type="text"
-                id="signup-name"
+                id="name"
                 name="name"
                 placeholder="Enter your name"
                 required
         >
 
 
-        <label for="signup-username">
+        <label for="username">
             Username
         </label>
 
         <input
                 type="text"
-                id="signup-username"
+                id="username"
                 name="username"
                 placeholder="Create username"
                 required
         >
 
 
-        <label for="signup-email">
+        <label for="email">
             Email
         </label>
 
         <input
                 type="email"
-                id="signup-email"
+                id="email"
                 name="email"
                 placeholder="Enter email"
                 required
         >
 
 
-        <label for="signup-password">
+        <label for="password">
             Password
         </label>
 
         <input
                 type="password"
-                id="signup-password"
+                id="password"
                 name="password"
                 placeholder="Create password"
                 required
         >
 
 
-        <label for="signup-branch">
+        <label for="branch">
             Branch
         </label>
 
         <input
                 type="text"
-                id="signup-branch"
+                id="branch"
                 name="branch"
                 placeholder="Example: IT"
                 required
@@ -132,9 +133,19 @@
 
     </form>
 
+
+    <!-- Registration message -->
+
+    <p id="message"></p>
+
 </div>
 
+
+<!-- Login JavaScript -->
 <script src="login.js"></script>
+
+<!-- Student Registration JavaScript -->
+<script src="student-signup.js"></script>
 
 </body>
 

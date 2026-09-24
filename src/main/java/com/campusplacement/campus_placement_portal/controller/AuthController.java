@@ -46,6 +46,12 @@ public class AuthController {
     public ResponseEntity<?> registerStudent(
             @RequestBody StudentRegistrationRequest request) {
 
+        System.out.println("========================================");
+        System.out.println("STUDENT REGISTRATION REQUEST RECEIVED");
+        System.out.println("Username: " + request.getUsername());
+        System.out.println("Email: " + request.getEmail());
+        System.out.println("========================================");
+
         try {
 
             // ----------------------------------------------------

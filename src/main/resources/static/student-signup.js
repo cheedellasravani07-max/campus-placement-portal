@@ -1,93 +1,21 @@
-document.addEventListener("DOMContentLoaded", function () {
+const signupForm = document.getElementById("signupForm");
 
-    const signupForm = document.getElementById("signupForm");
-
-    // Check whether signup form exists
-    if (!signupForm) {
-        console.error("ERROR: signupForm was not found in the page.");
-        return;
-    }
-
-    console.log("Student signup form found.");
-    console.log("Attaching registration submit listener...");
-
-    // Prevent the submit listener from being attached more than once
-    if (signupForm.dataset.listenerAttached === "true") {
-        console.log("Signup listener already attached.");
-        return;
-    }
-
-    signupForm.dataset.listenerAttached = "true";
+if (signupForm) {
 
     signupForm.addEventListener("submit", async function (event) {
 
-        // VERY IMPORTANT:
-        // Prevent normal HTML form submission
         event.preventDefault();
 
-        console.log("Student signup form submitted.");
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value;
+        const branch = document.getElementById("branch").value.trim();
 
-        const nameElement =
-            document.getElementById("name");
-
-        const emailElement =
-            document.getElementById("email");
-
-        const usernameElement =
-            document.getElementById("username");
-
-        const passwordElement =
-            document.getElementById("password");
-
-        const branchElement =
-            document.getElementById("branch");
-
-        const message =
-            document.getElementById("message");
+        const message = document.getElementById("message");
 
         const submitButton =
             signupForm.querySelector("button[type='submit']");
-
-
-        // ================= CHECK ELEMENTS =================
-
-        if (
-            !nameElement ||
-            !emailElement ||
-            !usernameElement ||
-            !passwordElement ||
-            !branchElement ||
-            !message
-        ) {
-
-            console.error("One or more signup form elements were not found.");
-
-            if (message) {
-                message.textContent =
-                    "Registration form configuration error.";
-                message.style.color = "red";
-            }
-
-            return;
-        }
-
-
-        // ================= GET VALUES =================
-
-        const name =
-            nameElement.value.trim();
-
-        const email =
-            emailElement.value.trim();
-
-        const username =
-            usernameElement.value.trim();
-
-        const password =
-            passwordElement.value;
-
-        const branch =
-            branchElement.value.trim();
 
 
         // ================= VALIDATION =================
@@ -100,9 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
             branch === ""
         ) {
 
-            message.textContent =
-                "Please fill all the fields.";
-
+            message.textContent = "Please fill all the fields.";
             message.style.color = "red";
 
             return;
@@ -133,21 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
 
-        console.log(
-            "Sending registration request..."
-        );
-
-        console.log(
-            "Registration data:",
-            {
-                name: name,
-                email: email,
-                username: username,
-                branch: branch
-            }
-        );
-
-
         // ================= PREVENT DOUBLE SUBMISSION =================
 
         if (submitButton) {
@@ -157,10 +68,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
-        message.textContent =
-            "Creating your account...";
-
-        message.style.color = "";
+        message.textContent = "Creating your account...";
+        message.style.color = "black";
 
 
         // ================= SEND TO BACKEND =================
@@ -181,48 +90,34 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
 
-            const text =
-                await response.text();
+            const text = await response.text();
+
+            console.log("Registration response:", {
+                status: response.status,
+                body: text
+            });
 
 
-            console.log(
-                "Registration API status:",
-                response.status
-            );
-
-            console.log(
-                "Registration API response:",
-                text
-            );
-
-
-            // ================= SERVER ERROR =================
+            // ================= ERROR =================
 
             if (!response.ok) {
 
                 throw new Error(
                     text || "Registration failed."
                 );
+
             }
 
 
             // ================= SUCCESS =================
 
             message.textContent =
-                text ||
-                "Registration successful. Please check your email and verify your account.";
+                "Registration successful! Please check your email and verify your account before login.";
 
             message.style.color = "green";
 
             signupForm.reset();
 
-
-            if (submitButton) {
-
-                submitButton.disabled = false;
-                submitButton.textContent = "Register";
-
-            }
 
         } catch (error) {
 
@@ -231,7 +126,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 error
             );
 
-
             message.textContent =
                 error.message ||
                 "Registration failed. Please try again.";
@@ -239,10 +133,12 @@ document.addEventListener("DOMContentLoaded", function () {
             message.style.color = "red";
 
 
+        } finally {
+
             if (submitButton) {
 
                 submitButton.disabled = false;
-                submitButton.textContent = "Register";
+                submitButton.textContent = "Student Sign Up";
 
             }
 
@@ -250,4 +146,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-});
+}
