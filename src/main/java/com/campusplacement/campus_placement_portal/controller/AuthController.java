@@ -162,17 +162,21 @@ public class AuthController {
 
             user.setEmailVerified(false);
 
+            // ----------------------------------------------------
+// Save User
+// ----------------------------------------------------
 
-            // ----------------------------------------------------
-            // Save User
-            // ----------------------------------------------------
+            System.out.println("========== REGISTRATION DEBUG ==========");
+            System.out.println("Saving User...");
 
             userRepository.save(user);
 
+            System.out.println("User saved successfully.");
 
-            // ----------------------------------------------------
-            // Create Student
-            // ----------------------------------------------------
+
+// ----------------------------------------------------
+// Create Student
+// ----------------------------------------------------
 
             Student student = new Student();
 
@@ -182,17 +186,26 @@ public class AuthController {
 
             student.setBranch(request.getBranch().trim());
 
+            System.out.println("Saving Student...");
+
             studentRepository.save(student);
 
+            System.out.println("Student saved successfully.");
 
-            // ----------------------------------------------------
-            // Send verification email
-            // ----------------------------------------------------
+
+// ----------------------------------------------------
+// Send verification email
+// ----------------------------------------------------
 
             String verificationLink =
                     baseUrl +
                             "/verify-email?token=" +
                             verificationToken;
+
+            System.out.println("Verification link created:");
+            System.out.println(verificationLink);
+
+            System.out.println("About to send verification email...");
 
             try {
 
@@ -216,13 +229,12 @@ public class AuthController {
                                 "Campus Placement Portal"
                 );
 
+                System.out.println("Verification email sent successfully.");
+
             } catch (Exception emailException) {
 
+                System.out.println("EMAIL SENDING FAILED!");
                 emailException.printStackTrace();
-
-                // Registration has already been saved.
-                // Do not create another account if the user
-                // clicks the button again.
 
                 return ResponseEntity.ok(
                         "Registration successful, but the verification email could not be sent. "
