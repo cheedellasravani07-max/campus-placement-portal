@@ -111,7 +111,8 @@ public class SecurityConfig {
                                 "/login.css",
                                 "/login.js",
                                 "/signup",
-                                "/auth/verify-email"
+                                "/auth/verify-email",
+                                "/verify-email"
                         ).permitAll()
 
 
