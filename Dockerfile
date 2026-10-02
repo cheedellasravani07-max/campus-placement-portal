@@ -10,4 +10,4 @@ RUN ./mvnw clean package -DskipTests || mvn clean package -DskipTests
 
 EXPOSE 10000
 
-CMD ["java", "-jar", "target/campus-placement-portal-0.0.1-SNAPSHOT.jar"]
+CMD ["sh", "-c", "java -jar target/campus-placement-portal-0.0.1-SNAPSHOT.jar --server.port=${PORT:-10000}"]
