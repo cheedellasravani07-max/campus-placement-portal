@@ -10,8 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     signupForm.addEventListener("submit", async function (event) {
 
-        // VERY IMPORTANT:
-        // Stop normal HTML form submission.
         event.preventDefault();
         event.stopPropagation();
 
@@ -23,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const submitButton =
             signupForm.querySelector("button[type='submit']");
-
 
         // ================= VALIDATION =================
 
@@ -37,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-
         if (password.length < 6) {
 
             message.textContent =
@@ -47,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             return;
         }
-
 
         // ================= REQUEST DATA =================
 
@@ -59,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
             branch: branch
         };
 
-
         // ================= BUTTON =================
 
         if (submitButton) {
@@ -67,9 +61,10 @@ document.addEventListener("DOMContentLoaded", function () {
             submitButton.textContent = "Registering...";
         }
 
-        message.textContent = "Creating your account...";
-        message.style.color = "black";
+        message.textContent =
+            "Creating your account...";
 
+        message.style.color = "black";
 
         // ================= API REQUEST =================
 
@@ -82,15 +77,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     headers: {
                         "Content-Type": "application/json",
-                        "Accept": "text/plain"
+                        "Accept": "application/json"
                     },
 
                     body: JSON.stringify(studentData)
                 }
             );
 
-
-            const responseText = await response.text();
+            const responseText =
+                await response.text();
 
             console.log(
                 "Registration status:",
@@ -101,7 +96,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Registration response:",
                 responseText
             );
-
 
             // ================= ERROR =================
 
@@ -115,25 +109,77 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (submitButton) {
                     submitButton.disabled = false;
-                    submitButton.textContent = "Student Sign Up";
+                    submitButton.textContent =
+                        "Student Sign Up";
                 }
 
                 return;
             }
 
+            // ================= BACKEND RESPONSE =================
 
-            // ================= SUCCESS =================
+            const registrationData =
+                JSON.parse(responseText);
 
-            message.textContent = responseText ||
-                "Registration successful. Please check your email.";
+            const verificationLink =
+                registrationData.verificationLink;
 
-            message.style.color = "green";
+            console.log(
+                "Verification link:",
+                verificationLink
+            );
+
+            // ================= EMAILJS =================
+
+            message.textContent =
+                "Account created. Sending verification email...";
+
+            message.style.color = "black";
+
+            try {
+
+                const emailResponse =
+                    await emailjs.send(
+                        "service_kucfxyi",
+                        "template_3nhw0uj",
+                        {
+                            name: name,
+                            email: email,
+                            verification_link:
+                                verificationLink
+                        }
+                    );
+
+                console.log(
+                    "EmailJS success:",
+                    emailResponse.status,
+                    emailResponse.text
+                );
+
+                message.textContent =
+                    "Registration successful! Please check your email and verify your account.";
+
+                message.style.color = "green";
+
+            } catch (emailError) {
+
+                console.error(
+                    "EmailJS failed:",
+                    emailError
+                );
+
+                message.textContent =
+                    "Registration successful, but the verification email could not be sent.";
+
+                message.style.color = "orange";
+            }
 
             signupForm.reset();
 
             if (submitButton) {
                 submitButton.disabled = false;
-                submitButton.textContent = "Student Sign Up";
+                submitButton.textContent =
+                    "Student Sign Up";
             }
 
         } catch (error) {
@@ -150,7 +196,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (submitButton) {
                 submitButton.disabled = false;
-                submitButton.textContent = "Student Sign Up";
+                submitButton.textContent =
+                    "Student Sign Up";
             }
         }
 
