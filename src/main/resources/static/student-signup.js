@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             name: name,
                             email: email,
                             verification_link:
-                                verificationLink
+                            verificationLink
                         }
                     );
 

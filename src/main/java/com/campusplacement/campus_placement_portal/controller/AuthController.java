@@ -4,7 +4,6 @@ import com.campusplacement.campus_placement_portal.model.Student;
 import com.campusplacement.campus_placement_portal.model.User;
 import com.campusplacement.campus_placement_portal.repository.StudentRepository;
 import com.campusplacement.campus_placement_portal.repository.UserRepository;
-import com.campusplacement.campus_placement_portal.service.EmailService;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +11,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -21,7 +22,6 @@ public class AuthController {
     private final UserRepository userRepository;
     private final StudentRepository studentRepository;
     private final PasswordEncoder passwordEncoder;
-    private final EmailService emailService;
 
     @Value("${app.base-url}")
     private String baseUrl;
@@ -29,13 +29,11 @@ public class AuthController {
     public AuthController(
             UserRepository userRepository,
             StudentRepository studentRepository,
-            PasswordEncoder passwordEncoder,
-            EmailService emailService) {
+            PasswordEncoder passwordEncoder) {
 
         this.userRepository = userRepository;
         this.studentRepository = studentRepository;
         this.passwordEncoder = passwordEncoder;
-        this.emailService = emailService;
     }
 
     // ============================================================
@@ -148,7 +146,7 @@ public class AuthController {
 
 
             // ----------------------------------------------------
-            // Email verification
+            // Create email verification token
             // ----------------------------------------------------
 
             String verificationToken =
@@ -162,9 +160,10 @@ public class AuthController {
 
             user.setEmailVerified(false);
 
+
             // ----------------------------------------------------
-// Save User
-// ----------------------------------------------------
+            // Save User
+            // ----------------------------------------------------
 
             System.out.println("========== REGISTRATION DEBUG ==========");
             System.out.println("Saving User...");
@@ -174,9 +173,9 @@ public class AuthController {
             System.out.println("User saved successfully.");
 
 
-// ----------------------------------------------------
-// Create Student
-// ----------------------------------------------------
+            // ----------------------------------------------------
+            // Create Student
+            // ----------------------------------------------------
 
             Student student = new Student();
 
@@ -193,9 +192,9 @@ public class AuthController {
             System.out.println("Student saved successfully.");
 
 
-// ----------------------------------------------------
-// Send verification email
-// ----------------------------------------------------
+            // ----------------------------------------------------
+            // Create verification link
+            // ----------------------------------------------------
 
             String verificationLink =
                     baseUrl +
@@ -205,52 +204,43 @@ public class AuthController {
             System.out.println("Verification link created:");
             System.out.println(verificationLink);
 
-            System.out.println("About to send verification email...");
-
-            try {
-
-                emailService.sendEmail(
-                        request.getEmail().trim(),
-
-                        "Campus Placement Portal - Verify Your Email",
-
-                        "Hello " +
-                                request.getName().trim() +
-                                ",\n\n" +
-
-                                "Please verify your email by clicking " +
-                                "the link below:\n\n" +
-
-                                verificationLink +
-
-                                "\n\nThis link is valid for 24 hours.\n\n" +
-
-                                "Thank you,\n" +
-                                "Campus Placement Portal"
-                );
-
-                System.out.println("Verification email sent successfully.");
-
-            } catch (Exception emailException) {
-
-                System.out.println("EMAIL SENDING FAILED!");
-                emailException.printStackTrace();
-
-                return ResponseEntity.ok(
-                        "Registration successful, but the verification email could not be sent. "
-                                + "Please contact the administrator."
-                );
-            }
-
 
             // ----------------------------------------------------
-            // Successful registration
+            // Return verification link to frontend
+            // EmailJS will send the email from frontend
             // ----------------------------------------------------
 
-            return ResponseEntity.ok(
-                    "Registration successful. "
-                            + "Please check your email and verify your account."
+            Map<String, String> response = new HashMap<>();
+
+            response.put(
+                    "message",
+                    "Registration successful."
             );
+
+            response.put(
+                    "verificationLink",
+                    verificationLink
+            );
+
+            response.put(
+                    "name",
+                    request.getName().trim()
+            );
+
+            response.put(
+                    "email",
+                    request.getEmail().trim()
+            );
+
+            System.out.println(
+                    "Registration completed successfully."
+            );
+
+            System.out.println(
+                    "Email will be sent by EmailJS."
+            );
+
+            return ResponseEntity.ok(response);
 
         } catch (Exception e) {
 

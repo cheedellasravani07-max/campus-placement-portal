@@ -112,9 +112,8 @@ public class SecurityConfig {
                                 "/login.js",
                                 "/signup",
                                 "/auth/verify-email",
-                                "/verify-email"
+                                "/auth/student/register"
                         ).permitAll()
-
 
                         // -------- PUBLIC STUDENT REGISTRATION --------
 
