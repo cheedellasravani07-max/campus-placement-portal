@@ -5,74 +5,268 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Student Dashboard</title>
+    <title>Student Dashboard | Campus Placement Portal</title>
 
     <link rel="stylesheet" href="student-dashboard.css">
 </head>
 
 <body>
 
-<div class="student-container">
+<!-- ================= TOP NAVBAR ================= -->
 
-    <h1>Campus Placement Portal</h1>
+<header class="top-navbar">
 
-    <h2>Student Dashboard</h2>
+    <div class="brand">
+        <div class="brand-mark">CP</div>
 
-    <p>Welcome, Student!</p>
-
-    <div class="student-cards">
-
-        <div class="student-card">
-            <h3>Available Jobs</h3>
-            <p id="totalJobs">0</p>
+        <div class="brand-text">
+            <h1>Campus Placement Portal</h1>
+            <span>Student Placement Services</span>
         </div>
-
-        <div class="student-card">
-            <h3>My Applications</h3>
-            <p id="totalApplications">0</p>
-        </div>
-
     </div>
+
+    <div class="student-area">
+        <span class="student-label">Student</span>
+
+        <div class="student-avatar">
+            S
+        </div>
+    </div>
+
+</header>
+
+
+<!-- ================= MAIN CONTENT ================= -->
+
+<main class="dashboard-container">
+
+    <!-- PAGE HEADER -->
+
+    <section class="page-header">
+
+        <div>
+            <span class="page-label">STUDENT PORTAL</span>
+
+            <h2>Student Dashboard</h2>
+
+            <p>
+                Manage your placement activities, applications and interviews.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- ================= STAT CARDS ================= -->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-icon jobs-icon">
+                💼
+            </div>
+
+            <div class="stat-content">
+                <span>Available Jobs</span>
+
+                <strong id="totalJobs">0</strong>
+
+                <small>Opportunities available</small>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon application-icon">
+                📋
+            </div>
+
+            <div class="stat-content">
+                <span>My Applications</span>
+
+                <strong id="totalApplications">0</strong>
+
+                <small>Applications submitted</small>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= QUICK ACTIONS ================= -->
+
+    <section class="section-block">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-label">QUICK ACCESS</span>
+                <h3>Placement Activities</h3>
+            </div>
+
+        </div>
+
+
+        <div class="actions-grid">
+
+            <button class="action-card" onclick="viewJobs()">
+
+                <span class="action-icon">💼</span>
+
+                <span class="action-content">
+                        <strong>View Jobs</strong>
+                        <small>Explore available opportunities</small>
+                    </span>
+
+                <span class="action-arrow">→</span>
+
+            </button>
+
+
+            <button class="action-card" onclick="viewApplications()">
+
+                <span class="action-icon">📋</span>
+
+                <span class="action-content">
+                        <strong>My Applications</strong>
+                        <small>Track your applications</small>
+                    </span>
+
+                <span class="action-arrow">→</span>
+
+            </button>
+
+
+            <button class="action-card" onclick="viewInterviews()">
+
+                <span class="action-icon">📅</span>
+
+                <span class="action-content">
+                        <strong>My Interviews</strong>
+                        <small>View interview schedules</small>
+                    </span>
+
+                <span class="action-arrow">→</span>
+
+            </button>
+
+
+            <button class="action-card" onclick="viewProfile()">
+
+                <span class="action-icon">👤</span>
+
+                <span class="action-content">
+                        <strong>My Profile</strong>
+                        <small>View and manage your profile</small>
+                    </span>
+
+                <span class="action-arrow">→</span>
+
+            </button>
+
+
+            <button class="action-card" type="button" onclick="openResume()">
+
+                <span class="action-icon">📄</span>
+
+                <span class="action-content">
+                        <strong>My Resume</strong>
+                        <small>Manage your resume</small>
+                    </span>
+
+                <span class="action-arrow">→</span>
+
+            </button>
+
+
+            <button class="action-card" onclick="changePasswordPage()">
+
+                <span class="action-icon">🔐</span>
+
+                <span class="action-content">
+                        <strong>Change Password</strong>
+                        <small>Update your account password</small>
+                    </span>
+
+                <span class="action-arrow">→</span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
     <!-- ================= NOTIFICATIONS ================= -->
 
-    <div class="notifications-section">
+    <section class="notifications-section">
 
-        <h2>🔔 Notifications</h2>
+        <div class="notifications-header">
 
-        <div id="notificationList">
-            Loading notifications...
+            <div class="notification-title">
+
+                <div class="notification-icon">
+                    🔔
+                </div>
+
+                <div>
+                    <span class="section-label">UPDATES</span>
+                    <h3>Notifications</h3>
+                </div>
+
+            </div>
+
         </div>
 
-    </div>
 
-    <div class="student-buttons">
+        <div id="notificationList" class="notification-list">
 
-        <button onclick="viewJobs()">
-            View Jobs
+            <div class="notification-loading">
+                Loading notifications...
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ACCOUNT ACTIONS ================= -->
+
+    <section class="account-actions">
+
+        <button
+                class="change-password-btn"
+                onclick="changePasswordPage()">
+            🔐 Change Password
         </button>
 
-        <button onclick="viewApplications()">
-            My Applications
-        </button>
-        <button onclick="viewInterviews()">
-            My Interviews
-        </button>
-        <button onclick="viewProfile()">
-            My Profile
-        </button>
-        <button type="button" onclick="openResume()">
-            📄 My Resume
-        </button>
-        <button onclick="changePasswordPage()">
-            Change Password
-        </button>
-        <button onclick="logout()">
+        <button
+                class="logout-btn"
+                onclick="logout()">
             Logout
         </button>
 
-    </div>
+    </section>
 
-</div>
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="dashboard-footer">
+
+    <p>
+        Campus Placement Portal
+        <span>•</span>
+        Student Placement Services
+    </p>
+
+</footer>
+
 
 <script src="student-dashboard.js"></script>
 
