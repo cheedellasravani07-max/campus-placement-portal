@@ -1,198 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Student Registration | Campus Placement Portal</title>
+    <title>Student Sign Up | Campus Placement Portal</title>
 
     <link rel="stylesheet" href="student-signup.css">
 </head>
 
 <body>
 
+<!-- ================= TOP NAVBAR ================= -->
+
 <header class="top-navbar">
 
     <div class="brand-section">
-        <div class="brand-mark">CP</div>
+
+        <div class="brand-mark">
+            CP
+        </div>
 
         <div class="brand-text">
             <h1>Campus Placement Portal</h1>
             <span>Student Placement Services</span>
         </div>
+
     </div>
 
     <div class="nav-right">
-        <span>Student Registration</span>
+        Student Registration
     </div>
 
 </header>
 
 
+<!-- ================= MAIN CONTENT ================= -->
+
 <main class="signup-page">
 
-    <section class="signup-card">
-
-        <div class="card-header">
-
-            <div class="page-icon">
-                <span>👤</span>
-            </div>
-
-            <h2>Student Sign Up</h2>
-
-            <p>
-                Create your account to access campus placement opportunities.
-            </p>
-
-        </div>
+    <div class="signup-layout">
 
 
-        <form id="signupForm">
+        <!-- ================= INFORMATION PANEL ================= -->
 
-            <div class="form-group">
+        <section class="signup-info">
 
-                <label for="name">
-                    Full Name
-                </label>
+            <div class="image-container">
 
-                <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Enter your full name"
-                        autocomplete="name"
-                        required>
+                <img
+                        src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=80"
+                        alt="Students preparing for campus placements"
+                >
 
             </div>
 
 
-            <div class="form-group">
+            <div class="info-content">
 
-                <label for="email">
-                    Email Address
-                </label>
+                <span class="section-label">
+                    CAMPUS PLACEMENT
+                </span>
 
-                <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Enter your email address"
-                        autocomplete="email"
-                        required>
+                <h2>
+                    Start Your Career Journey
+                </h2>
+
+                <p>
+                    Create your student account and access placement
+                    opportunities, applications and interview schedules
+                    through the Campus Placement Portal.
+                </p>
+
+
+                <div class="info-points">
+
+                    <div class="info-point">
+
+                        <span class="point-icon">
+                            ✓
+                        </span>
+
+                        <div>
+                            <strong>Explore Opportunities</strong>
+                            <small>
+                                Discover jobs from participating companies.
+                            </small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-point">
+
+                        <span class="point-icon">
+                            ✓
+                        </span>
+
+                        <div>
+                            <strong>Track Applications</strong>
+                            <small>
+                                Monitor your placement application status.
+                            </small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-point">
+
+                        <span class="point-icon">
+                            ✓
+                        </span>
+
+                        <div>
+                            <strong>Manage Interviews</strong>
+                            <small>
+                                Stay updated with your interview schedules.
+                            </small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SIGNUP FORM ================= -->
+
+        <section class="signup-card">
+
+            <div class="card-header">
+
+                <div class="page-icon">
+                    <span>🎓</span>
+                </div>
+
+                <h2>
+                    Student Sign Up
+                </h2>
+
+                <p>
+                    Create your account to access placement opportunities.
+                </p>
 
             </div>
 
 
-            <div class="form-group">
+            <form id="signupForm">
 
-                <label for="username">
-                    Username
-                </label>
 
-                <input
-                        type="text"
-                        id="username"
-                        name="username"
-                        placeholder="Create a username"
-                        autocomplete="username"
-                        required>
+                <!-- FULL NAME -->
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required
+                    >
+
+                </div>
+
+
+                <!-- USERNAME -->
+
+                <div class="form-group">
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Create username"
+                            autocomplete="username"
+                            required
+                    >
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Create password"
+                            minlength="6"
+                            autocomplete="new-password"
+                            required
+                    >
+
+                    <small>
+                        Minimum 6 characters
+                    </small>
+
+                </div>
+
+
+                <!-- BRANCH -->
+
+                <div class="form-group">
+
+                    <label for="branch">
+                        Branch
+                    </label>
+
+                    <input
+                            type="text"
+                            id="branch"
+                            name="branch"
+                            placeholder="Example: IT"
+                            required
+                    >
+
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                        type="submit"
+                        class="primary-button">
+                    Student Sign Up
+                </button>
+
+
+                <!-- MESSAGE -->
+
+                <p
+                        id="message"
+                        class="message">
+                </p>
+
+            </form>
+
+
+            <!-- LOGIN LINK -->
+
+            <div class="login-link">
+
+                <span>
+                    Already have an account?
+                </span>
+
+                <a href="login.html">
+                    Login
+                </a>
 
             </div>
 
+        </section>
 
-            <div class="form-group">
-
-                <label for="password">
-                    Password
-                </label>
-
-                <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Create a password"
-                        minlength="6"
-                        autocomplete="new-password"
-                        required>
-
-                <small class="field-hint">
-                    Password must contain at least 6 characters.
-                </small>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="branch">
-                    Branch
-                </label>
-
-                <select
-                        id="branch"
-                        name="branch"
-                        required>
-
-                    <option value="">
-                        Select your branch
-                    </option>
-
-                    <option value="CSE">CSE</option>
-                    <option value="IT">IT</option>
-                    <option value="ECE">ECE</option>
-                    <option value="EEE">EEE</option>
-                    <option value="CIVIL">CIVIL</option>
-                    <option value="MECH">MECH</option>
-
-                </select>
-
-            </div>
-
-
-            <button type="submit">
-                Student Sign Up
-            </button>
-
-        </form>
-
-
-        <div
-                id="message"
-                class="message"
-                aria-live="polite">
-        </div>
-
-
-        <div class="login-section">
-
-            <span>Already have an account?</span>
-
-            <a href="/login.html">
-                Login
-            </a>
-
-        </div>
-
-    </section>
+    </div>
 
 </main>
 
 
+<!-- ================= FOOTER ================= -->
+
 <footer class="site-footer">
 
-    <p>
-        © 2026 Campus Placement Portal
-    </p>
-
     <span>
+        © 2026 Campus Placement Portal
+    </span>
+
+    <span class="footer-divider">
         Student Placement Services
     </span>
 
 </footer>
 
 
+<!-- ================= EMAILJS ================= -->
+
+<script
+        type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
+<script>
+    emailjs.init({
+        publicKey: "h2Lav4SdA_A_tQL7f"
+    });
+</script>
+
+
+<!-- ================= STUDENT SIGNUP JAVASCRIPT ================= -->
+
 <script src="student-signup.js"></script>
 
 </body>
+
 </html>

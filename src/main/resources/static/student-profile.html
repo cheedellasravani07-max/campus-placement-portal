@@ -1,446 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- ================= RESUME ================= -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<section class="resume-card">
 
-    <title>My Profile | Campus Placement Portal</title>
+    <div class="section-header">
 
-    <link rel="stylesheet" href="student-profile.css">
-</head>
+        <div>
 
-<body>
+            <span class="section-label">
+                PLACEMENT DOCUMENT
+            </span>
 
-<!-- ================= TOP NAVBAR ================= -->
-
-<header class="top-navbar">
-
-    <div class="brand">
-
-        <div class="brand-mark">
-            CP
-        </div>
-
-        <div class="brand-text">
-
-            <h1>Campus Placement Portal</h1>
-
-            <span>Student Placement Services</span>
+            <h3>
+                My Resume
+            </h3>
 
         </div>
 
     </div>
 
 
-    <div class="student-area">
+    <div class="resume-content">
 
-            <span class="student-label">
-                Student
-            </span>
+        <div class="resume-information">
 
-        <div class="student-avatar">
-            S
-        </div>
-
-    </div>
-
-</header>
-
-
-<!-- ================= MAIN ================= -->
-
-<main class="profile-container">
-
-    <!-- PAGE HEADER -->
-
-    <section class="page-header">
-
-            <span class="page-label">
-                STUDENT ACCOUNT
-            </span>
-
-        <h2>
-            My Profile
-        </h2>
-
-        <p>
-            Manage your personal information, academic details and placement documents.
-        </p>
-
-    </section>
-
-
-    <!-- ================= PROFILE ================= -->
-
-    <section class="profile-card">
-
-        <div class="section-header">
+            <div class="resume-icon">
+                PDF
+            </div>
 
             <div>
 
-                    <span class="section-label">
-                        PERSONAL INFORMATION
-                    </span>
+                <h4>
+                    Resume
+                </h4>
 
-                <h3>
-                    Profile Details
-                </h3>
+                <p id="resumeName">
+                    Checking your resume...
+                </p>
 
             </div>
 
         </div>
 
 
-        <div class="profile-content">
+        <div class="resume-upload">
 
-            <!-- ================= PHOTO ================= -->
+            <label for="resumeFile">
+                Select PDF
+            </label>
 
-            <aside class="photo-section">
+            <input
+                    type="file"
+                    id="resumeFile"
+                    accept="application/pdf,.pdf"
+            >
 
-                <div class="photo-wrapper">
+            <button
+                    type="button"
+                    class="upload-resume-btn"
+                    onclick="uploadResume()">
 
-                    <img
-                            id="profilePhotoPreview"
-                            src=""
-                            alt="Profile Photo"
-                            style="display:none;"
-                    >
+                Upload Resume
 
-                    <div
-                            id="photoPlaceholder"
-                            class="photo-placeholder">
-
-                        S
-
-                    </div>
-
-                </div>
-
-
-                <div class="photo-upload">
-
-                    <label for="profilePhoto">
-                        Select Photo
-                    </label>
-
-                    <input
-                            type="file"
-                            id="profilePhoto"
-                            accept="image/jpeg,image/png"
-                    >
-
-                    <button
-                            type="button"
-                            class="upload-btn"
-                            onclick="uploadProfilePhoto()">
-
-                        Upload Photo
-
-                    </button>
-
-                    <small>
-                        JPG or PNG • Maximum 5 MB
-                    </small>
-
-                </div>
-
-            </aside>
-
-
-            <!-- ================= PROFILE FORM ================= -->
-
-            <div class="profile-form">
-
-                <div class="form-grid">
-
-                    <div class="form-group">
-
-                        <label for="name">
-                            Full Name
-                        </label>
-
-                        <input
-                                type="text"
-                                id="name"
-                                placeholder="Enter your name"
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="email">
-                            Email Address
-                        </label>
-
-                        <input
-                                type="email"
-                                id="email"
-                                placeholder="Enter your email"
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="phone">
-                            Phone Number
-                        </label>
-
-                        <input
-                                type="tel"
-                                id="phone"
-                                placeholder="10-digit phone number"
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="rollNumber">
-                            Roll Number
-                        </label>
-
-                        <input
-                                type="text"
-                                id="rollNumber"
-                                placeholder="Enter roll number"
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="branch">
-                            Branch
-                        </label>
-
-                        <input
-                                type="text"
-                                id="branch"
-                                placeholder="Enter branch"
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="cgpa">
-                            CGPA
-                        </label>
-
-                        <input
-                                type="number"
-                                id="cgpa"
-                                step="0.01"
-                                min="0"
-                                max="10"
-                                placeholder="0 - 10"
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="graduationYear">
-                            Graduation Year
-                        </label>
-
-                        <input
-                                type="number"
-                                id="graduationYear"
-                                placeholder="e.g. 2029"
-                        >
-
-                    </div>
-
-
-                    <div class="form-group form-group-full">
-
-                        <label for="skills">
-                            Skills
-                        </label>
-
-                        <textarea
-                                id="skills"
-                                rows="4"
-                                placeholder="Enter your technical and professional skills"
-                        ></textarea>
-
-                    </div>
-
-                </div>
-
-
-                <div class="form-actions">
-
-                    <button
-                            type="button"
-                            class="update-btn"
-                            onclick="updateProfile()">
-
-                        Update Profile
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= RESUME ================= -->
-
-    <section class="resume-card">
-
-        <div class="section-header">
-
-            <div>
-
-                    <span class="section-label">
-                        PLACEMENT DOCUMENT
-                    </span>
-
-                <h3>
-                    My Resume
-                </h3>
-
-            </div>
+            </button>
 
         </div>
 
 
-        <div class="resume-content">
+        <div class="resume-actions">
 
-            <div class="resume-information">
+            <button
+                    type="button"
+                    id="viewResumeButton"
+                    onclick="viewResume()"
+                    style="display:none;">
 
-                <div class="resume-icon">
-                    PDF
-                </div>
+                View
 
-                <div>
-
-                    <h4>
-                        Resume
-                    </h4>
-
-                    <p id="resumeName">
-                        Checking your resume...
-                    </p>
-
-                </div>
-
-            </div>
+            </button>
 
 
-            <div class="resume-upload">
+            <button
+                    type="button"
+                    id="downloadResumeButton"
+                    onclick="downloadResume()"
+                    style="display:none;">
 
-                <label for="resumeFile">
-                    Select PDF
-                </label>
+                Download
 
-                <input
-                        type="file"
-                        id="resumeFile"
-                        accept="application/pdf,.pdf"
-                >
-
-                <button
-                        type="button"
-                        class="upload-resume-btn"
-                        onclick="uploadResume()">
-
-                    Upload Resume
-
-                </button>
-
-            </div>
+            </button>
 
 
-            <div class="resume-actions">
+            <button
+                    type="button"
+                    id="deleteResumeButton"
+                    onclick="deleteResume()"
+                    style="display:none;">
 
-                <button
-                        type="button"
-                        id="viewResumeButton"
-                        onclick="viewResume()"
-                        style="display:none;">
+                Delete
 
-                    View
-
-                </button>
-
-
-                <button
-                        type="button"
-                        id="downloadResumeButton"
-                        onclick="downloadResume()"
-                        style="display:none;">
-
-                    Download
-
-                </button>
-
-
-                <button
-                        type="button"
-                        id="deleteResumeButton"
-                        onclick="deleteResume()"
-                        style="display:none;">
-
-                    Delete
-
-                </button>
-
-            </div>
+            </button>
 
         </div>
-
-    </section>
-
-
-    <!-- ================= BACK ================= -->
-
-    <div class="back-section">
-
-        <button
-                type="button"
-                class="back-btn"
-                onclick="goBack()">
-
-            ← Back to Dashboard
-
-        </button>
 
     </div>
 
-</main>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer class="profile-footer">
-
-    <p>
-        Campus Placement Portal
-        <span>•</span>
-        Student Placement Services
-    </p>
-
-</footer>
-
-
-<script src="student-profile.js"></script>
-
-</body>
-
-</html>
+</section>
