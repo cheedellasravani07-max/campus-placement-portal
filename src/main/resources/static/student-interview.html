@@ -3,44 +3,59 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
 
     <title>My Interviews | Campus Placement Portal</title>
 
-    <link rel="stylesheet" href="student-interviews.css">
+    <link
+            rel="stylesheet"
+            href="student-interviews.css"
+    >
 </head>
 
 <body>
 
-<!-- ================= TOP NAVBAR ================= -->
+<!-- ================= HEADER ================= -->
 
 <header class="top-navbar">
 
-    <div class="brand">
+    <div class="navbar-inner">
 
-        <div class="brand-mark">
-            CP
+        <div class="brand">
+
+            <div class="brand-mark">
+                CP
+            </div>
+
+            <div class="brand-text">
+
+                <h1>
+                    Campus Placement Portal
+                </h1>
+
+                <span>
+                    Student Placement Services
+                </span>
+
+            </div>
+
         </div>
 
-        <div class="brand-text">
 
-            <h1>Campus Placement Portal</h1>
-
-            <span>Student Placement Services</span>
-
-        </div>
-
-    </div>
-
-
-    <div class="student-area">
+        <div class="student-area">
 
             <span class="student-label">
                 Student
             </span>
 
-        <div class="student-avatar">
-            S
+            <div class="student-avatar">
+                S
+            </div>
+
         </div>
 
     </div>
@@ -52,30 +67,32 @@
 
 <main class="interviews-container">
 
-    <!-- PAGE HEADER -->
 
-    <section class="page-header">
+    <!-- ================= PAGE HEADER ================= -->
+
+    <div class="page-header">
 
         <div>
 
-                <span class="page-label">
-                    PLACEMENT ACTIVITY
-                </span>
+            <span class="page-label">
+                PLACEMENT ACTIVITY
+            </span>
 
             <h2>
                 My Interviews
             </h2>
 
             <p>
-                View your scheduled interviews and access the required interview details.
+                View your scheduled interviews and access the required
+                interview details.
             </p>
 
         </div>
 
-    </section>
+    </div>
 
 
-    <!-- ================= INTERVIEWS ================= -->
+    <!-- ================= INTERVIEW SECTION ================= -->
 
     <section class="interviews-section">
 
@@ -83,9 +100,9 @@
 
             <div>
 
-                    <span class="section-label">
-                        INTERVIEW SCHEDULE
-                    </span>
+                <span class="section-label">
+                    INTERVIEW SCHEDULE
+                </span>
 
                 <h3>
                     Scheduled Interviews
@@ -96,11 +113,12 @@
         </div>
 
 
-        <!--
-            This ID is required by student-interviews.js.
-        -->
+        <!-- Required by student-interviews.js -->
 
-        <div id="interviewList" class="interview-list">
+        <div
+                id="interviewList"
+                class="interview-list"
+        >
 
             <div class="loading-state">
 
@@ -124,10 +142,9 @@
         <button
                 type="button"
                 class="back-btn"
-                onclick="goBack()">
-
+                onclick="goBack()"
+        >
             ← Back to Dashboard
-
         </button>
 
     </div>
@@ -139,16 +156,28 @@
 
 <footer class="interviews-footer">
 
-    <p>
-        Campus Placement Portal
-        <span>•</span>
-        Student Placement Services
-    </p>
+    <div class="footer-inner">
+
+        <div>
+
+            <strong>
+                Campus Placement Portal
+            </strong>
+
+            <span>
+                Student Placement Services
+            </span>
+
+        </div>
+
+        <span>
+            Student Portal
+        </span>
+
+    </div>
 
 </footer>
 
-
-<!-- EXISTING JAVASCRIPT -->
 
 <script src="student-interviews.js"></script>
 

@@ -37,6 +37,9 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 body {
 
@@ -51,6 +54,8 @@ body {
     background: var(--background);
 
     color: var(--text-dark);
+
+    line-height: 1.6;
 }
 
 
@@ -58,25 +63,37 @@ body {
 
 .top-navbar {
 
+    width: 100%;
+
     min-height: 76px;
 
     background: var(--white);
 
     border-bottom: 1px solid var(--border);
 
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 0 6%;
-
     position: sticky;
 
     top: 0;
 
     z-index: 100;
+}
+
+
+.navbar-inner {
+
+    width: calc(100% - 60px);
+
+    max-width: 1200px;
+
+    min-height: 76px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
 }
 
 
@@ -88,21 +105,15 @@ body {
 
     align-items: center;
 
-    gap: 12px;
+    gap: 14px;
 }
 
 
 .brand-mark {
 
-    width: 42px;
+    width: 52px;
 
-    height: 42px;
-
-    border-radius: 8px;
-
-    background: var(--primary);
-
-    color: white;
+    height: 52px;
 
     display: flex;
 
@@ -110,7 +121,13 @@ body {
 
     justify-content: center;
 
-    font-size: 14px;
+    background: var(--primary);
+
+    color: var(--white);
+
+    border-radius: 8px;
+
+    font-size: 16px;
 
     font-weight: 700;
 
@@ -122,11 +139,13 @@ body {
 
     margin: 0;
 
-    font-size: 18px;
+    color: var(--primary);
+
+    font-size: 22px;
+
+    line-height: 1.2;
 
     font-weight: 700;
-
-    color: var(--primary);
 }
 
 
@@ -136,9 +155,9 @@ body {
 
     margin-top: 3px;
 
-    font-size: 12px;
+    color: #718096;
 
-    color: var(--text-light);
+    font-size: 12px;
 }
 
 
@@ -150,39 +169,41 @@ body {
 
     align-items: center;
 
-    gap: 12px;
+    gap: 13px;
 }
 
 
 .student-label {
 
-    font-size: 14px;
-
     color: var(--text-medium);
 
-    font-weight: 500;
+    font-size: 14px;
+
+    font-weight: 600;
 }
 
 
 .student-avatar {
 
-    width: 38px;
+    width: 46px;
 
-    height: 38px;
-
-    border-radius: 50%;
-
-    background: var(--primary-light);
-
-    border: 1px solid #d6e1ec;
-
-    color: var(--primary);
+    height: 46px;
 
     display: flex;
 
     align-items: center;
 
     justify-content: center;
+
+    background: var(--primary-light);
+
+    border: 1px solid #d5e1ed;
+
+    border-radius: 50%;
+
+    color: var(--primary);
+
+    font-size: 15px;
 
     font-weight: 700;
 }
@@ -192,13 +213,13 @@ body {
 
 .interviews-container {
 
-    width: 88%;
+    width: calc(100% - 60px);
 
-    max-width: 1180px;
+    max-width: 1200px;
 
     margin: 0 auto;
 
-    padding: 42px 0 35px;
+    padding: 38px 0 45px;
 }
 
 
@@ -206,7 +227,7 @@ body {
 
 .page-header {
 
-    margin-bottom: 30px;
+    margin-bottom: 26px;
 }
 
 
@@ -214,75 +235,77 @@ body {
 
     display: inline-block;
 
-    margin-bottom: 8px;
-
-    font-size: 11px;
-
-    font-weight: 700;
-
-    letter-spacing: 1.2px;
-
     color: var(--primary);
-}
-
-
-.page-header h2 {
-
-    margin: 0;
-
-    font-size: 32px;
-
-    line-height: 1.2;
-
-    color: var(--text-dark);
-}
-
-
-.page-header p {
-
-    margin: 9px 0 0;
-
-    font-size: 14px;
-
-    line-height: 1.6;
-
-    color: var(--text-medium);
-}
-
-
-/* ================= SECTION ================= */
-
-.interviews-section {
-
-    background: var(--white);
-
-    border: 1px solid var(--border);
-
-    border-radius: 10px;
-
-    box-shadow: var(--shadow);
-
-    overflow: hidden;
-}
-
-
-.section-header {
-
-    padding: 22px 24px;
-
-    border-bottom: 1px solid var(--border);
-}
-
-
-.section-label {
 
     font-size: 10px;
 
     font-weight: 700;
 
-    letter-spacing: 1.1px;
+    letter-spacing: 1.4px;
+}
+
+
+.page-header h2 {
+
+    margin: 5px 0 6px;
+
+    color: var(--text-dark);
+
+    font-size: 30px;
+
+    line-height: 1.25;
+
+    font-weight: 700;
+}
+
+
+.page-header p {
+
+    margin: 0;
+
+    color: var(--text-medium);
+
+    font-size: 14px;
+}
+
+
+/* ================= INTERVIEW SECTION ================= */
+
+.interviews-section {
+
+    overflow: hidden;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    box-shadow: var(--shadow);
+}
+
+
+/* ================= SECTION HEADER ================= */
+
+.section-header {
+
+    padding: 23px 26px;
+
+    border-bottom: 1px solid var(--border);
+
+    background: var(--white);
+}
+
+
+.section-label {
 
     color: var(--text-light);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
 }
 
 
@@ -290,9 +313,11 @@ body {
 
     margin: 4px 0 0;
 
+    color: var(--text-dark);
+
     font-size: 19px;
 
-    color: var(--text-dark);
+    font-weight: 700;
 }
 
 
@@ -300,16 +325,16 @@ body {
 
 .interview-list {
 
-    padding: 20px;
-
     display: grid;
 
     grid-template-columns:
         repeat(2, minmax(0, 1fr));
 
-    gap: 16px;
+    gap: 18px;
 
-    background: #fafbfd;
+    padding: 22px;
+
+    background: #f8fafc;
 }
 
 
@@ -317,18 +342,21 @@ body {
 
 .interview-card {
 
+    position: relative;
+
+    padding: 22px;
+
     background: var(--white);
 
     border: 1px solid var(--border);
 
-    border-radius: 9px;
+    border-radius: 8px;
 
-    padding: 21px;
+    box-shadow: 0 2px 8px rgba(23, 54, 93, 0.04);
 
     transition:
-            border-color 0.2s ease,
-            box-shadow 0.2s ease,
-            transform 0.2s ease;
+            border-color 0.15s ease,
+            box-shadow 0.15s ease;
 }
 
 
@@ -336,20 +364,19 @@ body {
 
     border-color: #c5d2df;
 
-    box-shadow:
-            0 7px 20px rgba(23, 54, 93, 0.09);
+    box-shadow: 0 6px 18px rgba(23, 54, 93, 0.08);
 
-    transform: translateY(-2px);
+    transform: none;
 }
 
 
-/* ================= CARD TITLE ================= */
+/* ================= CARD HEADER ================= */
 
 .interview-card h3 {
 
-    margin: 0 0 16px;
+    margin: 0 0 18px;
 
-    padding-bottom: 13px;
+    padding-bottom: 14px;
 
     border-bottom: 1px solid var(--border);
 
@@ -357,21 +384,21 @@ body {
 
     font-size: 17px;
 
-    font-weight: 650;
+    font-weight: 700;
 }
 
 
-/* ================= DETAILS ================= */
+/* ================= CARD DETAILS ================= */
 
 .interview-card p {
 
-    margin: 10px 0;
+    margin: 9px 0;
 
     color: var(--text-medium);
 
     font-size: 13px;
 
-    line-height: 1.55;
+    line-height: 1.6;
 }
 
 
@@ -388,11 +415,11 @@ body {
 .interview-card p:nth-of-type(4),
 .interview-card p:nth-of-type(5) {
 
-    padding: 10px 11px;
+    padding: 10px 12px;
 
     background: #f7f9fb;
 
-    border: 1px solid #e8edf1;
+    border: 1px solid #e7ecf1;
 
     border-radius: 6px;
 }
@@ -404,21 +431,35 @@ body {
 
     margin-top: 14px;
 
-    padding: 9px 11px;
-
-    border-radius: 6px;
+    padding: 9px 12px;
 
     background: var(--primary-light);
 
-    color: var(--primary);
+    border: 1px solid #d6e2ee;
 
-    border: 1px solid #d9e4ef;
+    border-radius: 6px;
+
+    color: var(--primary);
 
     font-weight: 600;
 }
 
 
-/* ================= ONLINE MEETING LINK ================= */
+/* ================= ONLINE MEETING ================= */
+
+.interview-card p:has(a) {
+
+    padding: 11px 12px;
+
+    background: var(--online-bg);
+
+    border: 1px solid #cde7d8;
+
+    border-radius: 6px;
+
+    color: var(--online-text);
+}
+
 
 .interview-card a {
 
@@ -428,15 +469,15 @@ body {
 
     justify-content: center;
 
-    min-height: 34px;
+    margin-left: 6px;
 
-    margin-left: 5px;
+    min-height: 32px;
 
     padding: 0 13px;
 
     background: var(--primary);
 
-    color: white;
+    color: var(--white);
 
     border-radius: 5px;
 
@@ -446,7 +487,7 @@ body {
 
     font-weight: 600;
 
-    transition: 0.2s ease;
+    transition: background-color 0.15s ease;
 }
 
 
@@ -456,44 +497,23 @@ body {
 }
 
 
-/* ================= ONLINE INDICATOR ================= */
-
-.interview-card p:has(a) {
-
-    padding: 9px 11px;
-
-    border-radius: 6px;
-
-    background: var(--online-bg);
-
-    color: var(--online-text);
-
-    border: 1px solid #cde7d8;
-}
-
-
 /* ================= OFFLINE LOCATION ================= */
 
 .interview-card p:last-child:not(:has(a)) {
 
-    padding: 9px 11px;
-
-    border-radius: 6px;
+    padding: 10px 12px;
 
     background: var(--offline-bg);
 
-    color: var(--offline-text);
-
     border: 1px solid #f0dfb8;
+
+    border-radius: 6px;
+
+    color: var(--offline-text);
 }
 
 
-/* ================= SEPARATOR ================= */
-
-/*
-   Your JavaScript adds <hr> after every card.
-   Hide it because the cards already have spacing.
-*/
+/* ================= HIDE JS HR ================= */
 
 .interview-list hr {
 
@@ -507,13 +527,7 @@ body {
 
     grid-column: 1 / -1;
 
-    min-height: 220px;
-
-    background: var(--white);
-
-    border: 1px solid var(--border);
-
-    border-radius: 8px;
+    min-height: 240px;
 
     display: flex;
 
@@ -522,6 +536,12 @@ body {
     align-items: center;
 
     justify-content: center;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
 
     color: var(--text-light);
 }
@@ -537,9 +557,9 @@ body {
 
 .loading-spinner {
 
-    width: 28px;
+    width: 30px;
 
-    height: 28px;
+    height: 30px;
 
     border: 3px solid #dce4eb;
 
@@ -568,7 +588,7 @@ body {
 
     margin: 0;
 
-    padding: 45px 25px;
+    padding: 55px 25px;
 
     background: var(--white);
 
@@ -581,14 +601,6 @@ body {
     color: var(--text-light);
 
     font-size: 13px;
-
-    line-height: 1.6;
-}
-
-
-.interview-list > p b {
-
-    color: var(--text-dark);
 }
 
 
@@ -596,23 +608,23 @@ body {
 
 .back-section {
 
-    margin-top: 24px;
+    margin-top: 22px;
 }
 
 
 .back-btn {
 
-    min-height: 40px;
+    min-height: 42px;
 
     padding: 0 17px;
 
     background: var(--white);
 
-    color: var(--primary);
-
     border: 1px solid #cbd5df;
 
     border-radius: 6px;
+
+    color: var(--primary);
 
     font-family: inherit;
 
@@ -622,7 +634,9 @@ body {
 
     cursor: pointer;
 
-    transition: 0.2s ease;
+    transition:
+            background-color 0.15s ease,
+            border-color 0.15s ease;
 }
 
 
@@ -630,7 +644,7 @@ body {
 
     background: var(--primary-light);
 
-    border-color: #aebfd0;
+    border-color: #afc0d1;
 }
 
 
@@ -641,30 +655,44 @@ body {
     background: var(--white);
 
     border-top: 1px solid var(--border);
-
-    text-align: center;
-
-    padding: 18px 15px;
-
-    margin-top: 20px;
 }
 
 
-.interviews-footer p {
+.footer-inner {
 
-    margin: 0;
+    width: calc(100% - 60px);
+
+    max-width: 1200px;
+
+    min-height: 68px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.footer-inner strong {
+
+    display: block;
+
+    color: var(--primary);
 
     font-size: 12px;
-
-    color: var(--text-light);
 }
 
 
-.interviews-footer span {
+.footer-inner span {
 
-    margin: 0 6px;
+    color: var(--text-light);
 
-    color: #b0bac4;
+    font-size: 11px;
 }
 
 
@@ -672,21 +700,27 @@ body {
 
 @media (max-width: 900px) {
 
-    .top-navbar {
+    .navbar-inner {
 
-        padding: 0 4%;
+        width: calc(100% - 40px);
     }
 
 
     .interviews-container {
 
-        width: 92%;
+        width: calc(100% - 40px);
     }
 
 
     .interview-list {
 
         grid-template-columns: 1fr;
+    }
+
+
+    .footer-inner {
+
+        width: calc(100% - 40px);
     }
 
 }
@@ -696,15 +730,31 @@ body {
 
 @media (max-width: 650px) {
 
-    .brand-text span {
+    .navbar-inner {
 
-        display: none;
+        width: calc(100% - 30px);
+
+        min-height: 68px;
+    }
+
+
+    .brand-mark {
+
+        width: 42px;
+
+        height: 42px;
     }
 
 
     .brand-text h1 {
 
-        font-size: 15px;
+        font-size: 17px;
+    }
+
+
+    .brand-text span {
+
+        display: none;
     }
 
 
@@ -714,23 +764,37 @@ body {
     }
 
 
+    .student-avatar {
+
+        width: 40px;
+
+        height: 40px;
+    }
+
+
     .interviews-container {
 
-        width: 92%;
+        width: calc(100% - 30px);
 
-        padding-top: 30px;
+        padding-top: 28px;
     }
 
 
     .page-header h2 {
 
-        font-size: 27px;
+        font-size: 26px;
+    }
+
+
+    .interviews-section {
+
+        border-radius: 7px;
     }
 
 
     .section-header {
 
-        padding: 18px;
+        padding: 20px;
     }
 
 
@@ -744,15 +808,31 @@ body {
 
     .interview-card {
 
-        padding: 17px;
+        padding: 18px;
     }
 
 
     .interview-card a {
 
-        margin-top: 7px;
+        margin-top: 8px;
 
         margin-left: 0;
+    }
+
+
+    .footer-inner {
+
+        width: calc(100% - 30px);
+
+        padding: 15px 0;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        text-align: center;
+
+        gap: 3px;
     }
 
 }
@@ -764,9 +844,9 @@ body {
 
     .brand-mark {
 
-        width: 36px;
+        width: 38px;
 
-        height: 36px;
+        height: 38px;
 
         font-size: 12px;
     }
@@ -774,19 +854,25 @@ body {
 
     .brand-text h1 {
 
-        font-size: 14px;
+        font-size: 15px;
     }
 
 
     .page-header h2 {
 
-        font-size: 24px;
+        font-size: 23px;
     }
 
 
     .interview-card h3 {
 
         font-size: 16px;
+    }
+
+
+    .interview-card {
+
+        padding: 16px;
     }
 
 }

@@ -1,4 +1,3 @@
-
 package com.campusplacement.campus_placement_portal.controller;
 
 import com.campusplacement.campus_placement_portal.exception.ResourceNotFoundException;
@@ -32,9 +31,14 @@ public class ResumeController {
     private final StudentRepository studentRepository;
     private final UserRepository userRepository;
 
+    /*
+     * Store uploads in an absolute directory based on
+     * the application's current working directory.
+     */
     private final Path uploadDirectory =
-            Paths.get("uploads/resumes");
-
+            Paths.get(System.getProperty("user.dir"),
+                    "uploads",
+                    "resumes");
 
     public ResumeController(
             ResumeRepository resumeRepository,
@@ -56,19 +60,14 @@ public class ResumeController {
             throws IOException {
 
         if (file == null || file.isEmpty()) {
-
             throw new IllegalArgumentException(
                     "Please select a resume file");
         }
 
 
-        String fileName =
-                file.getOriginalFilename();
+        String fileName = file.getOriginalFilename();
 
-
-        if (fileName == null ||
-                fileName.isBlank()) {
-
+        if (fileName == null || fileName.isBlank()) {
             throw new IllegalArgumentException(
                     "Invalid file name");
         }
@@ -112,7 +111,7 @@ public class ResumeController {
         Files.createDirectories(uploadDirectory);
 
 
-        // ================= DELETE OLD RESUME =================
+        // ================= FIND OLD RESUME =================
 
         Resume existingResume =
                 resumeRepository
@@ -120,31 +119,40 @@ public class ResumeController {
                         .orElse(null);
 
 
+        // ================= DELETE OLD FILE =================
+
         if (existingResume != null &&
                 existingResume.getFilePath() != null) {
 
             Path oldFile =
-                    Paths.get(
-                            existingResume.getFilePath());
+                    Paths.get(existingResume.getFilePath());
 
             Files.deleteIfExists(oldFile);
         }
 
 
-        // ================= SAVE FILE =================
+        // ================= SAFE FILE NAME =================
 
-        String safeFileName =
-                System.currentTimeMillis()
-                        + "_"
-                        + fileName.replaceAll(
+        String safeOriginalName =
+                fileName.replaceAll(
                         "[^a-zA-Z0-9._-]",
                         "_");
 
 
-        Path filePath =
-                uploadDirectory.resolve(
-                        safeFileName);
+        String safeFileName =
+                System.currentTimeMillis()
+                        + "_"
+                        + student.getId()
+                        + "_"
+                        + safeOriginalName;
 
+
+        Path filePath =
+                uploadDirectory.resolve(safeFileName)
+                        .normalize();
+
+
+        // ================= SAVE FILE =================
 
         Files.copy(
                 file.getInputStream(),
@@ -157,11 +165,8 @@ public class ResumeController {
         Resume resume;
 
         if (existingResume != null) {
-
             resume = existingResume;
-
         } else {
-
             resume = new Resume();
         }
 
@@ -321,8 +326,7 @@ public class ResumeController {
         if (resume.getFilePath() != null) {
 
             Files.deleteIfExists(
-                    Paths.get(
-                            resume.getFilePath()));
+                    Paths.get(resume.getFilePath()));
         }
 
 
