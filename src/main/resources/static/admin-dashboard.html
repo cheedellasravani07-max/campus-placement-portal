@@ -5,148 +5,365 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Admin Dashboard</title>
+    <title>Admin Dashboard | Campus Placement Portal</title>
 
     <link rel="stylesheet" href="admin-dashboard.css">
 </head>
 
 <body>
 
-<div class="admin-container">
+<header class="top-navbar">
 
-    <h1>Campus Placement Portal</h1>
+    <div class="brand-section">
 
-    <h2>Admin Dashboard</h2>
+        <div class="brand-mark">
+            CP
+        </div>
 
-    <p>Welcome, Admin!</p>
+        <div class="brand-text">
+            <h1>Campus Placement Portal</h1>
+            <span>Administration & Placement Services</span>
+        </div>
+
+    </div>
+
+    <div class="admin-profile">
+        <div class="admin-avatar">A</div>
+
+        <div>
+            <strong>Administrator</strong>
+            <span>Admin Portal</span>
+        </div>
+    </div>
+
+</header>
+
+
+<main class="admin-page">
+
+    <!-- ================= PAGE HEADER ================= -->
+
+    <section class="page-header">
+
+        <div>
+            <span class="section-label">ADMINISTRATION</span>
+
+            <h2>Admin Dashboard</h2>
+
+            <p>
+                Monitor students, companies, jobs and placement applications.
+            </p>
+        </div>
+
+    </section>
 
 
     <!-- ================= BASIC STATISTICS ================= -->
 
-    <div class="dashboard-container">
+    <section class="dashboard-section">
 
-        <div class="dashboard-card">
-            <h3>Total Students</h3>
-            <p id="totalStudents">0</p>
+        <div class="section-heading">
+
+            <div>
+                <h3>Portal Overview</h3>
+
+                <p>
+                    Current placement portal statistics
+                </p>
+            </div>
+
         </div>
 
-        <div class="dashboard-card">
-            <h3>Total Companies</h3>
-            <p id="totalCompanies">0</p>
+
+        <div class="dashboard-container">
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    ST
+                </div>
+
+                <div class="card-content">
+
+                    <span>Total Students</span>
+
+                    <p id="totalStudents">0</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    CO
+                </div>
+
+                <div class="card-content">
+
+                    <span>Total Companies</span>
+
+                    <p id="totalCompanies">0</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    JB
+                </div>
+
+                <div class="card-content">
+
+                    <span>Total Jobs</span>
+
+                    <p id="totalJobs">0</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    AP
+                </div>
+
+                <div class="card-content">
+
+                    <span>Total Applications</span>
+
+                    <p id="totalApplications">0</p>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="dashboard-card">
-            <h3>Total Jobs</h3>
-            <p id="totalJobs">0</p>
-        </div>
-
-        <div class="dashboard-card">
-            <h3>Total Applications</h3>
-            <p id="totalApplications">0</p>
-        </div>
-
-    </div>
+    </section>
 
 
     <!-- ================= APPLICATION STATISTICS ================= -->
 
-    <div class="statistics-section">
+    <section class="statistics-section">
 
-        <h2>Application Statistics</h2>
+        <div class="section-heading">
+
+            <div>
+                <h3>Application Statistics</h3>
+
+                <p>
+                    Overview of the current application pipeline
+                </p>
+            </div>
+
+        </div>
+
 
         <div class="status-container">
 
-            <!-- APPLIED -->
-
             <div class="status-card">
 
-                <h3>Applied</h3>
+                <div class="status-number">
+                    <p id="appliedCount">0</p>
+                </div>
 
-                <p id="appliedCount">
-                    0
-                </p>
+                <div>
+                    <h4>Applied</h4>
+                    <span>Applications received</span>
+                </div>
 
             </div>
 
 
-            <!-- SHORTLISTED -->
-
             <div class="status-card">
 
-                <h3>Shortlisted</h3>
+                <div class="status-number">
+                    <p id="shortlistedCount">0</p>
+                </div>
 
-                <p id="shortlistedCount">
-                    0
-                </p>
+                <div>
+                    <h4>Shortlisted</h4>
+                    <span>Candidates shortlisted</span>
+                </div>
 
             </div>
 
 
-            <!-- INTERVIEW -->
-
             <div class="status-card">
 
-                <h3>Interview</h3>
+                <div class="status-number">
+                    <p id="interviewCount">0</p>
+                </div>
 
-                <p id="interviewCount">
-                    0
-                </p>
+                <div>
+                    <h4>Interview</h4>
+                    <span>Interviews scheduled</span>
+                </div>
 
             </div>
 
 
-            <!-- ACCEPTED -->
-
             <div class="status-card">
 
-                <h3>Accepted</h3>
+                <div class="status-number">
+                    <p id="acceptedCount">0</p>
+                </div>
 
-                <p id="acceptedCount">
-                    0
-                </p>
+                <div>
+                    <h4>Accepted</h4>
+                    <span>Successful applications</span>
+                </div>
 
             </div>
 
 
-            <!-- REJECTED -->
-
             <div class="status-card">
 
-                <h3>Rejected</h3>
+                <div class="status-number">
+                    <p id="rejectedCount">0</p>
+                </div>
 
-                <p id="rejectedCount">
-                    0
-                </p>
+                <div>
+                    <h4>Rejected</h4>
+                    <span>Unsuccessful applications</span>
+                </div>
 
             </div>
 
         </div>
 
-    </div>
+    </section>
 
 
-    <br>
+    <!-- ================= ADMIN ACTIONS ================= -->
+
+    <section class="actions-section">
+
+        <div class="section-heading">
+
+            <div>
+                <h3>Administration</h3>
+
+                <p>
+                    Manage placement activities and account settings
+                </p>
+            </div>
+
+        </div>
 
 
-    <!-- ================= ADMIN BUTTONS ================= -->
+        <div class="action-grid">
 
-    <button onclick="openPortal()">
-        Manage Placement Portal
-    </button>
+            <button
+                    type="button"
+                    class="action-card"
+                    onclick="openPortal()">
 
-    <button onclick="manageApplications()">
-        Manage Applications
-    </button>
+                <span class="action-icon">PP</span>
 
-    <button onclick="changePasswordPage()">
-        Change Password
-    </button>
+                <span class="action-content">
 
-    <button onclick="logout()">
-        Logout
-    </button>
+                    <strong>Manage Placement Portal</strong>
 
-</div>
+                    <small>
+                        Manage companies, jobs and placement opportunities
+                    </small>
+
+                </span>
+
+                <span class="action-arrow">→</span>
+
+            </button>
+
+
+            <button
+                    type="button"
+                    class="action-card"
+                    onclick="manageApplications()">
+
+                <span class="action-icon">AP</span>
+
+                <span class="action-content">
+
+                    <strong>Manage Applications</strong>
+
+                    <small>
+                        Review and manage student applications
+                    </small>
+
+                </span>
+
+                <span class="action-arrow">→</span>
+
+            </button>
+
+
+            <button
+                    type="button"
+                    class="action-card"
+                    onclick="changePasswordPage()">
+
+                <span class="action-icon">PW</span>
+
+                <span class="action-content">
+
+                    <strong>Change Password</strong>
+
+                    <small>
+                        Update your administrator account password
+                    </small>
+
+                </span>
+
+                <span class="action-arrow">→</span>
+
+            </button>
+
+
+            <button
+                    type="button"
+                    class="action-card logout-card"
+                    onclick="logout()">
+
+                <span class="action-icon">LO</span>
+
+                <span class="action-content">
+
+                    <strong>Logout</strong>
+
+                    <small>
+                        Sign out of the administrator account
+                    </small>
+
+                </span>
+
+                <span class="action-arrow">→</span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="site-footer">
+
+    <span>© 2026 Campus Placement Portal</span>
+
+    <span class="footer-divider">
+        Administration & Placement Services
+    </span>
+
+</footer>
 
 
 <script src="admin-dashboard.js"></script>

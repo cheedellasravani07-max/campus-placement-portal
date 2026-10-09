@@ -7,7 +7,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Manage Interviews</title>
+    <title>Manage Interviews | Campus Placement Portal</title>
 
     <link rel="stylesheet"
           href="admin-interviews.css">
@@ -15,36 +15,95 @@
 
 <body>
 
-<div class="container">
+<header class="topbar">
 
-    <h1>Campus Placement Portal</h1>
+    <div class="brand-section">
 
-    <h2>Manage Interviews</h2>
+        <div class="brand-mark">
+            CP
+        </div>
 
-    <p class="subtitle">
-        Admin Interview Management
-    </p>
+        <div>
+            <h1>Campus Placement Portal</h1>
+            <p>Administration Portal</p>
+        </div>
+
+    </div>
+
+</header>
 
 
-    <!-- ================= INTERVIEW LIST ================= -->
+<main class="page-container">
 
-    <div id="interviewList">
+    <div class="page-header">
 
-        Loading interviews...
+        <div>
+            <p class="breadcrumb">
+                Admin / Interview Management
+            </p>
+
+            <h2>Manage Interviews</h2>
+
+            <p class="page-description">
+                View, update and manage scheduled student interviews.
+            </p>
+        </div>
 
     </div>
 
 
+    <!-- ================= INTERVIEW LIST ================= -->
+
+    <section class="interviews-section">
+
+        <div class="section-header">
+
+            <div>
+                <h3>Scheduled Interviews</h3>
+
+                <p>
+                    Manage interview schedules and meeting details.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div id="interviewList">
+
+            <p class="loading-message">
+                Loading interviews...
+            </p>
+
+        </div>
+
+    </section>
+
+
     <!-- ================= BACK BUTTON ================= -->
 
-    <button type="button"
-            onclick="goBack()">
+    <div class="page-actions">
 
-        Back to Admin Dashboard
+        <button
+                type="button"
+                class="secondary-button"
+                onclick="goBack()"
+        >
+            ← Back to Admin Dashboard
+        </button>
 
-    </button>
+    </div>
 
-</div>
+</main>
+
+
+<footer class="footer">
+
+    <p>
+        © 2026 Campus Placement Portal. All rights reserved.
+    </p>
+
+</footer>
 
 
 <script src="admin-interviews.js"></script>

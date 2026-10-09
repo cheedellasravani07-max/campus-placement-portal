@@ -4,64 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Student Registration</title>
+    <title>Student Registration | Campus Placement Portal</title>
 
     <link rel="stylesheet" href="student-signup.css">
 </head>
 
 <body>
 
-<div class="signup-container">
+<header class="top-navbar">
 
-    <div class="signup-card">
+    <div class="brand-section">
+        <div class="brand-mark">CP</div>
 
-        <h1>Student Sign Up</h1>
+        <div class="brand-text">
+            <h1>Campus Placement Portal</h1>
+            <span>Student Placement Services</span>
+        </div>
+    </div>
 
-        <p class="subtitle">
-            Create your Campus Placement Portal account
-        </p>
+    <div class="nav-right">
+        <span>Student Registration</span>
+    </div>
+
+</header>
+
+
+<main class="signup-page">
+
+    <section class="signup-card">
+
+        <div class="card-header">
+
+            <div class="page-icon">
+                <span>👤</span>
+            </div>
+
+            <h2>Student Sign Up</h2>
+
+            <p>
+                Create your account to access campus placement opportunities.
+            </p>
+
+        </div>
+
 
         <form id="signupForm">
 
-            <!-- NAME -->
             <div class="form-group">
-                <label for="name">Full Name</label>
+
+                <label for="name">
+                    Full Name
+                </label>
 
                 <input
                         type="text"
                         id="name"
                         name="name"
                         placeholder="Enter your full name"
+                        autocomplete="name"
                         required>
+
             </div>
 
-            <!-- EMAIL -->
+
             <div class="form-group">
-                <label for="email">Email</label>
+
+                <label for="email">
+                    Email Address
+                </label>
 
                 <input
                         type="email"
                         id="email"
                         name="email"
-                        placeholder="Enter your email"
+                        placeholder="Enter your email address"
+                        autocomplete="email"
                         required>
+
             </div>
 
-            <!-- USERNAME -->
+
             <div class="form-group">
-                <label for="username">Username</label>
+
+                <label for="username">
+                    Username
+                </label>
 
                 <input
                         type="text"
                         id="username"
                         name="username"
                         placeholder="Create a username"
+                        autocomplete="username"
                         required>
+
             </div>
 
-            <!-- PASSWORD -->
+
             <div class="form-group">
-                <label for="password">Password</label>
+
+                <label for="password">
+                    Password
+                </label>
 
                 <input
                         type="password"
@@ -69,62 +113,84 @@
                         name="password"
                         placeholder="Create a password"
                         minlength="6"
+                        autocomplete="new-password"
                         required>
+
+                <small class="field-hint">
+                    Password must contain at least 6 characters.
+                </small>
+
             </div>
 
-            <!-- BRANCH -->
-            <div class="form-group">
-                <label for="branch">Branch</label>
 
-                <select id="branch" name="branch" required>
+            <div class="form-group">
+
+                <label for="branch">
+                    Branch
+                </label>
+
+                <select
+                        id="branch"
+                        name="branch"
+                        required>
 
                     <option value="">
                         Select your branch
                     </option>
 
-                    <option value="CSE">
-                        CSE
-                    </option>
-
-                    <option value="IT">
-                        IT
-                    </option>
-
-                    <option value="ECE">
-                        ECE
-                    </option>
-
-                    <option value="EEE">
-                        EEE
-                    </option>
-
-                    <option value="CIVIL">
-                        CIVIL
-                    </option>
-
-                    <option value="MECH">
-                        MECH
-                    </option>
+                    <option value="CSE">CSE</option>
+                    <option value="IT">IT</option>
+                    <option value="ECE">ECE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="CIVIL">CIVIL</option>
+                    <option value="MECH">MECH</option>
 
                 </select>
+
             </div>
 
+
             <button type="submit">
-                Create Account
+                Student Sign Up
             </button>
 
         </form>
 
-        <p id="message"></p>
 
-        <p class="login-link">
-            Already have an account?
-            <a href="/login.html">Login</a>
-        </p>
+        <div
+                id="message"
+                class="message"
+                aria-live="polite">
+        </div>
 
-    </div>
 
-</div>
+        <div class="login-section">
+
+            <span>Already have an account?</span>
+
+            <a href="/login.html">
+                Login
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="site-footer">
+
+    <p>
+        © 2026 Campus Placement Portal
+    </p>
+
+    <span>
+        Student Placement Services
+    </span>
+
+</footer>
+
 
 <script src="student-signup.js"></script>
 

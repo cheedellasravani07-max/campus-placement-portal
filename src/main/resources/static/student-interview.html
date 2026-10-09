@@ -5,32 +5,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My Interviews</title>
+    <title>My Interviews | Campus Placement Portal</title>
 
-    <link rel="stylesheet" href="student-interview.css">
+    <link rel="stylesheet" href="student-interviews.css">
 </head>
 
 <body>
 
-<div class="interview-container">
+<!-- ================= TOP NAVBAR ================= -->
 
-    <h1>Campus Placement Portal</h1>
+<header class="top-navbar">
 
-    <h2>📅 My Interviews</h2>
+    <div class="brand">
 
-    <div id="interviewList">
-        Loading interviews...
+        <div class="brand-mark">
+            CP
+        </div>
+
+        <div class="brand-text">
+
+            <h1>Campus Placement Portal</h1>
+
+            <span>Student Placement Services</span>
+
+        </div>
+
     </div>
 
-    <br>
 
-    <button onclick="goBack()">
-        Back to Dashboard
-    </button>
+    <div class="student-area">
 
-</div>
+            <span class="student-label">
+                Student
+            </span>
 
-<script src="student-interview.js"></script>
+        <div class="student-avatar">
+            S
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="interviews-container">
+
+    <!-- PAGE HEADER -->
+
+    <section class="page-header">
+
+        <div>
+
+                <span class="page-label">
+                    PLACEMENT ACTIVITY
+                </span>
+
+            <h2>
+                My Interviews
+            </h2>
+
+            <p>
+                View your scheduled interviews and access the required interview details.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= INTERVIEWS ================= -->
+
+    <section class="interviews-section">
+
+        <div class="section-header">
+
+            <div>
+
+                    <span class="section-label">
+                        INTERVIEW SCHEDULE
+                    </span>
+
+                <h3>
+                    Scheduled Interviews
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <!--
+            This ID is required by student-interviews.js.
+        -->
+
+        <div id="interviewList" class="interview-list">
+
+            <div class="loading-state">
+
+                <div class="loading-spinner"></div>
+
+                <p>
+                    Loading interviews...
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= BACK ================= -->
+
+    <div class="back-section">
+
+        <button
+                type="button"
+                class="back-btn"
+                onclick="goBack()">
+
+            ← Back to Dashboard
+
+        </button>
+
+    </div>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="interviews-footer">
+
+    <p>
+        Campus Placement Portal
+        <span>•</span>
+        Student Placement Services
+    </p>
+
+</footer>
+
+
+<!-- EXISTING JAVASCRIPT -->
+
+<script src="student-interviews.js"></script>
 
 </body>
 

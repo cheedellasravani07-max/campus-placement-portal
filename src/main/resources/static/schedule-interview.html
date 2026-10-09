@@ -5,100 +5,182 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Schedule Interview</title>
+    <title>Schedule Interview | Campus Placement Portal</title>
 
     <link rel="stylesheet" href="schedule-interview.css">
 </head>
 
 <body>
 
-<div class="interview-container">
+<header class="topbar">
 
-    <h1>Campus Placement Portal</h1>
+    <div class="brand-section">
+        <div class="brand-mark">CP</div>
 
-    <h2>Schedule Interview</h2>
+        <div>
+            <h1>Campus Placement Portal</h1>
+            <p>Administration Portal</p>
+        </div>
+    </div>
 
-
-    <div class="interview-card">
-
-        <label for="interviewDate">
-            Interview Date
-        </label>
-
-        <input
-                type="date"
-                id="interviewDate"
-        >
+</header>
 
 
-        <label for="interviewTime">
-            Interview Time
-        </label>
+<main class="page-container">
 
-        <input
-                type="time"
-                id="interviewTime"
-        >
+    <div class="page-header">
 
+        <div>
+            <p class="breadcrumb">Admin / Applications / Interview</p>
 
-        <label for="mode">
-            Interview Mode
-        </label>
+            <h2>Schedule Interview</h2>
 
-        <select id="mode">
-
-            <option value="">
-                Select Mode
-            </option>
-
-            <option value="ONLINE">
-                Online
-            </option>
-
-            <option value="OFFLINE">
-                Offline
-            </option>
-
-        </select>
-
-
-        <label for="location">
-            Location
-        </label>
-
-        <input
-                type="text"
-                id="location"
-                placeholder="Interview location"
-        >
-
-
-        <label for="meetingLink">
-            Meeting Link
-        </label>
-
-        <input
-                type="url"
-                id="meetingLink"
-                placeholder="https://..."
-        >
-
-
-        <button onclick="scheduleInterview()">
-            Schedule Interview
-        </button>
+            <p class="page-description">
+                Schedule an interview for the selected student application.
+            </p>
+        </div>
 
     </div>
 
 
-    <br>
+    <section class="interview-card">
+
+        <div class="card-header">
+            <h3>Interview Details</h3>
+
+            <p>
+                Enter the interview date, time and meeting details.
+            </p>
+        </div>
 
 
-    <button onclick="goBack()">
-        Back to Applications
-    </button>
+        <div class="form-grid">
 
-</div>
+            <div class="form-group">
+
+                <label for="interviewDate">
+                    Interview Date
+                </label>
+
+                <input
+                        type="date"
+                        id="interviewDate"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="interviewTime">
+                    Interview Time
+                </label>
+
+                <input
+                        type="time"
+                        id="interviewTime"
+                >
+
+            </div>
+
+
+            <div class="form-group full-width">
+
+                <label for="mode">
+                    Interview Mode
+                </label>
+
+                <select id="mode">
+
+                    <option value="">
+                        Select Interview Mode
+                    </option>
+
+                    <option value="ONLINE">
+                        Online
+                    </option>
+
+                    <option value="OFFLINE">
+                        Offline
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="location">
+                    Interview Location
+                </label>
+
+                <input
+                        type="text"
+                        id="location"
+                        placeholder="Enter interview location"
+                >
+
+                <span class="field-hint">
+                    Required for offline interviews.
+                </span>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="meetingLink">
+                    Meeting Link
+                </label>
+
+                <input
+                        type="url"
+                        id="meetingLink"
+                        placeholder="https://..."
+                >
+
+                <span class="field-hint">
+                    Required for online interviews.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-actions">
+
+            <button
+                    type="button"
+                    class="secondary-button"
+                    onclick="goBack()"
+            >
+                Back to Applications
+            </button>
+
+            <button
+                    type="button"
+                    class="primary-button"
+                    onclick="scheduleInterview()"
+            >
+                Schedule Interview
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="footer">
+
+    <p>
+        © 2026 Campus Placement Portal. All rights reserved.
+    </p>
+
+</footer>
 
 
 <script src="schedule-interview.js"></script>

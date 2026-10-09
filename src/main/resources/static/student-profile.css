@@ -1,75 +1,1078 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f4f6f8;
-    text-align: center;
+/* =========================================================
+   STUDENT PROFILE
+   Professional Campus Placement Portal
+   ========================================================= */
+
+
+/* ================= ROOT ================= */
+
+:root {
+
+    --primary: #17365d;
+    --primary-dark: #102a47;
+    --primary-light: #eaf1f8;
+
+    --text-dark: #172b3f;
+    --text-medium: #536273;
+    --text-light: #7a8794;
+
+    --background: #f5f7fa;
+    --white: #ffffff;
+
+    --border: #e2e7ed;
+
+    --danger: #b23b3b;
+
+    --shadow: 0 4px 18px rgba(23, 54, 93, 0.08);
 }
+
+
+/* ================= GLOBAL ================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    font-family:
+            "Segoe UI",
+            Arial,
+            Helvetica,
+            sans-serif;
+
+    background: var(--background);
+
+    color: var(--text-dark);
+}
+
+
+/* ================= NAVBAR ================= */
+
+.top-navbar {
+
+    min-height: 76px;
+
+    background: var(--white);
+
+    border-bottom: 1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 6%;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.brand-mark {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 8px;
+
+    background: var(--primary);
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+}
+
+
+.brand-text h1 {
+
+    margin: 0;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    color: var(--primary);
+}
+
+
+.brand-text span {
+
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 12px;
+
+    color: var(--text-light);
+}
+
+
+.student-area {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.student-label {
+
+    font-size: 14px;
+
+    color: var(--text-medium);
+
+    font-weight: 500;
+}
+
+
+.student-avatar {
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: var(--primary-light);
+
+    border: 1px solid #d6e1ec;
+
+    color: var(--primary);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-weight: 700;
+}
+
+
+/* ================= MAIN ================= */
 
 .profile-container {
-    width: 90%;
-    max-width: 600px;
-    margin: 40px auto;
+
+    width: 88%;
+
+    max-width: 1180px;
+
+    margin: 0 auto;
+
+    padding: 42px 0 35px;
 }
 
-.profile-container h1 {
-    color: #2c3e50;
-}
 
-.profile-container h2 {
+/* ================= PAGE HEADER ================= */
+
+.page-header {
+
     margin-bottom: 30px;
 }
 
-.profile-card {
-    background-color: white;
-    padding: 30px;
+
+.page-label {
+
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    color: var(--primary);
+}
+
+
+.page-header h2 {
+
+    margin: 0;
+
+    font-size: 32px;
+
+    line-height: 1.2;
+}
+
+
+.page-header p {
+
+    margin: 9px 0 0;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    color: var(--text-medium);
+}
+
+
+/* ================= COMMON CARD ================= */
+
+.profile-card,
+.resume-card {
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    text-align: left;
+
+    box-shadow: var(--shadow);
+
+    overflow: hidden;
+
+    margin-bottom: 22px;
 }
 
-.profile-card label {
-    display: block;
-    margin-top: 15px;
-    margin-bottom: 6px;
-    font-weight: bold;
+
+/* ================= SECTION HEADER ================= */
+
+.section-header {
+
+    padding: 22px 24px;
+
+    border-bottom: 1px solid var(--border);
 }
 
-.profile-card input {
+
+.section-label {
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.1px;
+
+    color: var(--text-light);
+}
+
+
+.section-header h3 {
+
+    margin: 4px 0 0;
+
+    font-size: 19px;
+}
+
+
+/* ================= PROFILE CONTENT ================= */
+
+.profile-content {
+
+    display: grid;
+
+    grid-template-columns: 230px 1fr;
+
+    gap: 32px;
+
+    padding: 26px;
+}
+
+
+/* ================= PHOTO ================= */
+
+.photo-section {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding-right: 25px;
+
+    border-right: 1px solid var(--border);
+}
+
+
+.photo-wrapper {
+
+    width: 150px;
+
+    height: 150px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    background: var(--primary-light);
+
+    border: 1px solid #d4e0eb;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 18px;
+}
+
+
+.photo-wrapper img {
+
     width: 100%;
-    box-sizing: border-box;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 15px;
+
+    height: 100%;
+
+    object-fit: cover;
 }
 
-.profile-card input:read-only {
-    background-color: #eeeeee;
+
+.photo-placeholder {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 44px;
+
+    font-weight: 700;
+
+    color: var(--primary);
 }
 
-.profile-card button,
-.profile-container > button {
-    padding: 12px 25px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #2c3e50;
+
+/* ================= PHOTO UPLOAD ================= */
+
+.photo-upload {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.photo-upload label {
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    color: var(--text-medium);
+}
+
+
+.photo-upload input {
+
+    width: 100%;
+
+    max-width: 200px;
+
+    font-size: 11px;
+
+    color: var(--text-light);
+}
+
+
+.upload-btn {
+
+    min-height: 37px;
+
+    padding: 0 15px;
+
+    border: 1px solid var(--primary);
+
+    border-radius: 6px;
+
+    background: var(--primary);
+
     color: white;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
     cursor: pointer;
+
+    transition: 0.2s ease;
 }
 
-.profile-card button:hover,
-.profile-container > button:hover {
-    background-color: #34495e;
+
+.upload-btn:hover {
+
+    background: var(--primary-dark);
 }
 
-@media (max-width: 600px) {
+
+.photo-upload small {
+
+    color: var(--text-light);
+
+    font-size: 10px;
+
+    text-align: center;
+}
+
+
+/* ================= FORM ================= */
+
+.profile-form {
+
+    min-width: 0;
+}
+
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px 20px;
+}
+
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.form-group-full {
+
+    grid-column: 1 / -1;
+}
+
+
+.form-group label {
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    color: var(--text-medium);
+}
+
+
+.form-group input,
+.form-group textarea {
+
+    width: 100%;
+
+    border: 1px solid #cfd7df;
+
+    border-radius: 6px;
+
+    padding: 0 12px;
+
+    background: white;
+
+    color: var(--text-dark);
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+
+.form-group input {
+
+    height: 43px;
+}
+
+
+.form-group textarea {
+
+    padding-top: 11px;
+
+    padding-bottom: 11px;
+
+    resize: vertical;
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus {
+
+    border-color: #7e9bb8;
+
+    box-shadow:
+            0 0 0 3px rgba(23, 54, 93, 0.07);
+}
+
+
+/* ================= FORM ACTIONS ================= */
+
+.form-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 22px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.update-btn {
+
+    min-height: 42px;
+
+    padding: 0 22px;
+
+    border: 1px solid var(--primary);
+
+    border-radius: 6px;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.update-btn:hover {
+
+    background: var(--primary-dark);
+
+    border-color: var(--primary-dark);
+}
+
+
+/* ================= RESUME ================= */
+
+.resume-content {
+
+    padding: 22px 24px;
+
+    display: grid;
+
+    grid-template-columns: 1fr auto auto;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+.resume-information {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    min-width: 0;
+}
+
+
+.resume-icon {
+
+    width: 44px;
+
+    height: 50px;
+
+    border-radius: 6px;
+
+    background: #f2f4f7;
+
+    border: 1px solid var(--border);
+
+    color: var(--primary);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    flex-shrink: 0;
+}
+
+
+.resume-information h4 {
+
+    margin: 0 0 5px;
+
+    font-size: 14px;
+}
+
+
+.resume-information p {
+
+    margin: 0;
+
+    color: var(--text-medium);
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    word-break: break-word;
+}
+
+
+/* ================= RESUME UPLOAD ================= */
+
+.resume-upload {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.resume-upload label {
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    color: var(--text-medium);
+}
+
+
+.resume-upload input {
+
+    max-width: 190px;
+
+    font-size: 11px;
+}
+
+
+.upload-resume-btn {
+
+    min-height: 37px;
+
+    padding: 0 14px;
+
+    background: var(--primary);
+
+    color: white;
+
+    border: 1px solid var(--primary);
+
+    border-radius: 6px;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.upload-resume-btn:hover {
+
+    background: var(--primary-dark);
+}
+
+
+/* ================= RESUME ACTIONS ================= */
+
+.resume-actions {
+
+    display: flex;
+
+    gap: 7px;
+}
+
+
+.resume-actions button {
+
+    min-height: 36px;
+
+    padding: 0 12px;
+
+    background: white;
+
+    color: var(--primary);
+
+    border: 1px solid #cbd5df;
+
+    border-radius: 5px;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.resume-actions button:hover {
+
+    background: var(--primary-light);
+
+    border-color: #aebfd0;
+}
+
+
+.resume-actions button:last-child {
+
+    color: var(--danger);
+
+    border-color: #e1caca;
+}
+
+
+.resume-actions button:last-child:hover {
+
+    background: #fdf0f0;
+}
+
+
+/* ================= BACK ================= */
+
+.back-section {
+
+    margin-top: 24px;
+}
+
+
+.back-btn {
+
+    min-height: 40px;
+
+    padding: 0 17px;
+
+    background: var(--white);
+
+    color: var(--primary);
+
+    border: 1px solid #cbd5df;
+
+    border-radius: 6px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.back-btn:hover {
+
+    background: var(--primary-light);
+
+    border-color: #aebfd0;
+}
+
+
+/* ================= FOOTER ================= */
+
+.profile-footer {
+
+    background: var(--white);
+
+    border-top: 1px solid var(--border);
+
+    text-align: center;
+
+    padding: 18px 15px;
+
+    margin-top: 20px;
+}
+
+
+.profile-footer p {
+
+    margin: 0;
+
+    font-size: 12px;
+
+    color: var(--text-light);
+}
+
+
+.profile-footer span {
+
+    margin: 0 6px;
+
+    color: #b0bac4;
+}
+
+
+/* ================= TABLET ================= */
+
+@media (max-width: 950px) {
+
+    .top-navbar {
+
+        padding: 0 4%;
+    }
+
 
     .profile-container {
-        width: 90%;
+
+        width: 92%;
     }
 
-    .profile-card {
+
+    .profile-content {
+
+        grid-template-columns: 190px 1fr;
+
+        gap: 22px;
+    }
+
+
+    .resume-content {
+
+        grid-template-columns: 1fr;
+
+        align-items: flex-start;
+    }
+
+
+    .resume-upload {
+
+        flex-wrap: wrap;
+    }
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+
+    .brand-text span {
+
+        display: none;
+    }
+
+
+    .brand-text h1 {
+
+        font-size: 15px;
+    }
+
+
+    .student-label {
+
+        display: none;
+    }
+
+
+    .profile-container {
+
+        width: 92%;
+
+        padding-top: 30px;
+    }
+
+
+    .page-header h2 {
+
+        font-size: 27px;
+    }
+
+
+    .profile-content {
+
+        grid-template-columns: 1fr;
+
+        padding: 20px;
+
+    }
+
+
+    .photo-section {
+
+        padding-right: 0;
+
+        padding-bottom: 22px;
+
+        border-right: none;
+
+        border-bottom: 1px solid var(--border);
+    }
+
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .form-group-full {
+
+        grid-column: auto;
+    }
+
+
+    .form-actions {
+
+        justify-content: stretch;
+    }
+
+
+    .update-btn {
+
+        width: 100%;
+    }
+
+
+    .resume-content {
+
         padding: 20px;
     }
+
+
+    .resume-upload {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .resume-upload input {
+
+        max-width: 100%;
+
+        width: 100%;
+    }
+
+
+    .upload-resume-btn {
+
+        width: 100%;
+    }
+
+
+    .resume-actions {
+
+        width: 100%;
+    }
+
+
+    .resume-actions button {
+
+        flex: 1;
+    }
+
+}
+
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 400px) {
+
+    .brand-mark {
+
+        width: 36px;
+
+        height: 36px;
+
+        font-size: 12px;
+    }
+
+
+    .brand-text h1 {
+
+        font-size: 14px;
+    }
+
+
+    .page-header h2 {
+
+        font-size: 24px;
+    }
+
+
+    .profile-content {
+
+        padding: 16px;
+    }
+
+
+    .photo-wrapper {
+
+        width: 130px;
+
+        height: 130px;
+    }
+
 }

@@ -5,244 +5,438 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My Profile</title>
+    <title>My Profile | Campus Placement Portal</title>
 
     <link rel="stylesheet" href="student-profile.css">
 </head>
 
 <body>
 
-<div class="profile-container">
+<!-- ================= TOP NAVBAR ================= -->
 
-    <h1>Campus Placement Portal</h1>
+<header class="top-navbar">
 
-    <h2>My Profile</h2>
+    <div class="brand">
 
-    <div class="profile-card">
-
-        <!-- ================= NAME ================= -->
-
-        <label for="name">
-            Name
-        </label>
-
-        <input
-                type="text"
-                id="name"
-                placeholder="Enter your name"
-        >
-
-
-        <!-- ================= EMAIL ================= -->
-
-        <label for="email">
-            Email
-        </label>
-
-        <input
-                type="email"
-                id="email"
-                placeholder="Enter your email"
-        >
-
-
-        <!-- ================= BRANCH ================= -->
-
-        <label for="branch">
-            Branch
-        </label>
-
-        <input
-                type="text"
-                id="branch"
-                placeholder="Enter your branch"
-        >
-
-
-        <!-- ================= PHONE ================= -->
-
-        <label for="phone">
-            Phone
-        </label>
-
-        <input
-                type="tel"
-                id="phone"
-                placeholder="Enter your phone number"
-        >
-
-
-        <!-- ================= ROLL NUMBER ================= -->
-
-        <label for="rollNumber">
-            Roll Number
-        </label>
-
-        <input
-                type="text"
-                id="rollNumber"
-                placeholder="Enter your roll number"
-        >
-
-
-        <!-- ================= CGPA ================= -->
-
-        <label for="cgpa">
-            CGPA
-        </label>
-
-        <input
-                type="number"
-                id="cgpa"
-                step="0.01"
-                min="0"
-                max="10"
-                placeholder="Enter your CGPA"
-        >
-
-
-        <!-- ================= GRADUATION YEAR ================= -->
-
-        <label for="graduationYear">
-            Graduation Year
-        </label>
-
-        <input
-                type="number"
-                id="graduationYear"
-                placeholder="Enter graduation year"
-        >
-
-
-        <!-- ================= SKILLS ================= -->
-
-        <label for="skills">
-            Skills
-        </label>
-
-        <textarea
-                id="skills"
-                placeholder="Enter your skills (Java, Python, SQL...)"
-        ></textarea>
-
-
-        <!-- ================= PROFILE PHOTO ================= -->
-
-        <label for="profilePhoto">
-            Profile Photo
-        </label>
-
-        <input
-                type="file"
-                id="profilePhoto"
-                accept=".jpg,.jpeg,.png"
-        >
-
-        <button
-                type="button"
-                onclick="uploadProfilePhoto()">
-            Upload Photo
-        </button>
-
-        <br>
-
-        <img
-                id="profilePhotoPreview"
-                src=""
-                alt="Profile Photo"
-                style="
-                    display: none;
-                    width: 150px;
-                    height: 150px;
-                    object-fit: cover;
-                    border-radius: 50%;
-                "
-        >
-
-
-        <!-- ================= RESUME ================= -->
-
-        <hr>
-
-        <h3>Resume</h3>
-
-        <label for="resumeFile">
-            Upload Resume
-        </label>
-
-        <input
-                type="file"
-                id="resumeFile"
-                accept=".pdf"
-        >
-
-        <button
-                type="button"
-                onclick="uploadResume()">
-            Upload Resume
-        </button>
-
-
-        <!-- ================= CURRENT RESUME ================= -->
-
-        <div id="resumeSection">
-
-            <p id="resumeName">
-                No resume uploaded yet.
-            </p>
-
-            <button
-                    type="button"
-                    onclick="viewResume()"
-                    id="viewResumeButton"
-                    style="display: none;">
-                View Resume
-            </button>
-
-            <button
-                    type="button"
-                    onclick="downloadResume()"
-                    id="downloadResumeButton"
-                    style="display: none;">
-                Download Resume
-            </button>
-
-            <button
-                    type="button"
-                    onclick="deleteResume()"
-                    id="deleteResumeButton"
-                    style="display: none;">
-                Delete Resume
-            </button>
-
+        <div class="brand-mark">
+            CP
         </div>
 
+        <div class="brand-text">
 
-        <!-- ================= SAVE PROFILE ================= -->
+            <h1>Campus Placement Portal</h1>
 
-        <br>
+            <span>Student Placement Services</span>
 
-        <button
-                type="button"
-                onclick="updateProfile()">
-            Save Changes
-        </button>
+        </div>
 
     </div>
 
 
-    <br>
+    <div class="student-area">
+
+            <span class="student-label">
+                Student
+            </span>
+
+        <div class="student-avatar">
+            S
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="profile-container">
+
+    <!-- PAGE HEADER -->
+
+    <section class="page-header">
+
+            <span class="page-label">
+                STUDENT ACCOUNT
+            </span>
+
+        <h2>
+            My Profile
+        </h2>
+
+        <p>
+            Manage your personal information, academic details and placement documents.
+        </p>
+
+    </section>
+
+
+    <!-- ================= PROFILE ================= -->
+
+    <section class="profile-card">
+
+        <div class="section-header">
+
+            <div>
+
+                    <span class="section-label">
+                        PERSONAL INFORMATION
+                    </span>
+
+                <h3>
+                    Profile Details
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile-content">
+
+            <!-- ================= PHOTO ================= -->
+
+            <aside class="photo-section">
+
+                <div class="photo-wrapper">
+
+                    <img
+                            id="profilePhotoPreview"
+                            src=""
+                            alt="Profile Photo"
+                            style="display:none;"
+                    >
+
+                    <div
+                            id="photoPlaceholder"
+                            class="photo-placeholder">
+
+                        S
+
+                    </div>
+
+                </div>
+
+
+                <div class="photo-upload">
+
+                    <label for="profilePhoto">
+                        Select Photo
+                    </label>
+
+                    <input
+                            type="file"
+                            id="profilePhoto"
+                            accept="image/jpeg,image/png"
+                    >
+
+                    <button
+                            type="button"
+                            class="upload-btn"
+                            onclick="uploadProfilePhoto()">
+
+                        Upload Photo
+
+                    </button>
+
+                    <small>
+                        JPG or PNG • Maximum 5 MB
+                    </small>
+
+                </div>
+
+            </aside>
+
+
+            <!-- ================= PROFILE FORM ================= -->
+
+            <div class="profile-form">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name
+                        </label>
+
+                        <input
+                                type="text"
+                                id="name"
+                                placeholder="Enter your name"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <input
+                                type="tel"
+                                id="phone"
+                                placeholder="10-digit phone number"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="rollNumber">
+                            Roll Number
+                        </label>
+
+                        <input
+                                type="text"
+                                id="rollNumber"
+                                placeholder="Enter roll number"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="branch">
+                            Branch
+                        </label>
+
+                        <input
+                                type="text"
+                                id="branch"
+                                placeholder="Enter branch"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="cgpa">
+                            CGPA
+                        </label>
+
+                        <input
+                                type="number"
+                                id="cgpa"
+                                step="0.01"
+                                min="0"
+                                max="10"
+                                placeholder="0 - 10"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="graduationYear">
+                            Graduation Year
+                        </label>
+
+                        <input
+                                type="number"
+                                id="graduationYear"
+                                placeholder="e.g. 2029"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group form-group-full">
+
+                        <label for="skills">
+                            Skills
+                        </label>
+
+                        <textarea
+                                id="skills"
+                                rows="4"
+                                placeholder="Enter your technical and professional skills"
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                            type="button"
+                            class="update-btn"
+                            onclick="updateProfile()">
+
+                        Update Profile
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= RESUME ================= -->
+
+    <section class="resume-card">
+
+        <div class="section-header">
+
+            <div>
+
+                    <span class="section-label">
+                        PLACEMENT DOCUMENT
+                    </span>
+
+                <h3>
+                    My Resume
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="resume-content">
+
+            <div class="resume-information">
+
+                <div class="resume-icon">
+                    PDF
+                </div>
+
+                <div>
+
+                    <h4>
+                        Resume
+                    </h4>
+
+                    <p id="resumeName">
+                        Checking your resume...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="resume-upload">
+
+                <label for="resumeFile">
+                    Select PDF
+                </label>
+
+                <input
+                        type="file"
+                        id="resumeFile"
+                        accept="application/pdf,.pdf"
+                >
+
+                <button
+                        type="button"
+                        class="upload-resume-btn"
+                        onclick="uploadResume()">
+
+                    Upload Resume
+
+                </button>
+
+            </div>
+
+
+            <div class="resume-actions">
+
+                <button
+                        type="button"
+                        id="viewResumeButton"
+                        onclick="viewResume()"
+                        style="display:none;">
+
+                    View
+
+                </button>
+
+
+                <button
+                        type="button"
+                        id="downloadResumeButton"
+                        onclick="downloadResume()"
+                        style="display:none;">
+
+                    Download
+
+                </button>
+
+
+                <button
+                        type="button"
+                        id="deleteResumeButton"
+                        onclick="deleteResume()"
+                        style="display:none;">
+
+                    Delete
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
 
 
     <!-- ================= BACK ================= -->
 
-    <button
-            type="button"
-            onclick="goBack()">
-        Back to Dashboard
-    </button>
+    <div class="back-section">
 
-</div>
+        <button
+                type="button"
+                class="back-btn"
+                onclick="goBack()">
+
+            ← Back to Dashboard
+
+        </button>
+
+    </div>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="profile-footer">
+
+    <p>
+        Campus Placement Portal
+        <span>•</span>
+        Student Placement Services
+    </p>
+
+</footer>
 
 
 <script src="student-profile.js"></script>

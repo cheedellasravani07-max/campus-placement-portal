@@ -5,140 +5,234 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Login - Campus Placement Portal</title>
+    <title>Login | Campus Placement Portal</title>
 
     <link rel="stylesheet" href="login.css">
 </head>
 
 <body>
 
-<div class="login-container">
+<header class="top-navbar">
 
-    <h1>Campus Placement Portal</h1>
+    <div class="brand-section">
 
+        <div class="brand-mark">
+            CP
+        </div>
 
-    <!-- ================= LOGIN ================= -->
+        <div class="brand-text">
+            <h1>Campus Placement Portal</h1>
+            <span>Student Placement Services</span>
+        </div>
 
-    <h2>Login</h2>
+    </div>
 
-    <form action="/login" method="post">
+    <div class="nav-right">
+        Secure Portal Access
+    </div>
 
-        <label for="login-username">
-            Username
-        </label>
-
-        <input
-                type="text"
-                id="login-username"
-                name="username"
-                placeholder="Enter username"
-                required
-        >
-
-        <label for="login-password">
-            Password
-        </label>
-
-        <input
-                type="password"
-                id="login-password"
-                name="password"
-                placeholder="Enter password"
-                required
-        >
-
-        <button type="submit">
-            Login
-        </button>
-
-    </form>
+</header>
 
 
-    <!-- ================= SIGN UP ================= -->
+<main class="login-page">
 
-    <hr>
+    <section class="login-card">
 
-    <h2>Student Sign Up</h2>
+        <div class="card-header">
 
-    <form id="signupForm" onsubmit="return false;">
+            <div class="page-icon">
+                <span>🔐</span>
+            </div>
 
-        <label for="name">
-            Name
-        </label>
+            <h2>Portal Login</h2>
 
-        <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Enter your name"
-                required
-        >
+            <p>
+                Sign in to access your campus placement account.
+            </p>
+
+        </div>
 
 
-        <label for="username">
-            Username
-        </label>
+        <!-- ================= LOGIN ================= -->
 
-        <input
-                type="text"
-                id="username"
-                name="username"
-                placeholder="Create username"
-                required
-        >
+        <form action="/login" method="post" class="login-form">
 
+            <div class="form-group">
 
-        <label for="email">
-            Email
-        </label>
+                <label for="login-username">
+                    Username
+                </label>
 
-        <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Enter email"
-                required
-        >
+                <input
+                        type="text"
+                        id="login-username"
+                        name="username"
+                        placeholder="Enter your username"
+                        autocomplete="username"
+                        required
+                >
+
+            </div>
 
 
-        <label for="password">
-            Password
-        </label>
+            <div class="form-group">
 
-        <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Create password"
-                required
-        >
+                <label for="login-password">
+                    Password
+                </label>
 
+                <input
+                        type="password"
+                        id="login-password"
+                        name="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                >
 
-        <label for="branch">
-            Branch
-        </label>
-
-        <input
-                type="text"
-                id="branch"
-                name="branch"
-                placeholder="Example: IT"
-                required
-        >
+            </div>
 
 
-        <button type="submit">
-            Student Sign Up
-        </button>
+            <button type="submit" class="primary-button">
+                Login
+            </button>
 
-    </form>
+        </form>
 
 
-    <!-- Registration message -->
+        <!-- ================= DIVIDER ================= -->
 
-    <p id="message"></p>
+        <div class="divider">
+            <span>New student?</span>
+        </div>
 
-</div>
+
+        <!-- ================= STUDENT SIGNUP ================= -->
+
+        <div class="signup-section">
+
+            <h3>Student Sign Up</h3>
+
+            <p class="signup-description">
+                Create your account to access placement opportunities.
+            </p>
+
+
+            <form id="signupForm" onsubmit="return false;">
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your full name"
+                            required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Create username"
+                            required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Create password"
+                            minlength="6"
+                            required
+                    >
+
+                    <small>
+                        Minimum 6 characters
+                    </small>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="branch">
+                        Branch
+                    </label>
+
+                    <input
+                            type="text"
+                            id="branch"
+                            name="branch"
+                            placeholder="Example: IT"
+                            required
+                    >
+
+                </div>
+
+
+                <button type="submit" class="secondary-button">
+                    Student Sign Up
+                </button>
+
+            </form>
+
+
+            <p id="message" class="message"></p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="site-footer">
+
+    <span>© 2026 Campus Placement Portal</span>
+
+    <span class="footer-divider">Student Placement Services</span>
+
+</footer>
 
 
 <!-- ================= EMAILJS ================= -->

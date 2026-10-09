@@ -5,30 +5,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Company Details</title>
+    <title>Company Details | Campus Placement Portal</title>
 
     <link rel="stylesheet" href="company-details.css">
 </head>
 
 <body>
 
-<div class="company-container">
+<header class="topbar">
 
-    <h1>Campus Placement Portal</h1>
+    <div class="brand-section">
 
-    <h2>Company Details</h2>
+        <div class="brand-mark">
+            CP
+        </div>
 
-    <div id="companyDetails">
-        Loading company details...
+        <div>
+            <h1>Campus Placement Portal</h1>
+            <p>Student Placement Services</p>
+        </div>
+
     </div>
 
-    <br>
+</header>
 
-    <button onclick="goBack()">
-        Back to Jobs
-    </button>
 
-</div>
+<main class="page-container">
+
+    <div class="page-header">
+
+        <p class="breadcrumb">
+            Student / Jobs / Company Details
+        </p>
+
+        <h2>Company Details</h2>
+
+        <p class="page-description">
+            View the company and role information associated with this placement opportunity.
+        </p>
+
+    </div>
+
+
+    <section class="company-section">
+
+        <div class="section-header">
+
+            <div>
+                <h3>Company Information</h3>
+
+                <p>
+                    Details provided for the selected placement opportunity.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div id="companyDetails">
+
+            <div class="loading-state">
+                <div class="loading-bar"></div>
+
+                <p>
+                    Loading company details...
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="page-actions">
+
+        <button
+                type="button"
+                class="back-button"
+                onclick="goBack()"
+        >
+            ← Back to Jobs
+        </button>
+
+    </div>
+
+</main>
+
+
+<footer class="footer">
+
+    <p>
+        © 2026 Campus Placement Portal. All rights reserved.
+    </p>
+
+</footer>
+
 
 <script src="company-details.js"></script>
 

@@ -1,424 +1,774 @@
-/* =====================================================
-   CAMPUS PLACEMENT PORTAL - ADMIN PORTAL
-   ===================================================== */
+/* =========================================
+   ADMIN PORTAL
+   Campus Placement Portal
+   ========================================= */
+
+:root {
+    --primary: #17365d;
+    --primary-dark: #102a47;
+    --primary-light: #eaf1f8;
+
+    --text-dark: #172b3f;
+    --text-medium: #536273;
+    --text-light: #7a8794;
+
+    --background: #f5f7fa;
+    --white: #ffffff;
+
+    --border: #e2e7ed;
+
+    --shadow: 0 4px 18px rgba(23, 54, 93, 0.08);
+}
 
 
-/* ================= BODY ================= */
+/* =========================================
+   RESET
+   ========================================= */
 
-body {
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-
-    font-family: Arial, sans-serif;
-
-    background: #f4f7fb;
-
-    color: #222;
 }
 
 
-/* ================= MAIN CONTAINER ================= */
+body {
+    min-height: 100vh;
 
-.portal-container {
-    width: 90%;
-    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
 
-    margin: 30px auto;
+    background: var(--background);
 
-    padding: 30px;
+    color: var(--text-dark);
 
-    background: white;
-
-    border-radius: 12px;
-
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
-
-    box-sizing: border-box;
+    font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            Roboto,
+            Arial,
+            sans-serif;
 }
 
 
-/* ================= HEADINGS ================= */
+/* =========================================
+   NAVBAR
+   ========================================= */
 
-.portal-container h1 {
-    text-align: center;
+.top-navbar {
+    min-height: 72px;
 
-    color: #1f3c88;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    margin-bottom: 10px;
-}
+    padding: 0 7%;
 
-.portal-container > h2 {
-    text-align: center;
+    background: var(--white);
 
-    margin-bottom: 8px;
-}
-
-.portal-container > p {
-    text-align: center;
-
-    color: #666;
-
-    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border);
 }
 
 
-/* =====================================================
-   MENU BUTTONS
-   ===================================================== */
+.brand-section {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.brand-mark {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary);
+    color: var(--white);
+
+    border-radius: 6px;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+
+.brand-text h1 {
+    color: var(--text-dark);
+
+    font-size: 17px;
+    font-weight: 700;
+
+    line-height: 1.3;
+}
+
+
+.brand-text span {
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--text-light);
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   ADMIN PROFILE
+   ========================================= */
+
+.admin-profile {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.admin-avatar {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary-light);
+    color: var(--primary);
+
+    border-radius: 50%;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+.admin-info strong {
+    display: block;
+
+    color: var(--text-dark);
+
+    font-size: 13px;
+}
+
+
+.admin-info span {
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--text-light);
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   MAIN
+   ========================================= */
+
+.portal-page {
+    width: 86%;
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    padding: 38px 0 60px;
+
+    flex: 1;
+}
+
+
+/* =========================================
+   PAGE HEADER
+   ========================================= */
+
+.page-header {
+    margin-bottom: 32px;
+}
+
+
+.section-label {
+    display: inline-block;
+
+    margin-bottom: 7px;
+
+    color: var(--primary);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+.page-header h2 {
+    color: var(--text-dark);
+
+    font-size: 29px;
+    font-weight: 700;
+
+    margin-bottom: 7px;
+}
+
+
+.page-header p {
+    color: var(--text-medium);
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   SECTION HEADINGS
+   ========================================= */
+
+.section-heading {
+    margin-bottom: 17px;
+}
+
+
+.section-heading h3 {
+    color: var(--text-dark);
+
+    font-size: 18px;
+    font-weight: 700;
+
+    margin-bottom: 4px;
+}
+
+
+.section-heading p {
+    color: var(--text-light);
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   MANAGEMENT MENU
+   ========================================= */
+
+.management-menu {
+    margin-bottom: 34px;
+}
+
 
 .portal-buttons {
-    display: grid;
-
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(180px, 1fr)
-    );
-
-    gap: 15px;
-
-    margin-bottom: 30px;
-}
-
-
-.portal-buttons button {
-    padding: 14px 18px;
-
-    border: none;
-
-    border-radius: 7px;
-
-    background: #30475e;
-
-    color: white;
-
-    font-size: 16px;
-
-    cursor: pointer;
-
-    transition: 0.2s;
-}
-
-
-.portal-buttons button:hover {
-    background: #1f3c88;
-}
-
-
-/* =====================================================
-   SECTIONS
-   ===================================================== */
-
-main section {
-    margin-top: 30px;
-
-    padding: 25px;
-
-    background: #f8fafc;
-
-    border-radius: 10px;
-
-    border: 1px solid #e1e6ed;
-
-    box-sizing: border-box;
-}
-
-
-main section h2 {
-    text-align: center;
-
-    color: #1f3c88;
-
-    margin-bottom: 25px;
-}
-
-
-/* =====================================================
-   ALL FORMS
-   ===================================================== */
-
-form {
-    width: 100%;
-
     display: grid;
 
     grid-template-columns:
         repeat(2, minmax(0, 1fr));
 
-    gap: 15px;
-
-    margin-bottom: 30px;
-
-    box-sizing: border-box;
+    gap: 14px;
 }
 
 
-/* =====================================================
-   INPUTS / SELECT / TEXTAREA
-   ===================================================== */
-
-form input,
-form select,
-form textarea {
+.menu-card {
     width: 100%;
+    min-height: 78px;
 
-    min-width: 0;
+    display: flex;
+    align-items: center;
 
-    padding: 12px;
+    gap: 14px;
 
-    box-sizing: border-box;
+    padding: 16px;
 
-    border: 1px solid #bfc7d1;
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 7px;
+
+    color: var(--text-dark);
+
+    text-align: left;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition:
+            border-color 0.15s ease,
+            box-shadow 0.15s ease;
+}
+
+
+.menu-card:hover {
+    border-color: #c7d3df;
+
+    box-shadow:
+            0 4px 14px rgba(23, 54, 93, 0.07);
+}
+
+
+.menu-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary-light);
+    color: var(--primary);
 
     border-radius: 6px;
 
-    font-size: 15px;
+    font-size: 10px;
+    font-weight: 700;
 
-    background: white;
+    letter-spacing: 0.3px;
+}
+
+
+.menu-content {
+    flex: 1;
+}
+
+
+.menu-content strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--text-dark);
+
+    font-size: 13px;
+}
+
+
+.menu-content small {
+    display: block;
+
+    color: var(--text-light);
+
+    font-size: 11px;
+
+    line-height: 1.4;
+}
+
+
+.menu-arrow {
+    color: var(--text-light);
+
+    font-size: 19px;
+}
+
+
+/* =========================================
+   MANAGEMENT CONTENT
+   ========================================= */
+
+.management-content {
+    display: flex;
+    flex-direction: column;
+
+    gap: 28px;
+}
+
+
+.management-section {
+    display: none;
+
+    padding: 27px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    box-shadow: var(--shadow);
+}
+
+
+/*
+   The existing JavaScript controls section visibility.
+   If JavaScript changes display to block, the section
+   will appear normally.
+*/
+
+
+.section-title {
+    margin-bottom: 23px;
+
+    padding-bottom: 17px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.section-title h3 {
+    color: var(--text-dark);
+
+    font-size: 20px;
+    font-weight: 700;
+
+    margin-bottom: 5px;
+}
+
+
+.section-title p {
+    color: var(--text-medium);
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   FORMS
+   ========================================= */
+
+.management-form {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 17px;
+
+    padding: 20px;
+
+    margin-bottom: 25px;
+
+    background: #fafbfd;
+
+    border: 1px solid var(--border);
+    border-radius: 7px;
+}
+
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.form-group label {
+    color: var(--text-dark);
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    border: 1px solid var(--border);
+    border-radius: 5px;
+
+    background: var(--white);
+
+    color: var(--text-dark);
+
+    font-family: inherit;
+    font-size: 13px;
 
     outline: none;
+
+    transition:
+            border-color 0.15s ease,
+            box-shadow 0.15s ease;
 }
 
 
-/* Focus */
+.form-group input,
+.form-group select {
+    height: 43px;
 
-form input:focus,
-form select:focus,
-form textarea:focus {
-    border-color: #1f3c88;
-
-    box-shadow:
-            0 0 0 2px rgba(31, 60, 136, 0.1);
+    padding: 0 12px;
 }
 
 
-/* =====================================================
-   TEXTAREA
-   ===================================================== */
+.form-group textarea {
+    min-height: 95px;
 
-form textarea {
-    min-height: 100px;
+    padding: 11px 12px;
 
     resize: vertical;
 }
 
 
-/* =====================================================
-   FORM BUTTON
-   ===================================================== */
-
-form button {
-    padding: 12px 20px;
-
-    border: none;
-
-    border-radius: 6px;
-
-    background: #1f3c88;
-
-    color: white;
-
-    font-size: 15px;
-
-    cursor: pointer;
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9aa5b1;
 }
 
 
-form button:hover {
-    background: #162d68;
-}
-
-
-/* =====================================================
-   MAKE TEXTAREA AND BUTTON FULL WIDTH
-   ===================================================== */
-
-form textarea {
-    grid-column: 1 / -1;
-}
-
-
-form button {
-    grid-column: 1 / -1;
-
-    justify-self: center;
-
-    width: 180px;
-}
-
-
-/* =====================================================
-   JOB FORM
-   ===================================================== */
-
-/*
-   The job form contains several fields.
-   Give every field enough space.
-*/
-
-#jobForm {
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-}
-
-
-/* Job description */
-
-#jobDescription {
-    grid-column: 1 / -1;
-}
-
-
-/* =====================================================
-   JOB LIST
-   ===================================================== */
-
-#jobList {
-    width: 100%;
-}
-
-
-/* =====================================================
-   MANAGEMENT CARDS
-   ===================================================== */
-
-.management-card {
-    background: white;
-
-    border: 1px solid #d9dfe7;
-
-    border-radius: 8px;
-
-    padding: 18px;
-
-    margin: 15px 0;
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary);
 
     box-shadow:
-            0 2px 7px rgba(0, 0, 0, 0.07);
-
-    box-sizing: border-box;
+            0 0 0 3px rgba(23, 54, 93, 0.08);
 }
 
 
-.management-card p {
-    margin: 9px 0;
-
-    line-height: 1.5;
+.full-width {
+    grid-column: 1 / -1;
 }
 
 
-.management-card b {
-    color: #1f3c88;
-}
+/* =========================================
+   FORM BUTTON
+   ========================================= */
 
+.primary-button {
+    align-self: end;
 
-/* =====================================================
-   EDIT / DELETE BUTTONS
-   ===================================================== */
+    min-width: 145px;
 
-.management-card button {
-    padding: 8px 15px;
+    height: 43px;
 
-    margin-top: 10px;
-
-    margin-right: 8px;
+    padding: 0 18px;
 
     border: none;
-
     border-radius: 5px;
 
+    background: var(--primary);
+    color: var(--white);
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 600;
+
     cursor: pointer;
 
-    background: #30475e;
-
-    color: white;
+    transition: background 0.15s ease;
 }
 
 
-.management-card button:hover {
-    background: #1f3c88;
+.primary-button:hover {
+    background: var(--primary-dark);
 }
 
 
-/* =====================================================
-   HORIZONTAL LINE
-   ===================================================== */
-
-hr {
-    border: none;
-
-    border-top: 1px solid #ddd;
-
-    margin: 20px 0;
+.form-actions {
+    display: flex;
+    align-items: flex-end;
 }
 
 
-/* =====================================================
-   BACK BUTTON
-   ===================================================== */
+/* =========================================
+   DATA LIST
+   ========================================= */
 
-.portal-container > button {
-    display: block;
+.list-header {
+    margin-bottom: 10px;
+}
 
-    margin: 30px auto 0;
 
-    padding: 12px 22px;
+.list-header h4 {
+    color: var(--text-dark);
 
-    border: none;
+    font-size: 14px;
+    font-weight: 700;
+}
 
+
+.data-list {
+    min-height: 55px;
+
+    padding: 15px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
     border-radius: 6px;
 
-    background: #30475e;
+    color: var(--text-medium);
 
-    color: white;
+    font-size: 13px;
 
-    font-size: 15px;
+    overflow-x: auto;
+}
+
+
+/* =========================================
+   BACK BUTTON
+   ========================================= */
+
+.back-section {
+    margin-top: 28px;
+}
+
+
+.back-button {
+    min-height: 40px;
+
+    padding: 0 16px;
+
+    border: 1px solid var(--border);
+    border-radius: 5px;
+
+    background: var(--white);
+    color: var(--primary);
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 600;
 
     cursor: pointer;
+
+    transition:
+            background 0.15s ease,
+            border-color 0.15s ease;
 }
 
 
-.portal-container > button:hover {
-    background: #1f3c88;
+.back-button:hover {
+    background: var(--primary-light);
+
+    border-color: #c7d3df;
 }
 
 
-/* =====================================================
-   MOBILE / SMALL SCREEN
-   ===================================================== */
+/* =========================================
+   FOOTER
+   ========================================= */
 
-@media (max-width: 700px) {
+.site-footer {
+    min-height: 65px;
 
-    .portal-container {
-        width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        padding: 18px;
-    }
+    gap: 10px;
 
+    padding: 15px 20px;
 
-    form {
-        grid-template-columns: 1fr;
-    }
+    background: var(--white);
 
+    border-top: 1px solid var(--border);
 
-    #jobForm {
-        grid-template-columns: 1fr;
-    }
+    color: var(--text-light);
 
-
-    form textarea {
-        grid-column: auto;
-    }
+    font-size: 12px;
+}
 
 
-    form button {
-        grid-column: auto;
+.footer-divider {
+    padding-left: 10px;
 
-        width: 100%;
+    border-left: 1px solid var(--border);
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 850px) {
+
+    .portal-page {
+        width: calc(100% - 40px);
     }
 
 
     .portal-buttons {
         grid-template-columns: 1fr;
+    }
+
+
+    .management-form {
+        grid-template-columns: 1fr;
+    }
+
+
+    .full-width {
+        grid-column: auto;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .top-navbar {
+        min-height: 65px;
+
+        padding: 0 16px;
+    }
+
+
+    .brand-mark {
+        width: 38px;
+        height: 38px;
+
+        font-size: 13px;
+    }
+
+
+    .brand-text h1 {
+        font-size: 14px;
+    }
+
+
+    .brand-text span {
+        font-size: 10px;
+    }
+
+
+    .admin-info {
+        display: none;
+    }
+
+
+    .portal-page {
+        width: calc(100% - 24px);
+
+        padding-top: 25px;
+    }
+
+
+    .page-header h2 {
+        font-size: 24px;
+    }
+
+
+    .management-section {
+        padding: 20px 15px;
+    }
+
+
+    .management-form {
+        padding: 16px;
+    }
+
+
+    .site-footer {
+        flex-direction: column;
+
+        gap: 5px;
+
+        text-align: center;
+    }
+
+
+    .footer-divider {
+        padding-left: 0;
+
+        border-left: none;
     }
 
 }

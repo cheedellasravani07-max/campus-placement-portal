@@ -5,370 +5,723 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Manage Placement Portal</title>
+    <title>Manage Placement Portal | Campus Placement Portal</title>
 
     <link rel="stylesheet" href="admin-portal.css">
 </head>
 
 <body>
 
-<div class="portal-container">
+<header class="top-navbar">
 
-    <h1>Campus Placement Portal</h1>
+    <div class="brand-section">
 
-    <h2>Manage Placement Portal</h2>
+        <div class="brand-mark">
+            CP
+        </div>
 
-    <p>Admin Management Panel</p>
-
-
-    <!-- ================================================== -->
-    <!-- MENU BUTTONS -->
-    <!-- ================================================== -->
-
-    <div class="portal-buttons">
-
-        <button type="button"
-                onclick="openStudents()">
-            Manage Students
-        </button>
-
-        <button type="button"
-                onclick="openCompanies()">
-            Manage Companies
-        </button>
-
-        <button type="button"
-                onclick="openJobs()">
-            Manage Jobs
-        </button>
-
-        <button type="button"
-                onclick="openApplications()">
-            Manage Applications
-        </button>
-
-        <button type="button"
-                onclick="openInterviews()">
-            Manage Interviews
-        </button>
+        <div class="brand-text">
+            <h1>Campus Placement Portal</h1>
+            <span>Administration & Placement Services</span>
+        </div>
 
     </div>
 
+    <div class="admin-profile">
 
-    <!-- ================================================== -->
-    <!-- MANAGEMENT SECTIONS -->
-    <!-- ================================================== -->
+        <div class="admin-avatar">
+            A
+        </div>
 
-    <main>
+        <div class="admin-info">
+            <strong>Administrator</strong>
+            <span>Management Panel</span>
+        </div>
+
+    </div>
+
+</header>
 
 
-        <!-- ================================================== -->
-        <!-- STUDENTS -->
-        <!-- ================================================== -->
+<main class="portal-page">
 
-        <section id="students" style="display:none;">
+    <!-- ================= PAGE HEADER ================= -->
 
-            <h2>Manage Students</h2>
+    <section class="page-header">
 
-            <form id="studentForm"
-                  onsubmit="addStudent(event)">
+        <span class="section-label">
+            ADMINISTRATION
+        </span>
 
-                <input
-                        type="text"
-                        id="studentName"
-                        placeholder="Student Name"
-                        required
-                >
+        <h2>
+            Manage Placement Portal
+        </h2>
 
-                <input
-                        type="email"
-                        id="studentEmail"
-                        placeholder="Student Email"
-                        required
-                >
+        <p>
+            Manage students, companies, jobs and placement applications.
+        </p>
 
-                <input
-                        type="text"
-                        id="studentBranch"
-                        placeholder="Branch"
-                        required
-                >
+    </section>
 
-                <button type="submit">
+
+    <!-- ================= MANAGEMENT MENU ================= -->
+
+    <section class="management-menu">
+
+        <div class="section-heading">
+
+            <div>
+                <h3>Placement Management</h3>
+
+                <p>
+                    Select an area to manage
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="portal-buttons">
+
+            <button
+                    type="button"
+                    class="menu-card"
+                    onclick="openStudents()">
+
+                <span class="menu-icon">
+                    ST
+                </span>
+
+                <span class="menu-content">
+
+                    <strong>
+                        Manage Students
+                    </strong>
+
+                    <small>
+                        View and manage student records
+                    </small>
+
+                </span>
+
+                <span class="menu-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <button
+                    type="button"
+                    class="menu-card"
+                    onclick="openCompanies()">
+
+                <span class="menu-icon">
+                    CO
+                </span>
+
+                <span class="menu-content">
+
+                    <strong>
+                        Manage Companies
+                    </strong>
+
+                    <small>
+                        Manage participating companies
+                    </small>
+
+                </span>
+
+                <span class="menu-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <button
+                    type="button"
+                    class="menu-card"
+                    onclick="openJobs()">
+
+                <span class="menu-icon">
+                    JB
+                </span>
+
+                <span class="menu-content">
+
+                    <strong>
+                        Manage Jobs
+                    </strong>
+
+                    <small>
+                        Create and manage job opportunities
+                    </small>
+
+                </span>
+
+                <span class="menu-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <button
+                    type="button"
+                    class="menu-card"
+                    onclick="openApplications()">
+
+                <span class="menu-icon">
+                    AP
+                </span>
+
+                <span class="menu-content">
+
+                    <strong>
+                        Manage Applications
+                    </strong>
+
+                    <small>
+                        Review student placement applications
+                    </small>
+
+                </span>
+
+                <span class="menu-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <button
+                    type="button"
+                    class="menu-card"
+                    onclick="openInterviews()">
+
+                <span class="menu-icon">
+                    IV
+                </span>
+
+                <span class="menu-content">
+
+                    <strong>
+                        Manage Interviews
+                    </strong>
+
+                    <small>
+                        Schedule and manage interviews
+                    </small>
+
+                </span>
+
+                <span class="menu-arrow">
+                    →
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MANAGEMENT CONTENT ================= -->
+
+    <main class="management-content">
+
+
+        <!-- ==================================================
+             STUDENTS
+             ================================================== -->
+
+        <section id="students" class="management-section">
+
+            <div class="section-title">
+
+                <div>
+                    <span class="section-label">
+                        STUDENTS
+                    </span>
+
+                    <h3>
+                        Manage Students
+                    </h3>
+
+                    <p>
+                        Add and view student records.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <form
+                    id="studentForm"
+                    onsubmit="addStudent(event)"
+                    class="management-form">
+
+                <div class="form-group">
+
+                    <label for="studentName">
+                        Student Name
+                    </label>
+
+                    <input
+                            type="text"
+                            id="studentName"
+                            placeholder="Enter student name"
+                            required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="studentEmail">
+                        Student Email
+                    </label>
+
+                    <input
+                            type="email"
+                            id="studentEmail"
+                            placeholder="Enter student email"
+                            required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="studentBranch">
+                        Branch
+                    </label>
+
+                    <input
+                            type="text"
+                            id="studentBranch"
+                            placeholder="Example: IT"
+                            required>
+
+                </div>
+
+
+                <button type="submit" class="primary-button">
                     Add Student
                 </button>
 
             </form>
 
-            <h3>Student List</h3>
 
-            <div id="studentList">
+            <div class="list-header">
+                <h4>Student List</h4>
+            </div>
+
+            <div id="studentList" class="data-list">
                 Loading students...
             </div>
 
         </section>
 
 
-        <!-- ================================================== -->
-        <!-- COMPANIES -->
-        <!-- ================================================== -->
+        <!-- ==================================================
+             COMPANIES
+             ================================================== -->
 
-        <section id="companies" style="display:none;">
+        <section id="companies" class="management-section">
 
-            <h2>Manage Companies</h2>
+            <div class="section-title">
 
-            <form id="companyForm"
-                  onsubmit="addCompany(event)">
+                <div>
+                    <span class="section-label">
+                        COMPANIES
+                    </span>
 
-                <input
-                        type="text"
-                        id="companyName"
-                        placeholder="Company Name"
-                        required
-                >
+                    <h3>
+                        Manage Companies
+                    </h3>
 
-                <input
-                        type="text"
-                        id="companyLocation"
-                        placeholder="Location"
-                        required
-                >
+                    <p>
+                        Add and view participating companies.
+                    </p>
+                </div>
 
-                <input
-                        type="text"
-                        id="companyRole"
-                        placeholder="Role"
-                        required
-                >
+            </div>
 
-                <button type="submit">
+
+            <form
+                    id="companyForm"
+                    onsubmit="addCompany(event)"
+                    class="management-form">
+
+                <div class="form-group">
+
+                    <label for="companyName">
+                        Company Name
+                    </label>
+
+                    <input
+                            type="text"
+                            id="companyName"
+                            placeholder="Enter company name"
+                            required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="companyLocation">
+                        Location
+                    </label>
+
+                    <input
+                            type="text"
+                            id="companyLocation"
+                            placeholder="Enter company location"
+                            required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="companyRole">
+                        Role
+                    </label>
+
+                    <input
+                            type="text"
+                            id="companyRole"
+                            placeholder="Enter hiring role"
+                            required>
+
+                </div>
+
+
+                <button type="submit" class="primary-button">
                     Add Company
                 </button>
 
             </form>
 
-            <h3>Company List</h3>
 
-            <div id="companyList">
+            <div class="list-header">
+                <h4>Company List</h4>
+            </div>
+
+            <div id="companyList" class="data-list">
                 Loading companies...
             </div>
 
         </section>
 
 
-        <!-- ================================================== -->
-        <!-- JOBS -->
-        <!-- ================================================== -->
+        <!-- ==================================================
+             JOBS
+             ================================================== -->
 
-        <section id="jobs" style="display:none;">
+        <section id="jobs" class="management-section">
 
-            <h2>Manage Jobs</h2>
+            <div class="section-title">
 
+                <div>
+                    <span class="section-label">
+                        JOBS
+                    </span>
 
-            <form id="jobForm"
-                  onsubmit="addJob(event)">
+                    <h3>
+                        Manage Jobs
+                    </h3>
 
+                    <p>
+                        Create and manage placement opportunities.
+                    </p>
+                </div>
 
-                <!-- ================= JOB TITLE ================= -->
-
-                <input
-                        type="text"
-                        id="jobTitle"
-                        placeholder="Job Title"
-                        required
-                >
-
-
-                <!-- ================= DESCRIPTION ================= -->
-
-                <textarea
-                        id="jobDescription"
-                        placeholder="Job Description"
-                        required
-                ></textarea>
+            </div>
 
 
-                <!-- ================= LOCATION ================= -->
-
-                <input
-                        type="text"
-                        id="jobLocation"
-                        placeholder="Job Location"
-                        required
-                >
+            <form
+                    id="jobForm"
+                    onsubmit="addJob(event)"
+                    class="management-form job-form">
 
 
-                <!-- ================= ELIGIBLE BRANCH ================= -->
+                <div class="form-group">
 
-                <select
-                        id="jobEligibleBranch"
-                        required>
+                    <label for="jobTitle">
+                        Job Title
+                    </label>
 
-                    <option value="">
-                        Select Eligible Branch
-                    </option>
+                    <input
+                            type="text"
+                            id="jobTitle"
+                            placeholder="Enter job title"
+                            required>
 
-                    <option value="CSE">
-                        CSE
-                    </option>
-
-                    <option value="IT">
-                        IT
-                    </option>
-
-                    <option value="ECE">
-                        ECE
-                    </option>
-
-                    <option value="EEE">
-                        EEE
-                    </option>
-
-                    <option value="MECH">
-                        MECH
-                    </option>
-
-                    <option value="CIVIL">
-                        CIVIL
-                    </option>
-
-                </select>
+                </div>
 
 
-                <!-- ================= COMPANY ================= -->
+                <div class="form-group full-width">
 
-                <select
-                        id="jobCompanyId"
-                        required>
+                    <label for="jobDescription">
+                        Job Description
+                    </label>
 
-                    <option value="">
-                        Select Company
-                    </option>
+                    <textarea
+                            id="jobDescription"
+                            placeholder="Enter job description"
+                            required></textarea>
 
-                </select>
-
-
-                <!-- ================= MINIMUM CGPA ================= -->
-
-                <input
-                        type="number"
-                        id="jobMinimumCgpa"
-                        placeholder="Minimum CGPA"
-                        min="0"
-                        max="10"
-                        step="0.01"
-                >
+                </div>
 
 
-                <!-- ================= PACKAGE ================= -->
+                <div class="form-group">
 
-                <input
-                        type="number"
-                        id="jobPackageAmount"
-                        placeholder="Package (LPA)"
-                        min="0"
-                        step="0.01"
-                >
+                    <label for="jobLocation">
+                        Job Location
+                    </label>
 
+                    <input
+                            type="text"
+                            id="jobLocation"
+                            placeholder="Enter job location"
+                            required>
 
-                <!-- ================= REQUIRED SKILLS ================= -->
-
-                <textarea
-                        id="jobRequiredSkills"
-                        placeholder="Required Skills (Example: Java, SQL, HTML, CSS)"
-                ></textarea>
+                </div>
 
 
-                <!-- ================= DEADLINE ================= -->
+                <div class="form-group">
 
-                <label for="jobApplicationDeadline">
-                    Application Deadline
-                </label>
+                    <label for="jobEligibleBranch">
+                        Eligible Branch
+                    </label>
 
-                <input
-                        type="date"
-                        id="jobApplicationDeadline"
-                >
+                    <select
+                            id="jobEligibleBranch"
+                            required>
+
+                        <option value="">
+                            Select Eligible Branch
+                        </option>
+
+                        <option value="CSE">CSE</option>
+                        <option value="IT">IT</option>
+                        <option value="ECE">ECE</option>
+                        <option value="EEE">EEE</option>
+                        <option value="MECH">MECH</option>
+                        <option value="CIVIL">CIVIL</option>
+
+                    </select>
+
+                </div>
 
 
-                <!-- ================= SUBMIT ================= -->
+                <div class="form-group">
 
-                <button type="submit">
-                    Add Job
-                </button>
+                    <label for="jobCompanyId">
+                        Company
+                    </label>
+
+                    <select
+                            id="jobCompanyId"
+                            required>
+
+                        <option value="">
+                            Select Company
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="jobMinimumCgpa">
+                        Minimum CGPA
+                    </label>
+
+                    <input
+                            type="number"
+                            id="jobMinimumCgpa"
+                            placeholder="Minimum CGPA"
+                            min="0"
+                            max="10"
+                            step="0.01">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="jobPackageAmount">
+                        Package (LPA)
+                    </label>
+
+                    <input
+                            type="number"
+                            id="jobPackageAmount"
+                            placeholder="Package in LPA"
+                            min="0"
+                            step="0.01">
+
+                </div>
+
+
+                <div class="form-group full-width">
+
+                    <label for="jobRequiredSkills">
+                        Required Skills
+                    </label>
+
+                    <textarea
+                            id="jobRequiredSkills"
+                            placeholder="Example: Java, SQL, HTML, CSS"></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="jobApplicationDeadline">
+                        Application Deadline
+                    </label>
+
+                    <input
+                            type="date"
+                            id="jobApplicationDeadline">
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                            type="submit"
+                            class="primary-button">
+
+                        Add Job
+
+                    </button>
+
+                </div>
 
             </form>
 
 
-            <h3>Job List</h3>
+            <div class="list-header">
+                <h4>Job List</h4>
+            </div>
 
-            <div id="jobList">
+            <div id="jobList" class="data-list">
                 Loading jobs...
             </div>
 
         </section>
 
 
-        <!-- ================================================== -->
-        <!-- APPLICATIONS -->
-        <!-- ================================================== -->
+        <!-- ==================================================
+             APPLICATIONS
+             ================================================== -->
 
-        <section id="applications" style="display:none;">
+        <section id="applications" class="management-section">
 
-            <h2>Manage Applications</h2>
+            <div class="section-title">
 
-            <form id="applicationForm"
-                  onsubmit="addApplication(); return false;">
+                <div>
+                    <span class="section-label">
+                        APPLICATIONS
+                    </span>
 
+                    <h3>
+                        Manage Applications
+                    </h3>
 
-                <!-- ================= STATUS ================= -->
+                    <p>
+                        Manage student applications for placement opportunities.
+                    </p>
+                </div>
 
-                <input
-                        type="text"
-                        id="applicationStatus"
-                        placeholder="Status: APPLIED / INTERVIEW / ACCEPTED / REJECTED"
-                        required
-                >
-
-
-                <!-- ================= STUDENT ================= -->
-
-                <select
-                        id="applicationStudentId"
-                        required>
-
-                    <option value="">
-                        Select Student
-                    </option>
-
-                </select>
+            </div>
 
 
-                <!-- ================= JOB ================= -->
+            <form
+                    id="applicationForm"
+                    onsubmit="addApplication(); return false;"
+                    class="management-form">
 
-                <select
-                        id="applicationJobId"
-                        required>
+                <div class="form-group">
 
-                    <option value="">
-                        Select Job
-                    </option>
+                    <label for="applicationStatus">
+                        Application Status
+                    </label>
 
-                </select>
+                    <input
+                            type="text"
+                            id="applicationStatus"
+                            placeholder="APPLIED / INTERVIEW / ACCEPTED / REJECTED"
+                            required>
+
+                </div>
 
 
-                <!-- ================= SUBMIT ================= -->
+                <div class="form-group">
 
-                <button type="submit">
+                    <label for="applicationStudentId">
+                        Student
+                    </label>
+
+                    <select
+                            id="applicationStudentId"
+                            required>
+
+                        <option value="">
+                            Select Student
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="applicationJobId">
+                        Job
+                    </label>
+
+                    <select
+                            id="applicationJobId"
+                            required>
+
+                        <option value="">
+                            Select Job
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                        type="submit"
+                        class="primary-button">
+
                     Add Application
+
                 </button>
 
             </form>
 
 
-            <h3>Application List</h3>
+            <div class="list-header">
+                <h4>Application List</h4>
+            </div>
 
-            <div id="applicationList">
+            <div id="applicationList" class="data-list">
                 Loading applications...
             </div>
 
@@ -377,26 +730,36 @@
     </main>
 
 
-    <!-- ================================================== -->
-    <!-- BACK BUTTON -->
-    <!-- ================================================== -->
+    <!-- ================= BACK BUTTON ================= -->
 
-    <br>
+    <div class="back-section">
 
-    <button
-            type="button"
-            onclick="goBack()">
+        <button
+                type="button"
+                class="back-button"
+                onclick="goBack()">
 
-        Back to Admin Dashboard
+            ← Back to Admin Dashboard
 
-    </button>
+        </button>
 
-</div>
+    </div>
+
+</main>
 
 
-<!-- ================================================== -->
-<!-- JAVASCRIPT -->
-<!-- ================================================== -->
+<footer class="site-footer">
+
+    <span>
+        © 2026 Campus Placement Portal
+    </span>
+
+    <span class="footer-divider">
+        Administration & Placement Services
+    </span>
+
+</footer>
+
 
 <script src="admin-portal.js"></script>
 

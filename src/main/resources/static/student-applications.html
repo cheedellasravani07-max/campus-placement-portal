@@ -5,40 +5,151 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My Applications</title>
+    <title>My Applications | Campus Placement Portal</title>
 
     <link rel="stylesheet" href="student-applications.css">
 </head>
 
 <body>
 
-<div class="applications-container">
+<!-- ================= TOP NAVBAR ================= -->
 
-    <h1>Campus Placement Portal</h1>
+<header class="top-navbar">
 
-    <h2>My Applications</h2>
+    <div class="brand">
 
+        <div class="brand-mark">
+            CP
+        </div>
 
-    <!-- ================= APPLICATION LIST ================= -->
+        <div class="brand-text">
 
-    <div id="applicationList">
-        Loading applications...
+            <h1>Campus Placement Portal</h1>
+
+            <span>Student Placement Services</span>
+
+        </div>
+
     </div>
 
 
-    <br>
+    <div class="student-area">
+
+            <span class="student-label">
+                Student
+            </span>
+
+        <div class="student-avatar">
+            S
+        </div>
+
+    </div>
+
+</header>
 
 
-    <!-- ================= BACK BUTTON ================= -->
+<!-- ================= MAIN ================= -->
 
-    <button
-            type="button"
-            onclick="goBack()">
-        Back to Student Dashboard
-    </button>
+<main class="applications-container">
 
-</div>
+    <!-- PAGE HEADER -->
 
+    <section class="page-header">
+
+        <div>
+
+                <span class="page-label">
+                    PLACEMENT ACTIVITY
+                </span>
+
+            <h2>
+                My Applications
+            </h2>
+
+            <p>
+                Track the jobs you have applied for and monitor your application status.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= APPLICATIONS ================= -->
+
+    <section class="applications-section">
+
+        <div class="section-header">
+
+            <div>
+
+                    <span class="section-label">
+                        APPLICATION HISTORY
+                    </span>
+
+                <h3>
+                    Submitted Applications
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <!--
+            IMPORTANT:
+            This ID is required by student-applications.js.
+        -->
+
+        <div id="applicationList" class="application-list">
+
+            <div class="loading-state">
+
+                <div class="loading-spinner"></div>
+
+                <p>
+                    Loading your applications...
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= BACK ================= -->
+
+    <div class="back-section">
+
+        <button
+                type="button"
+                class="back-btn"
+                onclick="goBack()">
+
+            ← Back to Dashboard
+
+        </button>
+
+    </div>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="applications-footer">
+
+    <p>
+        Campus Placement Portal
+        <span>•</span>
+        Student Placement Services
+    </p>
+
+</footer>
+
+
+<!-- DO NOT CHANGE JAVASCRIPT -->
 
 <script src="student-applications.js"></script>
 

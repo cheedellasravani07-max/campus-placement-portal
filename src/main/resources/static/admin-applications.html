@@ -5,83 +5,217 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Manage Applications</title>
+    <title>Manage Applications | Campus Placement Portal</title>
 
     <link rel="stylesheet" href="admin-applications.css">
 </head>
 
 <body>
 
-<div class="applications-container">
+<header class="top-navbar">
 
-    <h1>Campus Placement Portal</h1>
+    <div class="brand-section">
 
-    <h2>Manage Applications</h2>
+        <div class="brand-mark">
+            CP
+        </div>
+
+        <div class="brand-text">
+            <h1>Campus Placement Portal</h1>
+            <span>Administration & Placement Services</span>
+        </div>
+
+    </div>
+
+    <div class="admin-profile">
+
+        <div class="admin-avatar">
+            A
+        </div>
+
+        <div>
+            <strong>Administrator</strong>
+            <span>Application Management</span>
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="applications-page">
+
+    <!-- ================= PAGE HEADER ================= -->
+
+    <section class="page-header">
+
+        <span class="section-label">
+            APPLICATION MANAGEMENT
+        </span>
+
+        <h2>
+            Manage Applications
+        </h2>
+
+        <p>
+            Review student applications and manage their placement status.
+        </p>
+
+    </section>
 
 
     <!-- ================= FILTERS ================= -->
 
-    <div class="filter-container">
+    <section class="filter-section">
 
-        <input
-                type="text"
-                id="searchInput"
-                placeholder="Search student, job or company..."
-        >
+        <div class="section-heading">
 
+            <div>
+                <h3>Search & Filter</h3>
 
-        <select id="statusFilter">
+                <p>
+                    Find applications by student, job or company.
+                </p>
+            </div>
 
-            <option value="">
-                All Statuses
-            </option>
-
-            <option value="APPLIED">
-                APPLIED
-            </option>
-
-            <option value="INTERVIEW">
-                INTERVIEW
-            </option>
-
-            <option value="ACCEPTED">
-                ACCEPTED
-            </option>
-
-            <option value="REJECTED">
-                REJECTED
-            </option>
-
-        </select>
+        </div>
 
 
-        <button type="button" onclick="filterApplications()">
-            Search
-        </button>
+        <div class="filter-container">
+
+            <div class="filter-field search-field">
+
+                <label for="searchInput">
+                    Search
+                </label>
+
+                <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Student, job or company..."
+                >
+
+            </div>
 
 
-        <button type="button" onclick="clearFilters()">
-            Clear
-        </button>
+            <div class="filter-field">
 
-    </div>
+                <label for="statusFilter">
+                    Application Status
+                </label>
+
+                <select id="statusFilter">
+
+                    <option value="">
+                        All Statuses
+                    </option>
+
+                    <option value="APPLIED">
+                        APPLIED
+                    </option>
+
+                    <option value="SHORTLISTED">
+                        SHORTLISTED
+                    </option>
+
+                    <option value="INTERVIEW">
+                        INTERVIEW
+                    </option>
+
+                    <option value="ACCEPTED">
+                        ACCEPTED
+                    </option>
+
+                    <option value="REJECTED">
+                        REJECTED
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="filter-actions">
+
+                <button
+                        type="button"
+                        class="search-button"
+                        onclick="filterApplications()">
+
+                    Search
+
+                </button>
+
+
+                <button
+                        type="button"
+                        class="clear-button"
+                        onclick="clearFilters()">
+
+                    Clear
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
 
 
     <!-- ================= APPLICATION LIST ================= -->
 
-    <div id="applicationList">
-        Loading applications...
+    <section class="applications-section">
+
+        <div class="section-heading">
+
+            <div>
+                <h3>Applications</h3>
+
+                <p>
+                    Review and update application status.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div id="applicationList" class="application-list">
+            Loading applications...
+        </div>
+
+    </section>
+
+
+    <!-- ================= BACK ================= -->
+
+    <div class="back-section">
+
+        <button
+                type="button"
+                class="back-button"
+                onclick="goBack()">
+
+            ← Back to Admin Dashboard
+
+        </button>
+
     </div>
 
+</main>
 
-    <br>
 
+<footer class="site-footer">
 
-    <button onclick="goBack()">
-        Back to Admin Dashboard
-    </button>
+    <span>
+        © 2026 Campus Placement Portal
+    </span>
 
-</div>
+    <span class="footer-divider">
+        Administration & Placement Services
+    </span>
+
+</footer>
 
 
 <script src="admin-applications.js"></script>
