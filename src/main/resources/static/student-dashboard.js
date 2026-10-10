@@ -32,7 +32,7 @@ function loadStudentDashboard() {
 
 
     // -------- MY APPLICATIONS --------
-    fetch("/applications", {
+    fetch("/student/applications", {
         credentials: "same-origin"
     })
         .then(response => {
