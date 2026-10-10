@@ -107,6 +107,8 @@ public class SecurityConfig {
                         // -------- PUBLIC LOGIN FILES --------
 
                         .requestMatchers(
+                                "/",
+                                "/index.html",
                                 "/login.html",
                                 "/login.css",
                                 "/login.js",

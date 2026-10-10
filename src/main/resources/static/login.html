@@ -1,142 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Login | Campus Placement Portal</title>
-
     <link rel="stylesheet" href="login.css">
 </head>
 
 <body>
 
 <header class="top-navbar">
-
     <div class="brand-section">
-
-        <div class="brand-mark">
-            CP
-        </div>
-
+        <div class="brand-mark">CP</div>
         <div class="brand-text">
             <h1>Campus Placement Portal</h1>
             <span>Student Placement Services</span>
         </div>
-
     </div>
-
-    <div class="nav-right">
-        Secure Portal Access
-    </div>
-
+    <div class="nav-right">Secure Portal Access</div>
 </header>
 
-
 <main class="login-page">
-
     <section class="login-card">
 
         <div class="card-header">
-
-            <div class="page-icon">
-                <span>🔐</span>
-            </div>
-
-            <h2>Portal Login</h2>
-
-            <p>
+            <div class="page-icon"><span>🔐</span></div>
+            <h2 id="login-title">Student Login</h2>
+            <p id="login-description">
                 Sign in to access your campus placement account.
             </p>
-
         </div>
 
+        <!-- Login type selection -->
+        <div class="login-type-selector">
+            <button type="button"
+                    id="student-login-tab"
+                    class="login-type-button active"
+                    aria-pressed="true"
+                    onclick="selectLoginType('STUDENT')">
+                Student Login
+            </button>
 
-        <!-- ================= LOGIN ================= -->
+            <button type="button"
+                    id="admin-login-tab"
+                    class="login-type-button"
+                    aria-pressed="false"
+                    onclick="selectLoginType('ADMIN')">
+                Admin Login
+            </button>
+        </div>
 
+        <!-- Keep Spring Security's existing login endpoint and field names -->
         <form action="/login" method="post" class="login-form">
 
+            <input type="hidden" id="login-role" name="loginRole" value="STUDENT">
+
             <div class="form-group">
-
-                <label for="login-username">
-                    Username
-                </label>
-
+                <label for="login-username">Username</label>
                 <input
                         type="text"
                         id="login-username"
                         name="username"
                         placeholder="Enter your username"
                         autocomplete="username"
-                        required
-                >
-
+                        required>
             </div>
 
-
             <div class="form-group">
-
-                <label for="login-password">
-                    Password
-                </label>
-
+                <label for="login-password">Password</label>
                 <input
                         type="password"
                         id="login-password"
                         name="password"
                         placeholder="Enter your password"
                         autocomplete="current-password"
-                        required
-                >
-
+                        required>
             </div>
 
+            <div class="forgot-password-row">
+                <a href="forgot-password.html">Forgot Password?</a>
+            </div>
 
-            <button type="submit" class="primary-button">
-                Login
+            <div id="login-message" role="alert" aria-live="polite"></div>
+
+            <button type="submit" class="primary-button" id="login-submit">
+                Student Login
             </button>
-
         </form>
 
+        <div class="signup-link">
+            <span>Don't have a student account?</span>
+            <a href="student-signup.html">Student Sign Up</a>
+        </div>
 
     </section>
-
 </main>
 
-
 <footer class="site-footer">
-
     <span>© 2026 Campus Placement Portal</span>
-
     <span class="footer-divider">Student Placement Services</span>
-
 </footer>
 
-
-<!-- ================= EMAILJS ================= -->
-
-<script
-        type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
-
 <script>
-    emailjs.init({
-        publicKey: "h2Lav4SdA_A_tQL7f"
-    });
+    function selectLoginType(role) {
+        const isStudent = role === "STUDENT";
+
+        document.getElementById("login-role").value = role;
+
+        document.getElementById("student-login-tab").classList.toggle(
+            "active", isStudent
+        );
+        document.getElementById("admin-login-tab").classList.toggle(
+            "active", !isStudent
+        );
+
+        document.getElementById("student-login-tab").setAttribute(
+            "aria-pressed", String(isStudent)
+        );
+        document.getElementById("admin-login-tab").setAttribute(
+            "aria-pressed", String(!isStudent)
+        );
+
+        document.getElementById("login-title").textContent =
+            isStudent ? "Student Login" : "Admin Login";
+
+        document.getElementById("login-description").textContent =
+            isStudent
+                ? "Sign in to access your campus placement account."
+                : "Sign in to manage campus placement activities.";
+
+        document.getElementById("login-submit").textContent =
+            isStudent ? "Student Login" : "Admin Login";
+
+        document.getElementById("login-message").textContent = "";
+    }
+
+    // Display messages returned by Spring Security.
+    const params = new URLSearchParams(window.location.search);
+    const message = document.getElementById("login-message");
+
+    if (params.has("error")) {
+        message.textContent = "Login failed. Check your username and password.";
+    } else if (params.has("logout")) {
+        message.textContent = "You have been logged out successfully.";
+    }
 </script>
-
-
-<!-- ================= LOGIN JAVASCRIPT ================= -->
 
 <script src="login.js"></script>
 
-
-<!-- ================= STUDENT REGISTRATION JAVASCRIPT ================= -->
-
-<script src="student-signup.js"></script>
-
 </body>
-
 </html>
