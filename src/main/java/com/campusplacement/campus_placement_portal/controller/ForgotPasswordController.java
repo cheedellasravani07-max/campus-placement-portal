@@ -81,7 +81,7 @@ public class ForgotPasswordController {
         // ================= RESET LINK =================
 
         String resetLink =
-                "http://localhost:8080/reset-password.html?token="
+                "https://campus-placement-portal-n92q.onrender.com/reset-password.html?token="
                         + resetToken;
 
 
