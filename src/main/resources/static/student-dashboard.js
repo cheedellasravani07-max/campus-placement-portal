@@ -4,7 +4,9 @@ function loadStudentDashboard() {
 
     // -------- AVAILABLE JOBS --------
 
-    fetch("/jobs")
+    fetch("/jobs", {
+        credentials: "same-origin"
+    })
         .then(response => {
 
             if (!response.ok) {
@@ -30,8 +32,9 @@ function loadStudentDashboard() {
 
 
     // -------- MY APPLICATIONS --------
-
-    fetch("/applications")
+    fetch("/applications", {
+        credentials: "same-origin"
+    })
         .then(response => {
 
             if (!response.ok) {
