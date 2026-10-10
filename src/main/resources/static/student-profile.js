@@ -75,12 +75,6 @@ function loadProfile() {
 
                 preview.style.display = "block";
             }
-
-
-            // -------- LOAD RESUME --------
-
-            loadResume();
-
         })
 
         .catch(error => {
