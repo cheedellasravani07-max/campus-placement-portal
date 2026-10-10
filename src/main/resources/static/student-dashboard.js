@@ -4,7 +4,7 @@ function loadStudentDashboard() {
 
     // -------- AVAILABLE JOBS --------
 
-    fetch("/jobs", {
+    fetch("/student/jobs", {
         credentials: "same-origin"
     })
         .then(response => {
