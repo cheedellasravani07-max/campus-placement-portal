@@ -157,13 +157,13 @@ function uploadResume() {
     // ================= FILE SIZE CHECK =================
 
     const maxSize =
-        5 * 1024 * 1024;
+        10 * 1024 * 1024;
 
 
     if (file.size > maxSize) {
 
         alert(
-            "Resume file must be smaller than 5 MB."
+            "Resume file must be smaller than 10 MB."
         );
 
         return;
