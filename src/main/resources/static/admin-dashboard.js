@@ -53,7 +53,4 @@ function logout() {
 
 document.addEventListener("DOMContentLoaded", () => {
     loadDashboardStatistics();
-
-    // Refresh statistics every 10 seconds.
-    setInterval(loadDashboardStatistics, 10000);
 });
