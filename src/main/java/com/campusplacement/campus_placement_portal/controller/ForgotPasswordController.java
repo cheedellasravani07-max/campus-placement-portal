@@ -31,7 +31,7 @@ public class ForgotPasswordController {
     // ======================================================
 
     @PostMapping("/check")
-    public ResponseEntity<String> checkEmail(
+    public ResponseEntity<?> checkEmail(
             @RequestBody ForgotPasswordRequest request) {
 
         if (request.getEmail() == null ||
@@ -84,34 +84,16 @@ public class ForgotPasswordController {
                 "https://campus-placement-portal-n92q.onrender.com/reset-password.html?token="
                         + resetToken;
 
-
-        // ================= EMAIL =================
-
-        String subject =
-                "Campus Placement Portal - Password Reset";
-
-
-        String message =
-                "Hello " + user.getUsername() + ",\n\n"
-                        + "We received a request to reset your password.\n\n"
-                        + "Click the link below to reset your password:\n\n"
-                        + resetLink + "\n\n"
-                        + "This link will expire in 15 minutes.\n\n"
-                        + "If you did not request a password reset, "
-                        + "please ignore this email.\n\n"
-                        + "Campus Placement Portal";
-
-
-        emailService.sendEmail(
-                user.getEmail(),
-                subject,
-                message
-        );
-
-
+// Return reset link for EmailJS frontend
         return ResponseEntity.ok(
-                "Password reset link has been sent to your email."
+                java.util.Map.of(
+                        "message", "Reset link generated successfully.",
+                        "name", user.getUsername(),
+                        "email", user.getEmail(),
+                        "resetLink", resetLink
+                )
         );
+
     }
 
 
