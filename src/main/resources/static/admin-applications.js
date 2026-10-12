@@ -317,6 +317,7 @@ function updateApplicationStatus(applicationId) {
         })
 
         .then(updatedApplication => {
+            console.log("Updated Application:", updatedApplication);
 
             alert(
                 "Application status updated successfully!"
