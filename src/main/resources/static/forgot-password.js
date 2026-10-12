@@ -1,61 +1,68 @@
+document.getElementById("forgotPasswordForm").addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-document.getElementById("forgotPasswordForm")
-    .addEventListener("submit", async function (event) {
-        event.preventDefault();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message");
+    const button = this.querySelector('button[type="submit"]');
 
-        const email = document.getElementById("email").value.trim();
-        const message = document.getElementById("message");
+    if (!email) {
+        message.textContent = "Please enter your email.";
+        message.style.color = "red";
+        return;
+    }
 
-        if (!email) {
-            message.textContent = "Please enter your email.";
-            message.style.color = "red";
-            return;
+    button.disabled = true;
+    button.textContent = "Please wait...";
+    message.textContent = "Checking your registered email...";
+    message.style.color = "#536273";
+
+    try {
+        // Generate and save a reset token in the backend
+        const response = await fetch("/forgot-password/check", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email: email })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || data.error || "Unable to process your request.");
         }
 
-        message.textContent = "Sending reset email...";
-        message.style.color = "blue";
+        const resetLink = data.resetLink;
 
-        try {
-            const response = await fetch("/forgot-password/check", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ email })
-            });
-
-            const data = await response.json();
-
-            if (!response.ok) {
-                throw new Error(data.message || "Unable to process request.");
-            }
-
-            if (!data.name || !data.email || !data.resetLink) {
-                throw new Error("Reset-link response is incomplete.");
-            }
-
-            await emailjs.send(
-                "service_kucfxyi",
-                "template_3nhw0uj",
-                {
-                    email_heading: "Password Reset",
-                    name: data.name,
-                    email: data.email,
-                    message: "We received a request to reset your password.",
-                    details: "This link expires in 15 minutes.",
-                    action_link: data.resetLink,
-                    action_text: "Reset Your Password"
-                }
-            );
-
-            message.textContent =
-                "Reset email sent. Please check your inbox and spam folder.";
-            message.style.color = "green";
-
-        } catch (error) {
-            console.error("Forgot Password Error:", error);
-            message.textContent =
-                error.message || "Failed to send reset email.";
-            message.style.color = "red";
+        if (!resetLink) {
+            throw new Error("The server did not return a reset link.");
         }
-    });
+
+        // Send only the password-reset email
+        await emailjs.send(
+            "service_kucfxyi",
+            "template_3nhw0uj",
+            {
+                email_heading: "Reset Your Password",
+                name: data.name,
+                email: data.email || email,
+                message: "We received a request to reset your Campus Placement Portal password. Click the link below to choose a new password.",
+                details: "This password-reset link expires in 15 minutes. If you did not request this, you can ignore this email.",
+                action_link: resetLink,
+                action_text: "Reset Your Password"
+            }
+        );
+
+        message.textContent = "Password-reset email sent successfully. Please check your inbox and spam folder.";
+        message.style.color = "green";
+
+    } catch (error) {
+        console.error("Forgot Password Error:", error);
+        message.textContent = error.message || "Unable to send the password-reset email.";
+        message.style.color = "red";
+
+    } finally {
+        button.disabled = false;
+        button.textContent = "Verify Email";
+    }
+});
