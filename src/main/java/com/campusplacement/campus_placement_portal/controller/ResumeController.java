@@ -58,7 +58,7 @@ public class ResumeController {
             @RequestParam("file") MultipartFile file,
             Authentication authentication)
             throws IOException {
-
+        System.out.println("RESUME UPLOAD REACHED CONTROLLER");
         if (file == null || file.isEmpty()) {
             throw new IllegalArgumentException(
                     "Please select a resume file");
