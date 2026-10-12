@@ -281,64 +281,109 @@ function clearFilters() {
 
 // ================= UPDATE STATUS =================
 
+
+
 function updateApplicationStatus(applicationId) {
 
-    const selectedStatus =
-        document.getElementById(
-            "status-" + applicationId
-        ).value;
+    const statusElement = document.getElementById(
+        "status-" + applicationId
+    );
 
+    if (!statusElement) {
+        alert("Unable to find the selected application status.");
+        return;
+    }
+
+    const selectedStatus = statusElement.value;
+
+    const application = allApplications.find(
+        app => String(app.id) === String(applicationId)
+    );
+
+    if (!application) {
+        alert("Application not found. Please refresh the page.");
+        return;
+    }
+
+    const student = application.student;
+    const job = application.job;
+    const company = job && job.company ? job.company : null;
+
+    const studentName = student?.name || "Student";
+    const studentEmail = student?.email || "";
+    const jobTitle = job?.title || "Placement opportunity";
+    const companyName = company?.name || "Campus Placement Portal";
+    const previousStatus = application.status;
+
+    if (previousStatus === selectedStatus) {
+        alert("The application already has this status.");
+        return;
+    }
 
     fetch(
-        "/applications/" +
-        applicationId +
-        "/status?status=" +
-        selectedStatus,
-        {
-            method: "PUT"
-        }
+        "/applications/" + applicationId +
+        "/status?status=" + encodeURIComponent(selectedStatus),
+        { method: "PUT" }
     )
-
         .then(response => {
-
             if (!response.ok) {
-
-                return response.text()
-                    .then(text => {
-
-                        throw new Error(
-                            text ||
-                            "Failed to update application status"
-                        );
-                    });
+                return response.text().then(text => {
+                    throw new Error(
+                        text || "Failed to update application status"
+                    );
+                });
             }
 
             return response.json();
         })
+        .then(() => {
 
-        .then(updatedApplication => {
-            console.log("Updated Application:", updatedApplication);
+            // The status is saved even if the email later fails.
+            if (!studentEmail) {
+                alert(
+                    "Status updated, but the student's email was not found."
+                );
+                loadApplications();
+                return;
+            }
 
-            alert(
-                "Application status updated successfully!"
-            );
-
-            loadApplications();
+            return emailjs.send(
+                "service_kucfxyi",
+                "template_3nhw0uj",
+                {
+                    email_heading: "Application Status Update",
+                    name: studentName,
+                    email: studentEmail,
+                    message:
+                        "Your application status for " + jobTitle +
+                        " at " + companyName +
+                        " has been updated.",
+                    details: "New application status: " + selectedStatus,
+                    action_link: "",
+                    action_text: ""
+                }
+            )
+                .then(() => {
+                    alert(
+                        "Application status updated and email notification sent!"
+                    );
+                })
+                .catch(error => {
+                    console.error("EmailJS Error:", error);
+                    alert(
+                        "Status updated successfully, but the email failed to send."
+                    );
+                })
+                .finally(() => {
+                    loadApplications();
+                });
         })
-
         .catch(error => {
-
-            console.error(
-                "Status Update Error:",
-                error
-            );
-
-            alert(
-                "Error updating status: " +
-                error.message
-            );
+            console.error("Status Update Error:", error);
+            alert("Error updating status: " + error.message);
         });
 }
+
 
 
 // ================= BACK TO DASHBOARD =================

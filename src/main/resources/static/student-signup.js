@@ -139,16 +139,21 @@ document.addEventListener("DOMContentLoaded", function () {
             try {
 
                 const emailResponse =
+
                     await emailjs.send(
                         "service_kucfxyi",
                         "template_3nhw0uj",
                         {
+                            email_heading: "Welcome to Campus Placement Portal!",
                             name: name,
                             email: email,
-                            verification_link:
-                            verificationLink
+                            message: "Your student account has been created successfully. Please verify your email address to activate your account.",
+                            details: "This verification link is valid for 24 hours.",
+                            action_link: verificationLink,
+                            action_text: "Verify Your Email"
                         }
                     );
+
 
                 console.log(
                     "EmailJS success:",
