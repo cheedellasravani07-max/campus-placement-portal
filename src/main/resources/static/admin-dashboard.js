@@ -1,162 +1,59 @@
-// ================= LOAD DASHBOARD STATISTICS =================
 
-function loadDashboardStatistics() {
-
-    fetch("/admin/dashboard/stats", {
-        method: "GET",
-        cache: "no-store"
-    })
-
-        .then(response => {
-
-            if (!response.ok) {
-
-                throw new Error(
-                    "Failed to load dashboard statistics"
-                );
-            }
-
-            return response.json();
-        })
-
-        .then(stats => {
-
-            // ================= BASIC STATISTICS =================
-
-            document.getElementById("totalStudents").textContent =
-                stats.students || 0;
-
-            document.getElementById("totalCompanies").textContent =
-                stats.companies || 0;
-
-            document.getElementById("totalJobs").textContent =
-                stats.jobs || 0;
-
-            document.getElementById("totalApplications").textContent =
-                stats.applications || 0;
-
-
-            // ================= APPLICATION STATISTICS =================
-
-            document.getElementById("appliedCount").textContent =
-                stats.applied || 0;
-
-            document.getElementById("shortlistedCount").textContent =
-                stats.shortlisted || 0;
-
-            document.getElementById("interviewCount").textContent =
-                stats.interviews || 0;
-
-            document.getElementById("acceptedCount").textContent =
-                stats.accepted || 0;
-
-            document.getElementById("rejectedCount").textContent =
-                stats.rejected || 0;
-
-        })
-
-        .catch(error => {
-
-            console.error(
-                "Dashboard Statistics Error:",
-                error
-            );
-
+async function loadDashboardStatistics() {
+    try {
+        const response = await fetch("/admin/dashboard/stats", {
+            method: "GET",
+            cache: "no-store"
         });
+
+        if (!response.ok) {
+            throw new Error("Failed to load dashboard statistics: " + response.status);
+        }
+
+        const stats = await response.json();
+
+        const updateCount = (id, value) => {
+            const element = document.getElementById(id);
+            if (element) {
+                element.textContent = Number(value ?? 0);
+            }
+        };
+
+        updateCount("totalStudents", stats.students);
+        updateCount("totalCompanies", stats.companies);
+        updateCount("totalJobs", stats.jobs);
+        updateCount("totalApplications", stats.applications);
+
+        updateCount("appliedCount", stats.applied);
+        updateCount("shortlistedCount", stats.shortlisted);
+        updateCount("interviewCount", stats.interviews);
+        updateCount("acceptedCount", stats.accepted);
+        updateCount("rejectedCount", stats.rejected);
+
+    } catch (error) {
+        console.error("Dashboard Statistics Error:", error);
+    }
 }
-
-
-// ================= MANAGE PORTAL =================
 
 function openPortal() {
-
-    window.location.href =
-        "/admin-portal.html";
+    window.location.href = "/admin-portal.html";
 }
-
-
-// ================= MANAGE APPLICATIONS =================
 
 function manageApplications() {
-
-    window.location.href =
-        "/admin-applications.html";
+    window.location.href = "/admin-applications.html";
 }
-
-
-// ================= CHANGE PASSWORD =================
 
 function changePasswordPage() {
-
-    window.location.href =
-        "/change-password.html";
+    window.location.href = "/change-password.html";
 }
-
-
-// ================= LOGOUT =================
 
 function logout() {
-
-    window.location.href =
-        "/logout";
+    window.location.href = "/logout";
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    loadDashboardStatistics();
 
-// ================= PAGE LOAD =================
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        loadDashboardStatistics();
-
-    }
-);
-
-
-// ================= MANAGE PORTAL =================
-
-function openPortal() {
-
-    window.location.href =
-        "/admin-portal.html";
-}
-
-
-// ================= MANAGE APPLICATIONS =================
-
-function manageApplications() {
-
-    window.location.href =
-        "/admin-applications.html";
-}
-
-
-// ================= CHANGE PASSWORD =================
-
-function changePasswordPage() {
-
-    window.location.href =
-        "/change-password.html";
-}
-
-
-// ================= LOGOUT =================
-
-function logout() {
-
-    window.location.href =
-        "/logout";
-}
-
-
-// ================= PAGE LOAD =================
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        loadDashboardStatistics();
-
-    }
-);
+    // Refresh statistics every 10 seconds.
+    setInterval(loadDashboardStatistics, 10000);
+});
